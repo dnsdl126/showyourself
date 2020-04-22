@@ -1,1 +1,144 @@
-@charset "UTF-8";
+/*구글 웹폰트*/
+		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');
+/*공통사항*/
+ 
+     * {box-sizing: border-box;}
+		body {
+
+			background-color: white;
+			font-family: 'Abel', sans-serif;
+			font-family: 'Nanum Gothic', sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+			color: #222222;		
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			color: inherit; /*부모한테 상속받은 색상을 사용하세요 */
+			text-decoration: none;
+		
+		}
+
+		/* 그라디언트 효과 1 */
+		body {
+		    text-align: center;
+		}
+
+		.gradient-border {
+			box-sizing: border-box;
+			display: inline-block;
+			
+		    width: 150px;
+			height: 150px;
+			border-style: solid;
+			border-image: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
+			border-image-slice: 1;
+			background: #f7f7f7;
+		}
+
+		.top { 
+		  	border-image-width: 5px 0 0 0; 
+		}
+
+		.bottom { 
+		  	border-image-width: 0 0 5px 0; 
+		}
+
+		.all { 
+		  	border-image-width: 5px; 
+		}
+
+
+		/*  글자 반사 효과  */
+		.mirror{
+		  	display: inline-flex;
+		}
+
+		.mirror_Text {
+			font-size: 5em;
+			
+			color: #D1C2FF;
+		}
+
+		#mirror_Text1::after {
+			content: "Member";
+			display: flex;
+			transform: rotateX(180deg);
+			background-image: linear-gradient(180deg, rgba(209, 194, 255, .0) 36%, rgba(209, 194, 255, .5));
+			-webkit-background-clip: text;
+			color: transparent;
+			margin-top: -30px;
+		}
+
+
+		/* button 사이즈 */
+
+		div.btn1 {
+		  position: relative;	
+		  background-color: #222222;
+		  width: 96px;
+		  height: 42px;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  margin: 0 auto; 
+		}
+		button.btn2 {
+		  padding: 0;	
+		  position: absolute;
+		  top: 0; left: 0; bottom: 0px; right: 0px;
+		  margin: 1px 0px 0px 1px;
+		  white-space: nowrap;
+		  background-color: white;
+		  color: black;
+		  width: 94px;
+		  height: 40px;
+		  border-radius: 4px;
+		  text-align: center;
+		  line-height: 42px;
+		  border-style: none;
+		  cursor: pointer;
+		}
+		div.btn1:hover {
+		  background-image: linear-gradient(-90deg, rgba(240,172,242),rgba(209,194,255), rgba(161,231,253)); 	
+		}
+	
+		/*글자색 배경색*/
+		.color1 {color:#A1E7FD;}
+		.color2 {color:#C2CDFF;}
+		.color3 {color:#D1C2FF;}
+		.color4 {color:#F0ACF2;}
+		.color5 {color:#B8B4B8;}
+		.color5 {color:#222222;}
+
+
+		/* 박스 크기 */
+
+		div.box_size{
+			width: 293px;
+			height: 325px;	
+			border: 1px solid #d5d5d5;
+			margin: 0 auto;
+		}
+
+		/* 박스 안 이미지 크기 */
+		img.box_img_size{
+			width: 275px;
+			height: 212px;
+			border: 1px solid #d5d5d5;
+			margin: 9px 7px 0 8px;
+		}
+
+		/* 세개 박스 */
+		div.three_box{
+			display: flex;
+			justify-content: space-between;
+			width: 905px;
+			margin: 0 auto;
+		}
+
+		
