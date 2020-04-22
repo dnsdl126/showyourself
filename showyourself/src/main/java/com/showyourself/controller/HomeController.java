@@ -1,4 +1,4 @@
-package com.showyourself;
+package com.showyourself.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
