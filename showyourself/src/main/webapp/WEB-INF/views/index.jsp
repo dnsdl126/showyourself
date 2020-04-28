@@ -152,7 +152,7 @@
 			position: fixed;
 			color: white;
 			font-size:30px;
-			top: 10px;
+			top: 85px;
 			right: 10px;
 			cursor: pointer;
 		}
@@ -363,24 +363,24 @@
 
 <!-- 모달창 start -->
 <div class="index_modal_wrap">
-	<div class="login_close"> Ⅹ </i></div>
+	<div class="login_close"> Ⅹ </div>
 		<div class="index_modal_content">
 			<div class="index_modal_photo">
 				<div class="slideshow-container">
 					  <!-- Full-width imgs with number and caption text -->
 					  <div class="mySlides fade">
-					    <img src="../img/35.jpg" width="100%" height="100%" style="object-fit: cover;">
+					    <img src="${path}/resources/img/35.jpg" width="100%" height="100%" style="object-fit: cover;">
 					  </div>
 
 					  <div class="mySlides fade">
-					    <img src="../img/36.jpg" width="100%" height="100%" style="object-fit: cover;">
+					    <img src="${path}/resources/img/36.jpg" width="100%" height="100%" style="object-fit: cover;">
 					  </div>
 
 					  <div class="mySlides fade">
-					    <img src="../img/37.jpg" width="100%" height="100%" style="object-fit: cover;">
+					    <img src="${path}/resources/img/37.jpg" width="100%" height="100%" style="object-fit: cover;">
 					  </div>
 					  <div class="mySlides fade">
-					    <img src="../img/38.jpg" width="100%" height="100%" style="object-fit: cover;">
+					    <img src="${path}/resources/img/38.jpg" width="100%" height="100%" style="object-fit: cover;">
 					  </div>
 					  <!-- Next and previous buttons -->
 					  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -398,7 +398,7 @@
 			</div>
 			<div class="index_modal_contents">
 				<div class="index_modal_profile">
-					<div class="index_modal_profile_photo"><img class="index_modal_profile_img" src="../img/파오리.png"></div>
+					<div class="index_modal_profile_photo"><img class="index_modal_profile_img" src="${path}/resources/img/파오리.png"></div>
 					<div class="index_modal_profile_user">
 						<div class="index_modal_profile_id"> PAO LIPA</div>
 						<div class="index_modal_profile_userclass"> 수강 중인 강의 : 3개  </div>
@@ -407,7 +407,7 @@
 				<div class="index_modal_comments">
 					<ul class="index_modal_comment_list">
 						<li class="index_modal_one_comment">
-							<div class="one_comment_photo"><img class="index_modal_comment_img" src="../img/펭도리.png"></div>
+							<div class="one_comment_photo"><img class="index_modal_comment_img" src="${path}/resources/img/펭도리.png"></div>
 							<div class="one_comment_content">
 								<div class="one_comment" style="font-size: 14px;">우와 정말 귀여운 푸크린이네요.</div>
 								<div class="one_comment_date" style="font-size: 12px;"> 작성일: 2020-04-23 </div>
@@ -454,7 +454,7 @@
 				<ul class="y_class">
 					<li><a id="l1" href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="../img/22.jpg"></div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/22.jpg"></div>
 							<div>인테리어</div>
 							<div>#하루 #하루하루해</div>
 							<div>하와이에서 하루!</div>
@@ -463,7 +463,7 @@
 
 					<li><a id="l1" href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="../img/28.jpg"></div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/28.jpg"></div>
 							<div>인테리어</div>
 							<div>#푸크린 #핑크핑크해</div>
 							<div>사랑스러운 푸크린!</div>
@@ -472,7 +472,7 @@
 
 					<li><a id="l2" href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="../img/12.jpg"></div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/13.jpg"></div>
 							<div>인테리어</div>
 							<div>#푸크린 #핑크핑크해</div>
 							<div>사랑스러운 푸크린!</div>
@@ -481,7 +481,7 @@
 
 					<li><a id="l3" href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="../img/13.jpg"></div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/6.jpg"></div>
 							<div>인테리어</div>
 							<div>#푸크린 #핑크핑크해</div>
 							<div>사랑스러운 푸크린!</div>
@@ -490,7 +490,7 @@
 
 					<li><a id="l3" href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="../img/14.jpg"></div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/18.jpg"></div>
 							<div>인테리어</div>
 							<div>#푸크린 #핑크핑크해</div>
 							<div>사랑스러운 푸크린!</div>
@@ -499,7 +499,7 @@
 
 					<li><a id="l3" href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="../img/20.jpg"></div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/20.jpg"></div>
 							<div>인테리어</div>
 							<div>#푸크린 #핑크핑크해</div>
 							<div>사랑스러운 푸크린!</div>
