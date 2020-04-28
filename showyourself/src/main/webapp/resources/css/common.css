@@ -11,7 +11,7 @@
 			margin: 0;
 			padding: 0;
 			font-size: 14px;
-			color: #222222;		
+			color: #d5d5d5;		
 		}
 		ul {
 			margin: 0;
@@ -38,7 +38,7 @@
 			border-style: solid;
 			border-image: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
 			border-image-slice: 1;
-			background: #f7f7f7;
+			background: #d5d5d5;
 		}
 
 		.top { 
@@ -80,7 +80,7 @@
 
 		div.btn1 {
 		  position: relative;	
-		  background-color: #222222;
+		  background-color: #d5d5d5;
 		  width: 96px;
 		  height: 42px;
 		  border-radius: 5px;
@@ -94,7 +94,7 @@
 		  margin: 1px 0px 0px 1px;
 		  white-space: nowrap;
 		  background-color: white;
-		  color: black;
+		  color: rgba(0,0,0,0.7);
 		  width: 94px;
 		  height: 40px;
 		  border-radius: 4px;
@@ -112,11 +112,12 @@
 		.color2 {color:#C2CDFF;}
 		.color3 {color:#D1C2FF;}
 		.color4 {color:#F0ACF2;}
-		.color5 {color:#B8B4B8;}
+		.color5 {color:#d5d5d5;}
 		.color5 {color:#222222;}
 
 
 		/* 박스 크기 */
+
 
 		div.box_size{
 			width: 293px;
@@ -125,13 +126,21 @@
 			margin: 0 auto;
 		}
 
+		div.wrap_box_img_size {
+			width: 275px;
+			height: 230px;
+			margin: 9px 7px 9px 8px;
+			box-sizing: border-box;
+			overflow: hidden;
+			border: 1px solid #d5d5d5;
+		}
+
 		/* 박스 안 이미지 크기 */
 		img.box_img_size{
 			width: 275px;
-			height: 212px;
-			border: 1px solid #d5d5d5;
-			margin: 9px 7px 0 8px;
+			height: 230px;
 		}
+
 
 		/* 세개 박스 */
 		div.three_box{

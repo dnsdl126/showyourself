@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="include/header.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
 	<script src="https://kit.fontawesome.com/3062584ccb.js" crossorigin="anonymous"></script>
 	<title> YOURSELF :: 작품 목록 </title>
-	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<meta charset="UTF-8">
 	<style type="text/css">
 		*{box-sizing:border-box;}
@@ -68,7 +69,15 @@
 		}
 		.y_category_list > li:first-child{
 			padding-left: 20px;
+		}
+		.y_category_list img {
+			-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  			filter: grayscale(100%);
 		} 
+		.y_category_list img:hover {
+			-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  			filter: grayscale(0%);
+		}
 		.index_category_icon {
 			width: 88px;
 			height: 88px;
@@ -82,7 +91,7 @@
 
 			display: flex;
 			justify-content: center;
-			width: 400px;
+			width: 350px;
 			padding: 30px 0 30px 0; 
 		}
 
@@ -180,6 +189,8 @@
 		}
 		/* Hide the imgs by default */
 		.mySlides {
+		  width: 100%;
+		  height: 100%;
 		  display: none;
 		  overflow:hidden;
 		}
@@ -344,9 +355,7 @@
 			color: rgba(0,0,0,0.7);
 		}
 	
-
 		/*모달창 end*/
-
 		
 	</style>
 </head>
@@ -423,11 +432,11 @@
 		<div class="y_category_group">
 			<div class="y_category">
 				<ul class="y_category_list">
-					<li><a id="l1" href="#"><img class="index_category_icon" src="../img/디지털2.png"><span>디지털</span></a></li>
-					<li><a id="l2" href="#"><img class="index_category_icon" src="../img/베이킹2.png"><span>베이킹</span></a></li>
-					<li><a id="l3" href="#"><img class="index_category_icon" src="../img/악세사리2.png"><span>악세사리</span></a></li>
-					<li><a id="l4" href="#"><img class="index_category_icon" src="../img/인테리어2.png"><span>인테리어</span></a></li>
-					<li><a id="l5" href="#"><img class="index_category_icon" src="../img/소품2.png"><span>소품</span></a></li>
+					<li><a id="l1" href="#"><img class="index_category_icon" src="${path}/resources/img/digital_on.png"><span>디지털</span></a></li>
+					<li><a id="l2" href="#"><img class="index_category_icon" src="${path}/resources/img/cookin_on.png"><span>베이킹</span></a></li>
+					<li><a id="l3" href="#"><img class="index_category_icon" src="${path}/resources/img/acc_on.png"><span>악세사리</span></a></li>
+					<li><a id="l4" href="#"><img class="index_category_icon" src="${path}/resources/img/interia_on.png"><span>인테리어</span></a></li>
+					<li><a id="l5" href="#"><img class="index_category_icon" src="${path}/resources/img/item_on.png"><span>소품</span></a></li>
 				</ul>	
 			</div>
 			<div class="y_follow_yn">
