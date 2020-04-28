@@ -426,8 +426,6 @@
 <!-- 모달창 end -->
 
 
-
-
 	<div class="y_index_wrap">
 		<div class="y_category_group">
 			<div class="y_category">
