@@ -101,7 +101,7 @@
 			text-decoration: none; 
 			color: #222222;
 		}
-		img {
+		.icon {
 			width: 35px;
 			height: 35px;	
 		}
@@ -154,13 +154,13 @@
 					<div class="header_btn">
 						<div class="btn_Signin">
 							<a href="#">
-								<img src="${path}/resources/img/icons8-task-completed-64.png">
+								<img class="icon" src="${path}/resources/img/icons8-task-completed-64.png">
 								<span>Signin</span>
 							</a>
 						</div>
 						<div class="btn_Login">
 							<a href="#">
-								<img src="${path}/resources/img/icons8-enter-64.png">
+								<img class="icon" src="${path}/resources/img/icons8-enter-64.png">
 								<span>Login</span>
 							</a>
 						</div>
