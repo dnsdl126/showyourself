@@ -348,8 +348,18 @@
 			width: 80%;
 			height: 100%;
 			border-style: none;
-			padding-left: 15px; 
+			padding-left:15px;
+			 
 		}
+		input[type="text"]::placeholder {  
+           /* Firefox, Chrome, Opera */ 
+           text-align: left; 
+            } 
+       input[type="text"] {  
+           /* Firefox, Chrome, Opera */ 
+           text-align: left;
+           overflow-y: auto;
+            }      
 		.index_modal_comment_submit {
 			width: 20%;
 			height: 100%;
