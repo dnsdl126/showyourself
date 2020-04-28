@@ -136,12 +136,15 @@
 
 		.index_modal_wrap {
 			position: fixed;
-			z-index: 5;
+			top:0;
+			left: 0;
+			z-index: 1000;
 			display: none;
 			background-color: rgba(0,0,0,0.3);
-			overflow: auto;
 			width: 100%;
 			height: 100%;
+			box-sizing: border-box;
+			overflow: hidden;
 			justify-content: center;
 			align-items: center;
 	
@@ -152,7 +155,7 @@
 			position: fixed;
 			color: white;
 			font-size:30px;
-			top: 85px;
+			top: 10px;
 			right: 10px;
 			cursor: pointer;
 		}
@@ -519,6 +522,7 @@
 
 		$(document).on('click','.y_class > li', function(){
 			$('.index_modal_wrap').css('display','flex');
+			$('body').css("overflow", "hidden");
 		});
 
 		// Next/previous controls
@@ -540,6 +544,7 @@
 
 		$(document).on('click','.login_close', function(){
 			$('.index_modal_wrap').css('display','none');
+			$('body').css("overflow", "scroll");
 		
 		});
 
