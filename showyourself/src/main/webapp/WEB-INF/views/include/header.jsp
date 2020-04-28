@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="include.jsp" %>  
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>SHOWYOURSELF header</title>
+	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<script src="https://kit.fontawesome.com/3d124ab517.js" crossorigin="anonymous"></script>
 	<style type="text/css">
 	    * {box-sizing: border-box;}
 		body {
-			background-color: white;
-			font-family: 'Abel', sans-serif;
-			font-family: 'Nanum Gothic', sans-serif;
+			background-color: white;			
 			margin: 0;
 			padding: 0;
 			font-size: 14px;
@@ -43,78 +43,12 @@
 
 		/* Mirror */
 		.mirror{
-		  	display: inline-flex;
-		  	padding-top: 10px;
+		  	width: 243px;
+		  	background: url(${path}/resources/img/showyourself.png);
+		  	height:59px;
+		  	background-size: cover;
 		}
-		.mirror_Text {
-			font-size: 30px;
-		    margin-top: 10px;
-		    padding-right: 5px;
-		    color: #A1E7FD;
-		}
-		#mirror_Text1::after {
-			content: "SHOW";
-			display: flex;
-			transform: rotateX(180deg);
-			background-image: linear-gradient(180deg, rgba(161, 231, 253, .0) 33%, rgba(161, 231, 253, .5));
-			-webkit-background-clip: text;
-			color: transparent;
-			margin-top: -14px;
-		}
-		.mirror_Text_01 {
-			font-size: 30px;
-			margin-top: 10px;
-		    /* padding: 20px; */
-			color: #F0ACF2;
-		}
-		#mirror_Text2::after {
-			content: "YOURSELF";
-			display: flex;
-			transform: rotateX(180deg);
-			background-image: linear-gradient(180deg, rgba(240, 172, 242, .0) 33%, rgba(240, 172, 242, .5));
-			-webkit-background-clip: text;
-			color: transparent;
-			margin-top: -14px;
-		}
-		.Show{
-			font-size: 30px;
-			line-height: 121px;
-			position: relative;
-			float: left;
-			margin-right: 5px;
-			text-transform: uppercase;
-			color: #A1E7FD;
-		}
-		.Show::after {
-			position: absolute;
-			z-index: 1;
-			right: 0;
-			bottom: -26px;
-			left: 0;
-			display: block;
-			content: 'SHOW';
-			transform: scaleY(-1);
-			opacity: 0.3;
-		}
-		.Yourself{
-			font-size: 30px;
-			line-height: 121px;
-			position: relative;
-			float: right;
-			text-transform: uppercase;
-			color: #F0ACF2;
-		}
-		.Yourself::after {
-			position: absolute;
-			z-index: 1;
-			right: 0;
-			bottom: -26px;
-			left: 0;
-			display: block;
-			content: 'YOURESELF';
-			transform: scaleY(-1);
-			opacity: 0.3;
-		}
+		
 
 		/* SearchBox */
 		.header_content_search {
@@ -125,6 +59,7 @@
 			align-items: center;
 			border: 1px solid rgba(20,23,28,.1);
 			border-radius: 4px;
+			margin-top: 22px;
 		}
 		.header_content_search_input {
 			background-color: transparent;
@@ -158,6 +93,7 @@
 			float: right;
 			justify-content: space-between;
 			width: 345px;
+			margin-top: 7px;
 		}
 		/* Signin/Login img.button */
 		a { 
@@ -193,12 +129,7 @@
 				
 				<!-- Mirror -->
 				<div class="mirror">
-					<a href="#">
-      					<div class="mirror_Text" id="mirror_Text1">SHOW</div>
-      				</a>
-					<a href="#">
-      					<div class="mirror_Text_01" id="mirror_Text2">YOURSELF</div>
-      				</a>
+					
 				</div>
 
 				
@@ -206,8 +137,8 @@
 				<div class="header_content_search">
 					<form name="fre_search" action="" method="GET">
 						<div class="header_content_search_group">
-							<input type="text" placeholder="ê²ìí´ì£¼ì¸ì" name="keyword" class="header_content_search_input">
-							<a class="header_content_search_btn"><i class="fas fa-search" ></i></a>
+							<input type="text" placeholder="검색어를 입력하세요" name="keyword" class="header_content_search_input">
+							<a class="header_content_search_btn"><i class="fas fa-search"  style="padding:15px;"></i></a>
 						</div>
 					</form>
 				</div>
@@ -223,13 +154,13 @@
 					<div class="header_btn">
 						<div class="btn_Signin">
 							<a href="#">
-								<img src="../../img/icons8-task-completed-64.png">
+								<img src="${path}/resources/img/icons8-task-completed-64.png">
 								<span>Signin</span>
 							</a>
 						</div>
 						<div class="btn_Login">
 							<a href="#">
-								<img src="../../img/icons8-enter-64.png">
+								<img src="${path}/resources/img/icons8-enter-64.png">
 								<span>Login</span>
 							</a>
 						</div>
