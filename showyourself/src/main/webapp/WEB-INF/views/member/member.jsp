@@ -70,19 +70,16 @@
 		.contents-box {
 			width: 70%;
 		}
-		.memberCheck {
-			padding-right: 145px;
-		}
 		.commonlabel {
 			width: 50%;
 		}
 		.input-wrap {
-			width: 70%;
+			width: 50%;
 			display: flex;
 			justify-content: flex-start;
 		}
 		.checkGroup {
-			width: 170px;
+			width: 50%;
 		}
 		input {
 			outline: none;
@@ -126,8 +123,9 @@
 			height: 28px;
 		}
 		.error_next_box {
-			visibility: hidden;
-			color: #f46665;
+			/*visibility: hidden;*/
+			width: 50%;
+			color: tomato;
 		}
 
 		/* 버튼 */
@@ -279,4 +277,38 @@
 		</div>
 	</div>
 </body>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = '';
+                var extraAddr = '';
+
+                if (data.userSelectedType === 'R') { 
+                    addr = data.roadAddress;
+                } else { 
+                    addr = data.jibunAddress;
+                }
+                if(data.userSelectedType === 'R'){
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
 </html>
