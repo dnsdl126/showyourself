@@ -32,7 +32,9 @@
 		::-webkit-scrollbar-thumb {
 		  background: #888; 
 		}
-	
+		
+		input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder
+		 { /* WebKit browsers */ color:transparent; }
 
 		.y_index_wrap{
 			display: flex;
@@ -63,6 +65,7 @@
 			justify-content: center;
 			align-items: flex-end;
 			padding-bottom: 15px; 
+			font-size: 12px;
 		}
 		.y_category_list > li {
 			padding: 20px 20px 0 0;
@@ -351,15 +354,14 @@
 			padding-left:15px;
 			 
 		}
-		input[type="text"]::placeholder {  
-           /* Firefox, Chrome, Opera */ 
-           text-align: left; 
-            } 
-       input[type="text"] {  
+		textarea {
+			resize : none;
+		}
+		textarea::placeholder {  
            /* Firefox, Chrome, Opera */ 
            text-align: left;
-           overflow-y: auto;
-            }      
+           line-height: 85px; 
+            }    
 		.index_modal_comment_submit {
 			width: 20%;
 			height: 100%;
@@ -429,7 +431,7 @@
 					</ul>	
 				</div>
 				<div class="index_modal_comment_input_group">
-					<input type="text" class="index_modal_comment_input" placeholder="댓글을 입력하세요"></input>
+					<textarea type="text" class="index_modal_comment_input" placeholder="댓글을 입력하세요"></textarea>
 					<button type="submit" class="index_modal_comment_submit"> POST </button>
 				</div>
 			</div>
@@ -443,6 +445,7 @@
 		<div class="y_category_group">
 			<div class="y_category">
 				<ul class="y_category_list">
+					<li><a id="l1" href="#"><img class="index_category_icon" src="${path}/resources/img/category_c.png"><span>카테고리 전체</span></a></li>
 					<li><a id="l1" href="#"><img class="index_category_icon" src="${path}/resources/img/digital_on.png"><span>디지털</span></a></li>
 					<li><a id="l2" href="#"><img class="index_category_icon" src="${path}/resources/img/cookin_on.png"><span>베이킹</span></a></li>
 					<li><a id="l3" href="#"><img class="index_category_icon" src="${path}/resources/img/acc_on.png"><span>악세사리</span></a></li>
