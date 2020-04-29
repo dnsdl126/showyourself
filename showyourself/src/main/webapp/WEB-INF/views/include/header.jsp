@@ -6,7 +6,6 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>SHOWYOURSELF header</title>
 	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<script src="https://kit.fontawesome.com/3d124ab517.js" crossorigin="anonymous"></script>
 	<style type="text/css">
