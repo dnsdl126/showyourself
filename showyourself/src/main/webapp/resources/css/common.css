@@ -43,9 +43,7 @@
 		}
 
 		/* 그라디언트 효과 1 */
-		body {
-		    text-align: center;
-		}
+		
 
 		.gradient-border {
 			box-sizing: border-box;
