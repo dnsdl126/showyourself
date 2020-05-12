@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>SHOWYOURSELF Member</title>
-	<link rel="stylesheet" type="text/css" href="../../css/common.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');
 		.subject {
@@ -143,7 +143,7 @@
 	<div class="wrap">
 		<!-- Member -->
 		<div class="subject">
-			<img class="Member-logo" src="../../img/member.png">
+			<img class="Member-logo" src="${path}/resources/img/member.png">
 		</div>
 
 		<!-- gradient-bar -->
@@ -155,7 +155,7 @@
 			<!-- profile-box -->
 			<div class="profile-box">
 				<div class="profil-container">
-					<img class="profile-img" src="../../img/profile.png">
+					<img class="profile-img" src="${path}/resources/img/profile.png">
 
 					<!-- 첨부파일 버튼 -->
 					<div class="btn-file-area">
