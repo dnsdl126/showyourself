@@ -4,15 +4,33 @@
  
      * {box-sizing: border-box;}
 		body {
-
+			
 			background-color: white;
 			font-family: 'Abel', sans-serif;
 			font-family: 'Nanum Gothic', sans-serif;
 			margin: 0;
 			padding: 0;
 			font-size: 14px;
-			color: #d5d5d5;		
+			color: rgba(0,0,0,0.7);		
 		}
+
+
+		/* width */
+		::-webkit-scrollbar {
+		  width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background: #f1f1f1; 
+		}
+		 
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: #888; 
+		}
+	
+	
 		ul {
 			margin: 0;
 			padding: 0;
@@ -32,7 +50,6 @@
 		.gradient-border {
 			box-sizing: border-box;
 			display: inline-block;
-			
 		    width: 150px;
 			height: 150px;
 			border-style: solid;
@@ -77,34 +94,36 @@
 
 
 		/* button 사이즈 */
+		button {
+			border-style: none;
+			background-color: transparent;
+			outline: none;
+		}
+		.btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 96px;
+			height: 42px;
+		    position: relative;
+		    border: 1.3px solid #d5d5d5;
+		    border-radius: 5px;
+		 	background: white;
+		    background-clip: padding-box;
+		    padding: 10px;
+		    /* just to show box-shadow still works fine */
+		}
 
-		div.btn1 {
-		  position: relative;	
-		  background-color: #d5d5d5;
-		  width: 96px;
-		  height: 42px;
-		  border-radius: 5px;
-		  cursor: pointer;
-		  margin: 0 auto; 
+		.btn::after {
+		    position: absolute;
+		    top: -1px; bottom: -1px; left: -1px; right: -1px;
+		    background: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
+		    content: '';
+		    z-index: -1;
+		    border-radius: 5px;
 		}
-		button.btn2 {
-		  padding: 0;	
-		  position: absolute;
-		  top: 0; left: 0; bottom: 0px; right: 0px;
-		  margin: 1px 0px 0px 1px;
-		  white-space: nowrap;
-		  background-color: white;
-		  color: rgba(0,0,0,0.7);
-		  width: 94px;
-		  height: 40px;
-		  border-radius: 4px;
-		  text-align: center;
-		  line-height: 42px;
-		  border-style: none;
-		  cursor: pointer;
-		}
-		div.btn1:hover {
-		  background-image: linear-gradient(-90deg, rgba(240,172,242),rgba(209,194,255), rgba(161,231,253)); 	
+		.btn:hover {
+			 border: 1px solid transparent;
 		}
 	
 		/*글자색 배경색*/

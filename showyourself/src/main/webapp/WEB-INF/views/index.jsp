@@ -91,16 +91,15 @@
 			align-items: center;
 		}
 		.y_follow_yn {
-
 			display: flex;
 			justify-content: center;
-			width: 350px;
-			padding: 30px 0 30px 0; 
+			width: 400px;
+			padding: 20px 0 20px 0; 
+		}
+		.y_follow_yn button {
+			margin-right: 10px;
 		}
 
-		.btn1 {
-			margin: 0;
-		}
 		.y_content {
 			max-width: 905px;
 			height: 100%;
@@ -454,15 +453,9 @@
 				</ul>	
 			</div>
 			<div class="y_follow_yn">
-				<div class="btn1"> 
-	 				 <button class="btn2"> 전체 </button>
-				</div>
-				<div class="btn1"> 
-	 				 <button class="btn2"> 팔로우 </button>
-				</div>
-				<div class="btn1"> 
-	 				 <button class="btn2"> 글쓰기 </button>
-				</div>
+	 				 <button class="btn"> 모든 작가 </button>
+	 				 <button class="btn"> 팔로잉 작가 </button>
+	 				 <button class="btn"> 글쓰기 </button>
 			</div>
 		</div>
 		<div class="y_content">

@@ -1,8 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>SHOWYOURSELF header</title>
+	<link rel="stylesheet" type="text/css" href=${path}/resources/css/common.css>
 	<script src="https://kit.fontawesome.com/3d124ab517.js" crossorigin="anonymous"></script>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');
@@ -134,7 +138,7 @@
 			border-radius: 2px;
 			border-right: 1px solid #d5d5d5;
 			padding: 10px 12px;
-			outline: none; /* input 태그 focus시 파란테두리*/
+			outline: none; /* input íê·¸ focusì íëíëë¦¬*/
 		}
 		.header_content_search_btn {
 			border-color: transparent;
@@ -216,7 +220,7 @@
 				<div class="header_content_search">
 					<form name="fre_search" action="" method="GET">
 						<div class="header_content_search_group">
-							<input type="text" placeholder="검색해주세요" name="keyword" class="header_content_search_input">
+							<input type="text" placeholder="ê²ìí´ì£¼ì¸ì" name="keyword" class="header_content_search_input">
 							<a class="header_content_search_btn"><i class="fas fa-search" ></i></a>
 						</div>
 					</form>
