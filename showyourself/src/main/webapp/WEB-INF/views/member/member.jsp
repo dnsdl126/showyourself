@@ -13,7 +13,8 @@
 			text-align: center;
 		}
 		.Member-logo {
-			width: 230px;
+			width: 380px;
+    		padding-top: 10px;
 		}
 		.gradient-bar {
 			box-sizing: border-box;

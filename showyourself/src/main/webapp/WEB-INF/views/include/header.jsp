@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>SHOWYOURSELF header</title>
-	<link rel="stylesheet" type="text/css" href=${path}/resources/css/common.css>
+	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<script src="https://kit.fontawesome.com/3d124ab517.js" crossorigin="anonymous"></script>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');
@@ -46,37 +46,9 @@
 		/* Mirror */
 		.mirror{
 		  	display: inline-flex;
-		  	padding-top: 10px;
 		}
 		.mirror_Text {
-			font-size: 30px;
-		    margin-top: 10px;
-		    padding-right: 5px;
-		    color: #A1E7FD;
-		}
-		#mirror_Text1::after {
-			content: "SHOW";
-			display: flex;
-			transform: rotateX(180deg);
-			background-image: linear-gradient(180deg, rgba(161, 231, 253, .0) 33%, rgba(161, 231, 253, .5));
-			-webkit-background-clip: text;
-			color: transparent;
-			margin-top: -14px;
-		}
-		.mirror_Text_01 {
-			font-size: 30px;
-			margin-top: 10px;
-		    /* padding: 20px; */
-			color: #F0ACF2;
-		}
-		#mirror_Text2::after {
-			content: "YOURSELF";
-			display: flex;
-			transform: rotateX(180deg);
-			background-image: linear-gradient(180deg, rgba(240, 172, 242, .0) 33%, rgba(240, 172, 242, .5));
-			-webkit-background-clip: text;
-			color: transparent;
-			margin-top: -14px;
+			width: 280px;
 		}
 		.Show{
 			font-size: 30px;
@@ -127,6 +99,7 @@
 			align-items: center;
 			border: 1px solid rgba(20,23,28,.1);
 			border-radius: 4px;
+			margin-top: 14px;
 		}
 		.header_content_search_input {
 			background-color: transparent;
@@ -138,13 +111,12 @@
 			border-radius: 2px;
 			border-right: 1px solid #d5d5d5;
 			padding: 10px 12px;
-			outline: none; /* input íê·¸ focusì íëíëë¦¬*/
+			outline: none; /* input 태그 focus시 파란테두리*/
 		}
 		.header_content_search_btn {
 			border-color: transparent;
 			background-color: transparent;
 			width: 45px;
-			height: 45px;
 			cursor: pointer;
 			color: rgba(0,0,0,0.7);
 			outline: none;
@@ -165,14 +137,14 @@
 			text-decoration: none; 
 			color: rgba(0,0,0,0.7);
 		}
-		img {
+		.img-icon {
 			width: 35px;
 			height: 35px;	
 		}
 
 		/* profile_img */
 		.profile_img {
-			background-image: url("${path}/resources/img/profile.png");
+			background-image: url(${path}/resources/img/profile.png);
 		    background-repeat: no-repeat;
 		    background-size: cover;
 		    border-radius: 50%;
@@ -208,11 +180,8 @@
 				<!-- Mirror -->
 				<div class="mirror">
 					<a href="#">
-      					<div class="mirror_Text" id="mirror_Text1">SHOW</div>
-      				</a>
-					<a href="#">
-      					<div class="mirror_Text_01" id="mirror_Text2">YOURSELF</div>
-      				</a>
+						<img class="mirror_Text" src="${path}/resources/img/showyourself.png">
+					</a>
 				</div>
 
 				
@@ -220,7 +189,7 @@
 				<div class="header_content_search">
 					<form name="fre_search" action="" method="GET">
 						<div class="header_content_search_group">
-							<input type="text" placeholder="ê²ìí´ì£¼ì¸ì" name="keyword" class="header_content_search_input">
+							<input type="text" placeholder="검색해주세요" name="keyword" class="header_content_search_input">
 							<a class="header_content_search_btn"><i class="fas fa-search" ></i></a>
 						</div>
 					</form>
@@ -237,24 +206,25 @@
 						<div class="header_btn">
 							<div class="btn_mypage">
 								<a href="#">
-									<img src="../../img/icons8-imac-64.png">
+									<img class="img-icon" src="${path}/resources/img/icons8-imac-64.png">
 									<span>My Class</span>
 								</a>	
 							</div>
 						</div>
 					</div>
 
+
 						<!-- Signin/Login img.button -->
 						<div class="header_btn">
 							<div class="btn_Signin">
 								<a href="#">
-									<img src="../../img/icons8-task-completed-64.png">
+									<img class="img-icon" src="${path}/resources/img/icons8-task-completed-64.png">
 									<span>Signin</span>
 								</a>
 							</div>
 							<div class="btn_Login">
 								<a href="#">
-									<img src="../../img/icons8-enter-64.png">
+									<img class="img-icon" src="${path}/resources/img/icons8-enter-64.png">
 									<span>Login</span>
 								</a>
 							</div>
