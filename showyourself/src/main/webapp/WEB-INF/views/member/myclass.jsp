@@ -53,26 +53,7 @@
 	.myclass_bc{
 		border:1px solid #C2CDFF;
 	}
-	.myclass_btn{
-		 padding: 0;	
-		  position: relative;
-		  top: 0; left: 0; bottom: 0px; right: 0px;
-		  margin: 1px 0px 0px 1px;
-		  white-space: nowrap;
-		  border:1px solid #A1E7FD;
-		  background-color: white;
-		  color: rgba(0,0,0,0.7);
-		  width: 80px;
-		  height: 40px;
-		  border-radius: 4px;
-		  text-align: center;
-		  line-height: 42px;
-		  
-		  cursor: pointer;
-	}
-	.myclass_btn:hover{
-		  background-image: linear-gradient(-90deg, rgba(240,172,242),rgba(209,194,255), rgba(161,231,253));
-	}
+	
 	.myclass_profile_content{
 		width: 210px;
 		
@@ -97,7 +78,7 @@
 	}
 	
 	.font_title {
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 	
 	
@@ -110,13 +91,16 @@
 	
 	
 	}
+	.hidden{
+	visiblity:hidden;
+	}
 </style>
 </head>
 
 <body>
 	<div class="myclass_tot_wrap">
 		<div class="myclass_icontxt_wrap">
-			<span class="myclass_icon"><img src ="${path}/resources/img/my_class_on.png"/></span>
+			<span class="myclass_icon"><img src ="${path}/resources/img/my_class_on.png" style = "width:25px; height:25px; vertical-allign:center;"/></span>
 			<span class="myclass_icon">나의클래스</span>
 			
 		</div>
@@ -126,13 +110,13 @@
 					<div class="myclass_profile_txt font_title myclass_margin_bottom">내 프로필</div>
 					<div class="myclass_profile_wrap flex">
 						
-						<div class="myclass_profile_photo border-radius"><img src="${path}/resources/img/13.jpg" style="width: 150px;"/></div>
+						<div class="myclass_profile_photo border-radius"><img src="${path}/resources/img/13.jpg" style="width: 140px;"/></div>
 						
 						<div class="myclass_profile_content"style="align-items: center;">
 							<div class="myclass_profile_name font_title myclass_profile_name_css">조운이</div>
 							<div class="myclass_profile_id myclass_profile_name_css">아이디 : 조운이@조운이.조운이</div>
 							<div class="myclass_profile_lecture myclass_profile_name_css">수강중인 강의 : x건 </div>
-							<button class="myclass_btn myclass_profile_name_css">내 모든강의</button>
+							<button class="btn myclass_profile_name_css">내 모든강의</button>
 						</div>
 					</div>
 				</div>
@@ -146,7 +130,9 @@
 						</div>
 						<div class="myclass_profile_content">
 							<div class="myclass_blecture_title font_title" style="margin-bottom: 5px;">잠만보 만들기</div>
-							<button class="myclass_btn">이어서 학습</button>
+							<div class="myclass_profile_id myclass_profile_name_css hidden">글</div>
+							<div class="myclass_profile_lecture myclass_profile_name_css hidden">글</div>
+							<button class="btn">이어서 학습</button>
 						</div> 
 					</div>
 
@@ -177,8 +163,8 @@
 						<img src="${path}/resources/img/13.jpg" style="width: 140px;height:140px;"/>
 						</div>
 						<div class="myclass_profile_content">
-							<div class="myclass_blecture_title font_title">잠만보 만들기</div>
-							<div class="myclass_profile_id">예약일자 : 2020-05-06</div>
+							<div class="myclass_blecture_title font_title myclass_profile_name_css">잠만보 만들기</div>
+							<div class="myclass_profile_id myclass_profile_name_css">예약일자 : 2020-05-06</div>
 							<div class="myclass_profile_id">예약일자 : 17시 30분</div>
 						</div> 
 					</div>

@@ -27,30 +27,15 @@
 	justify-content:center;
 	color:#A1E7FD;
 	font-size:15px;
-}
+	}
+	.font_title {
+	font-size: 25px;
+	font-weight: bold;	
+	}	
 	.flex{display: flex;}
 	.jcsb{justify-content: space-between;}
 	.float_left{float: left;}
-	.curriculum_btn{
-		 padding: 0;	
-		  position: relative;
-		  top: 0; left: 0; bottom: 0px; right: 0px;
-		  margin: 1px 0px 0px 1px;
-		  white-space: nowrap;
-		  border:1px solid #A1E7FD;
-		  background-color: white;
-		  color: rgba(0,0,0,0.7);
-		  width: 80px;
-		  height: 40px;
-		  border-radius: 4px;
-		  text-align: center;
-		  line-height: 42px;
-		  
-		  cursor: pointer;
-	}
-	.curriculum_btn:hover{
-		  background-image: linear-gradient(-90deg, rgba(240,172,242),rgba(209,194,255), rgba(161,231,253));
-	}
+	
 	.flex{display: flex;}
 </style>
 </head>
@@ -82,7 +67,7 @@
 				<input type="text" name="curriculum_searchtag5" placeholder="#태그">
 			</div>
 			<div >
-				<button class="curriculum_btn" style="margin: auto"> 다음 </button>
+				<button class="btn" style="margin: auto"> 다음 </button>
 			</div>
 		</div>
 	</div>
