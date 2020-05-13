@@ -10,7 +10,7 @@
 <style type="text/css">
 .login_wrap {
 	width: 494px;
-    height: 628px;
+    height: 650px;
     padding: 8px;
     margin: auto;
     margin-top: 100px;
@@ -21,6 +21,7 @@
 .login_box {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	width: 492px;
 }
 
