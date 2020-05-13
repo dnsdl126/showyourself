@@ -22,8 +22,7 @@
 		}
 		.header_wrap {
 			width: 100%;
-			/*box-shadow: 0 0 2px 2px rgba(20,23,28,.1), 0 4px 3px 0 rgba(20,23,28,.1);*/
-			box-shadow: 0 0 1px 1px #d5d5d5, 0 3px 1px 0 #d5d5d5;
+			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 			z-index: 999;
 		}
 		.header_content {
@@ -36,11 +35,6 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-		}
-		input {
-			outline: none;
-			line-height: 48px;
-			text-align: center;
 		}
 
 		/* Mirror */

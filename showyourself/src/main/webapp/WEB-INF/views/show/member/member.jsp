@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "../../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +19,13 @@
 		}
 		.gradient-bar {
 			box-sizing: border-box;
-			display: inline-block;
+			display: block;
 		    width: 1000px;
 			border-style: solid;
 			border-image: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
 			border-image-slice: 1;
+			margin: 0 auto;
+			margin-top: 10px;
 		}
 		.group-box {
 			width: 1000px;
@@ -34,6 +37,7 @@
 		}
 		.profil-container {
 			padding-top: 35px;
+			padding-left: 35px;
 		}
 		.profile-img {
 			border-radius: 50%;
@@ -60,6 +64,7 @@
 		/* 프로필 쓰는 곳 */
 		.profile-write-area {
 			padding-top: 15px;
+			margin-left: -5px;
 		}
 		.profile-write {
 			width: 210px;
@@ -93,6 +98,7 @@
 			height: 57px;
 			align-items: center;
 			justify-content: center;
+			text-align: center;
 		}
 		.input-group:first-child {
 			border-top: none;
@@ -103,6 +109,7 @@
 			margin-bottom: 3px;
 		}
 		.postcode {
+		    display: flex;
 			margin-bottom: 3px;
 		}
 		.input-addr {
@@ -115,6 +122,7 @@
 		.input-postcode {
 			width: 150px;
 			height: 28px;
+			margin-right: 4px;
 		}
 		.btn-input {
 			width: 96px;
@@ -150,7 +158,7 @@
 	<div class="wrap">
 		<!-- Member -->
 		<div class="subject">
-			<img class="Member-logo" src="${path}/resources/img/member.png">
+			<img class="Member-logo" src="${path}/resources/img/memberjoin.png">
 		</div>
 
 		<!-- gradient-bar -->
@@ -275,11 +283,11 @@
 
 		<!-- Button area -->
 		<div class="button-area">
-			<div class="btn1"> 
-	 			 <button class="btn2"> 취소 </button>
+			<div class="btn1 bs"> 
+	 			 <button class="btn"> 취소 </button>
 			</div>
-			<div class="btn1"> 
-	 			 <button class="btn2"> 확인 </button>
+			<div class="btn1 bs"> 
+	 			 <button class="btn"> 확인 </button>
 			</div>
 		</div>
 	</div>

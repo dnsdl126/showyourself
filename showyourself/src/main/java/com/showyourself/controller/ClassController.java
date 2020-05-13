@@ -18,4 +18,9 @@ public class ClassController {
 	public String viewClassList(){
 		return "/show/class/classlist";
 	}
+	@GetMapping("/classupdate")
+	public String classUpdateView() {
+		log.info("CLASSUPDATE PAGE 출력");
+		return "/show/class/classupdate";
+	}
 }
