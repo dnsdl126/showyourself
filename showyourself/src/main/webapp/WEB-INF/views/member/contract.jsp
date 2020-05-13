@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +20,13 @@
 		/* gradient-bar */
 		.gradient-bar {
 		    box-sizing: border-box;
-		    display: inline-block;
+		    display: block;
 		    width: 1000px;
 		    border-style: solid;
 		    border-image: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
 		    border-image-slice: 1;
+		    margin: 0 auto;
+		    margin-top: 10px;
 		}
 
 		.group-box {
@@ -70,8 +73,7 @@
     		padding: 0; 
 		}
 		.input-chk {
-		    display: block;
-		    box-sizing: border-box;
+			text-align: center;
 		}
 		.input-chk input {
 			position: relative;
@@ -108,8 +110,7 @@
 			 box-sizing: border-box;
 		}
 		.input-chk2 {
-		    display: block;
-		    box-sizing: border-box;
+			text-align: center;
 		}
 		.input-chk2 input {
 			position: relative;
@@ -142,8 +143,7 @@
 			 box-sizing: border-box;
 		}
 		.input-chk3 {
-		    display: block;
-		    box-sizing: border-box;
+			text-align: center;
 		}
 		.input-chk3 input {
 			position: relative;
@@ -186,7 +186,7 @@
 	<div class="wrap">
 		<!-- Contract Logo -->
 		<div class="subject">
-			<img class="Contract-logo" src="${path}/resources/img/constract.png">
+			<img class="Contract-logo" src="${path}/resources/img/contract.png">
 		</div>
 	
 		<!-- gradient-bar -->
@@ -200,13 +200,13 @@
 					<div class="article">
 					<h3 class="article-title">여러분을 환영합니다.</h3>
 					<p class="article-text">
-						네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를<br> 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며,<br> 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.<br>
-						네이버 서비스를 이용하시거나 네이버 서비스 회원으로 가입하실 경우 여러분은 본 약관 및 관련 운영 정책을 확인하거나 동의하게 되므로, 잠시 시간을 내시어 주의 깊게 살펴봐 주시기 바랍니다.<br>
+						showyourself 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 showyourself 서비스의 이용과 관련하여 showyourself 서비스를<br> 제공하는 showyourself 주식회사(이하 ‘showyourself’)와 이를 이용하는 showyourself 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며,<br> 아울러 여러분의 showyourself 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.<br>
+						showyourself 서비스를 이용하시거나 showyourself 서비스 회원으로 가입하실 경우 여러분은 본 약관 및 관련 운영 정책을 확인하거나 동의하게 되므로, 잠시 시간을 내시어 주의 깊게 살펴봐 주시기 바랍니다.<br>
 						여러분을 환영합니다.
-						네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.<br>
+						showyourself 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 showyourself 서비스의 이용과 관련하여 showyourself 서비스를 제공하는 showyourself 주식회사(이하 ‘showyourself’)와 이를 이용하는 showyourself 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 showyourself 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.<br>
 						여러분의 개인정보를 소중히 보호합니다.
-						네이버는 서비스의 원활한 제공을 위하여 회원이 동의한 목적과 범위 내에서만 개인정보를 수집∙이용하며, 개인정보 보호 관련 법령에 따라 안전하게 관리합니다. 네이버가 이용자 및 회원에 대해 관련 개인정보를 안전하게 처리하기 위하여 기울이는 노력이나 기타 상세한 사항은 개인정보 처리방침에서 확인하실 수 있습니다.<br>
-						네이버는 여러분이 서비스를 이용하기 위해 일정 기간 동안 로그인 혹은 접속한 기록이 없는 경우, 전자메일, 서비스 내 알림 또는 기타 적절한 전자적 수단을 통해 사전에 안내해 드린 후 여러분의 정보를 파기하거나 분리 보관할 수 있으며, 만약 이로 인해 서비스 제공을 위해 필수적인 정보가 부족해질 경우 부득이 관련 서비스 이용계약을 해지할 수 있습니다.
+						showyourself는 서비스의 원활한 제공을 위하여 회원이 동의한 목적과 범위 내에서만 개인정보를 수집∙이용하며, 개인정보 보호 관련 법령에 따라 안전하게 관리합니다. showyourself가 이용자 및 회원에 대해 관련 개인정보를 안전하게 처리하기 위하여 기울이는 노력이나 기타 상세한 사항은 개인정보 처리방침에서 확인하실 수 있습니다.<br>
+						showyourself는 여러분이 서비스를 이용하기 위해 일정 기간 동안 로그인 혹은 접속한 기록이 없는 경우, 전자메일, 서비스 내 알림 또는 기타 적절한 전자적 수단을 통해 사전에 안내해 드린 후 여러분의 정보를 파기하거나 분리 보관할 수 있으며, 만약 이로 인해 서비스 제공을 위해 필수적인 정보가 부족해질 경우 부득이 관련 서비스 이용계약을 해지할 수 있습니다.
 					</p>
 					</div>
 				</div>
@@ -222,7 +222,7 @@
 						<div class="article">
 						<!-- <h3 class="article-title">여러분을 환영합니다.</h3> -->
 						<p class="article-text">
-							네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를<br> 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며,<br> 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+							showyourself 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 showyourself 서비스의 이용과 관련하여 showyourself 서비스를<br> 제공하는 showyourself 주식회사(이하 ‘showyourself’)와 이를 이용하는 showyourself 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며,<br> 아울러 여러분의 showyourself 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
 						</p>
 						</div>
 					</div>
@@ -237,9 +237,9 @@
 						<div class="article">
 						<!-- <h3 class="article-title">여러분을 환영합니다.</h3> -->
 						<p class="article-text">
-							위치정보 이용약관에 동의하시면, 위치를 활용한 광고 정보 수신 등을 포함하는 네이버 위치기반 서비스를 이용할 수 있습니다.
+							위치정보 이용약관에 동의하시면, 위치를 활용한 광고 정보 수신 등을 포함하는 showyourself 위치기반 서비스를 이용할 수 있습니다.
 							제 1 조 (목적)
-							이 약관은 네이버 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는 위치기반서비스사업과 관련하여 회사와 개인위치정보주체와의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
+							이 약관은 showyourself 주식회사 (이하 “회사”)가 제공하는 위치정보사업 또는 위치기반서비스사업과 관련하여 회사와 개인위치정보주체와의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
 						</p>
 						</div>
 					</div>
