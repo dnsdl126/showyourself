@@ -51,7 +51,7 @@
 			 margin-top: 8px;
 			 margin-bottom: 8px;
 			 padding: 12px;
-		     border: 1px solid #222222;
+		     border: 1px solid rgba(0,0,0,0.7);;
 			 background: #fff;
 			 box-sizing: border-box;
 		}
@@ -105,7 +105,7 @@
 			 margin-top: 8px;
 			 margin-bottom: 8px;
 			 padding: 12px;
-		     border: 1px solid #222222;
+		     border: 1px solid rgba(0,0,0,0.7);;
 			 background: #fff;
 			 box-sizing: border-box;
 		}
@@ -138,7 +138,7 @@
 			 margin-top: 8px;
 			 margin-bottom: 8px;
 			 padding: 12px;
-		     border: 1px solid #222222;
+		     border: 1px solid rgba(0,0,0,0.7);;
 			 background: #fff;
 			 box-sizing: border-box;
 		}

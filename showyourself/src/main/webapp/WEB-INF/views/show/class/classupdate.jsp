@@ -11,11 +11,10 @@
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');
 		.classup-wrap {
-			float: left;
-			left: 20%;
-			width: 1100px;
-			padding-top: 40px;
+			width: 1000px;
+			padding-top: 15px;
 			position: relative;
+			margin: 0 auto;
 		}
 		.gradient-bar {
 			box-sizing: border-box;
@@ -33,7 +32,6 @@
 			display: block;
 			float: right;
 			top: 15px;
-			right: 123px;
 		}
 		ol, li {
 			margin: 0;
@@ -57,7 +55,7 @@
 			margin-left: 5px;
 			margin-right: 5px;
 			font-size: 12px !important;
-			color: #222222;
+			color: rgba(0,0,0,0.7);;
 			vertical-align: top;
 		}
 		.text-danger {
@@ -70,14 +68,14 @@
 			right: -55px;
 		}
 		.h2-container h2 {
-			color: #222222;
+			color: rgba(0,0,0,0.7);;
 			font-size: 24px;
 			font-weight: bold;
 		}
 
 		.class-txt {
 			font-size: 20px;
-			color: #222222;
+			color: rgba(0,0,0,0.7);;
 			font-weight: 700;
 			position: relative;
 			display: flex;
@@ -212,7 +210,6 @@
 		.pricebox {
 			padding-right: 50px;
 			outline: none;
-			padding-left: 10px;
 		}
 
 		.imgArea {
