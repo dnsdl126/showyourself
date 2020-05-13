@@ -29,4 +29,9 @@ public class ClassController {
 	public String scheduleView() {
 		return "/show/class/schedule";
 	}
+	
+	@GetMapping("/offlineclass")
+	public String offlineclass () {
+		return "/show/class/offlineclass";
+	}
 }
