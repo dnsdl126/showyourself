@@ -60,6 +60,9 @@
 			color: #222222;
 			vertical-align: top;
 		}
+		.text-danger {
+			color: tomato;
+		}
 		.h2-container {
 			padding: 0;
 			position: relative;
@@ -83,7 +86,7 @@
 		.classContent {
 			display: flex;
 			flex-direction: column;
-			margin-left: 60px;
+			margin-left: 50px;
 		}
 		.class-txt {
 			padding-top: 10px;
@@ -180,17 +183,18 @@
 			align-items: center;
 		}
 		.addrbox{
-			width: 451px;
-		    height: 160px;
+			width: 452px;
+		    height: 35px;
 		    margin-top: -15px;
 		    margin-bottom: 10px;
 		}
 		.addrView {
-			width: 451px;
+			width: 452px;
 		}
 		
 		.priceBoard {
 			display: flex;
+			margin-top: 25px;
 			margin-bottom: 25px;
 		}
 		.inputgroup {
@@ -244,8 +248,8 @@
 			align-items: center;
 		}
 		.bs {
-			margin-right: 30px;
-    		margin-left: 30px;
+			margin-right: 15px;
+    		margin-left: 15px;
 		}
 	</style>
 </head>
@@ -275,10 +279,10 @@
 
 		<div class="group-box">
 			<div class="classContent">
-				<div class="class-txt">클래스 제목*</div>
+				<div class="class-txt">클래스 제목<span class="text-danger">*</span></div>
 				<input class="input-txt" type="text" name="" placeholder="클래스 제목을 입력해주세요">
 
-				<div class="class-txt">카테고리 등록*</div>
+				<div class="class-txt">카테고리 등록<span class="text-danger">*</span></div>
 					<div class="selectBox">
 						<select class="allClassSelect" name="all">
 							<option value="">카테고리</option>
@@ -302,34 +306,44 @@
 						</select>
 					</div>
 
-				<div class="class-txt">클래스 소개 입력*</div>
+				<div class="class-txt">클래스 소개 입력<span class="text-danger">*</span></div>
 				<textarea class="inputBox" placeholder="클래스 소개를 자세히 입력해주세요"></textarea>
 
 				<div class="class-txt">동영상 소개</div>
 				<input class="input-vediotxt" type="text" name="" placeholder="동영상 URL을 입력해주세요">
 
-				<div class="class-txt">위치정보*</div>
+				<div class="class-txt">위치정보<span class="text-danger">*</span></div>
+				
 					<div class="addr-wrap">
-					<input class="input-addrtxt" type="text" name="" placeholder="예)양화로 161">	
+						<input class="input-addrtxt" type="text" name="" placeholder="예)양화로 161">	
 						<button type="submit" class="addrBtn btn"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
 					</div>
-					<input class="input-addrtxt addrbox" type="text" name="" placeholder="">
-					<input class="input-addrtxt addrView" type="text" name="" placeholder="상세주소를 입력해주세요">
+						<input class="input-addrtxt addrbox" type="text" name="" placeholder="">
+						<input class="input-addrtxt addrView" type="text" name="" placeholder="상세주소를 입력해주세요">
 
-				<div id="map" style="width:500px;height:400px;"></div>
-					
+					<div id="map" style="width:913px; height:400px;"></div>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06"></script>
+					<script>
+					var container = document.getElementById('map');
+					var options = {
+						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						level: 3
+					};
+			
+					var map = new kakao.maps.Map(container, options);
+					</script>
 
 				<div class="priceBoard">
 					<div class="inputgroup pricebox">
-						<div class="class-txt">클래스 최종가격*</div>
+						<div class="class-txt">클래스 최종가격<span class="text-danger">*</span></div>
 						<input class="input-pricetxt" type="text" name="" placeholder="금액입력(원)">
 					</div>
 					<div class="inputgroup">
-						<div class="class-txt">클래스 정가</div>
+						<div class="class-txt">클래스 정가<span class="text-danger">*</span></div>
 						<input class="input-pricetxt" type="text" name="" placeholder="금액입력(원)">
 					</div>
 				</div>
-				<div class="class-txt">대표사진 등록*</div>
+				<div class="class-txt">대표사진 등록<span class="text-danger">*</span></div>
 					<div class="imgArea">
 						<button type="submit" class="imgUpBtn btn">사진 등록</button>
 						<button type="submit" class="imgDelBtn btn">전체 삭제</button>
