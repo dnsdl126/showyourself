@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import lombok.extern.slf4j.Slf4j;
 
 @SessionAttributes({"memberDTO"})
-@RequestMapping("/member")
+@RequestMapping("/show/member")
 @Slf4j
 @Controller
 public class MemberController {
@@ -19,24 +19,25 @@ public class MemberController {
 	@GetMapping("/contract")
 	public String contractView() {
 		log.info("MEMBER/CONTRACT PAGE 출력");
-		return "member/contract";
+		return "/show/member/contract";
 	}
 	
 	
-	
-	
-	
+	@GetMapping("/msgbox")
+	public String msgboxView() {
+		return "/show/member/msgbox";
+	}
 	
 	
 	@GetMapping("/myclass")
 	public String myclassView() {
-		return "member/myclass";
+		return "/show/member/myclass";
 	}
 	
 	@GetMapping("/login")
 	public String loginView() {
 		log.info("Login PAGE 출력");
-		return "member/login";
+		return "/show/member/login";
 	}
 	
 	

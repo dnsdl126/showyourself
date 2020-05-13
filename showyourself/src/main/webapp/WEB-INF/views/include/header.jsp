@@ -218,13 +218,13 @@
 						<!-- Signin/Login img.button -->
 						<div class="header_btn">
 							<div class="btn_Signin">
-								<a href="${path}/member/contract">
+								<a href="${path}/show/member/contract">
 									<img class="img-icon" src="${path}/resources/img/icons8-task-completed-64.png">
 									<span>Signin</span>
 								</a>
 							</div>
 							<div class="btn_Login">
-								<a href="${path}/member/login">
+								<a href="${path}/show/member/login">
 									<img class="img-icon" src="${path}/resources/img/icons8-enter-64.png">
 									<span>Login</span>
 								</a>
