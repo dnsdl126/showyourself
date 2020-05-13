@@ -81,6 +81,10 @@
 			-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
   			filter: grayscale(0%);
 		}
+		#l1 img {
+			-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  			filter: grayscale(0%);
+		}  
 		.index_category_icon {
 			width: 88px;
 			height: 88px;
@@ -315,7 +319,8 @@
 		.index_modal_one_comment {
 			display: flex;
 			width: 100%;
-			padding: 3px;
+			height: 15%;
+			padding: 3px 6px 3px 6px;
 		}
 		.one_comment_photo {
 			display: flex;
@@ -324,21 +329,29 @@
 			padding: 5px;
 		}
 		.index_modal_comment_img {
-			width: 52px;
-			height: 52px;
+			width: 45px;
+			height: 45px;
 			border-radius: 100px;
 			overflow:hidden;
 			object-fit: cover;
 			border: 1px solid #d5d5d5;
 		}
 		.one_comment_content {
+			width: 280px;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: flex-start;
+
 		}
 		.one_comment {
 			padding: 5px;
+			text-align: left;
+			overflow-y: auto;
+			box-sizing: border-box;
+		}
+		.one_comment::-webkit-scrollbar {
+		    display: none;
 		}
 		.one_comment_date {
 			padding: 0 5px 5px 5px;	
@@ -353,23 +366,27 @@
 			width: 80%;
 			height: 100%;
 			border-style: none;
-			padding-left:15px;
-			 
+			border-right: 1px solid #d5d5d5;
+			padding-left: 10px; 
+			padding-right: 10px; 
+			resize: none;
 		}
-		textarea {
-			resize : none;
+		::placeholder {
+  			padding-top: 33px;  
 		}
-		textarea::placeholder {  
-           /* Firefox, Chrome, Opera */ 
-           text-align: left;
-           line-height: 85px; 
-            }    
+		textarea:focus::-webkit-input-placeholder { 
+			/* WebKit browsers */ color:transparent; }
+
 		.index_modal_comment_submit {
 			width: 20%;
 			height: 100%;
 			background-color: transparent;
 			border-style: none;
 			color: rgba(0,0,0,0.7);
+		}
+		.comment_nickname {
+			font-weight: bold;
+			padding-right: 3px;
 		}
 	
 		/*모달창 end*/
@@ -408,7 +425,8 @@
 
 				<ul class="index_modal_photo_detail">
 					<li style="font-size:12px; font-weight: bold">인테리어 | 2020-04-07</li>
-					<li style="font-size:14px">♡138 사랑스러운 푸크린!</li>
+					<li style="font-size:14px"><span class="y_modal_heart"><i class="far fa-heart"></i></span>
+					<span class="y_modal_heart_cnt">138</span> 사랑스러운 푸크린!</li>
 					<li style="font-size:14px">#푸크린 #핑크핑크해</li>
 					<li style="font-size:12px"></li>
 				</ul>
@@ -424,10 +442,10 @@
 				<div class="index_modal_comments">
 					<ul class="index_modal_comment_list">
 						<li class="index_modal_one_comment">
-							<div class="one_comment_photo"><img class="index_modal_comment_img" src="${path}/resources/img/펭도리.png"></div>
+							<div class="one_comment_photo"><img class="index_modal_comment_img" src="${path}/resources/img/포니타.png"></div>
 							<div class="one_comment_content">
-								<div class="one_comment" style="font-size: 14px;">우와 정말 귀여운 푸크린이네요.</div>
-								<div class="one_comment_date" style="font-size: 12px;"> 작성일: 2020-04-23 </div>
+								<div class="one_comment" style="font-size: 13px;">우와 정말 귀여운 푸크린이네요.</div>
+								<div class="one_comment_date" style="font-size: 12px;"> <span class="comment_nickname"> 포니타 </span>작성일: 2020-04-23 </div>
 							</div>
 						</li>
 					</ul>	
@@ -448,10 +466,10 @@
 			<div class="y_category">
 				<ul class="y_category_list">
 					<li><a id="l1" href="#"><img class="index_category_icon" src="${path}/resources/img/category_c.png"><span>카테고리 전체</span></a></li>
-					<li><a id="l1" href="#"><img class="index_category_icon" src="${path}/resources/img/digital_on.png"><span>디지털</span></a></li>
-					<li><a id="l2" href="#"><img class="index_category_icon" src="${path}/resources/img/cookin_on.png"><span>베이킹</span></a></li>
-					<li><a id="l3" href="#"><img class="index_category_icon" src="${path}/resources/img/acc_on.png"><span>악세사리</span></a></li>
-					<li><a id="l4" href="#"><img class="index_category_icon" src="${path}/resources/img/interia_on.png"><span>인테리어</span></a></li>
+					<li><a id="l3" href="#"><img class="index_category_icon" src="${path}/resources/img/cookin_on.png"><span>베이킹</span></a></li>
+					<li><a id="l4" href="#"><img class="index_category_icon" src="${path}/resources/img/acc_on.png"><span>악세사리</span></a></li>
+					<li><a id="l2" href="#"><img class="index_category_icon" src="${path}/resources/img/digital_on.png"><span>디지털</span></a></li>
+					<li><a id="l5" href="#"><img class="index_category_icon" src="${path}/resources/img/interia_on.png"><span>인테리어</span></a></li>
 					<li><a id="l5" href="#"><img class="index_category_icon" src="${path}/resources/img/item_on.png"><span>소품</span></a></li>
 				</ul>	
 			</div>
@@ -545,7 +563,21 @@
 			$('.index_modal_wrap').css('display','flex');
 			$('body').css("overflow", "hidden");
 		});
-
+		
+	
+		
+		
+		$(document).on('click','.index_modal_photo_detail:nth-last-child(1)', function(){
+			var modalHeart = $('.y_modal_heart').html();
+			var empHeart = '<i class="far fa-heart" aria-hidden="true"></i>';
+			var colHeart = '<i class="fas fa-heart" aria-hidden="true"></i>';
+			
+			if(modalHeart == empHeart) {
+				$('.y_modal_heart').html(colHeart);
+			} else if(modalHeart == colHeart) {
+				$('.y_modal_heart').html(empHeart);
+			}
+		});
 		// Next/previous controls
 		function plusSlides(n) {		
 			 oneSlide(slideIndex += n);
@@ -568,6 +600,8 @@
 			$('body').css("overflow", "scroll");
 		
 		});
+		
+		
 
 	</script>
 </html>
