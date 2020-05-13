@@ -183,6 +183,17 @@
 			position: relative;
     		top: 2px;
 		}
+		.cons_err_check_msg{
+			font-size: 12px;
+			line-height: 14px;
+			color: #f46665;
+			display: block;
+			text-align : center;
+			margin-top: 10px;	
+		}
+		.cons_err_check{
+			display: none;
+		}
 
 	</style>
 </head>
@@ -216,7 +227,7 @@
 				</div>
 					<!-- input-chk -->
 					<div class="input-chk">
-						<input type="checkbox" class="chk" id="tremsService" name="">
+						<input type="checkbox" class="chk" id="tremsService cons_chk1" " name="">
 							<label class="tremsService">이용약관 동의</label>
 							<span class="span_only">(필수)</span>
 					</div>
@@ -232,7 +243,7 @@
 					</div>
 						<!-- input-chk -->
 						<div class="input-chk2">
-							<input type="checkbox" class="chk" id="tremsService" name="">
+							<input type="checkbox" class="chk" id="tremsService cons_chk2" name="">
 								<label class="tremsService">개인정보 수집 및 이용에 대한 안내</label>
 								<span class="span_only">(필수)</span>
 						</div>
@@ -249,7 +260,7 @@
 					</div>
 						<!-- input-chk -->
 						<div class="input-chk3">
-							<input type="checkbox" class="chk" id="tremsService" name="">
+							<input type="checkbox" class="chk" id="tremsService cons_chk3" name="">
 							<label class="tremsService">위치정보 이용약관 동의</label>
 							<span class="span_only">(필수)</span>
 						</div>
@@ -259,15 +270,51 @@
 
 		<!-- gradient-bar -->
 		<div class="gradient-bar"></div>
+		
+		<div class = "cons_err_check">
+			<span class= "cons_err_check_msg">
+				SHOWYOURSELF 이용약관과 개인정보 수집 및 위치정보 이용에 대한 안내 모두 동의 해주세요.
+			</span>		
+		</div>
+				
 
 		<!-- Button area -->
 		<div class="button-area">
 			<div class="btn1 bs"> 
-	 			 <button class="btn"> 취소 </button>
+	 			 <button class="btn" id="cons_btn_cancel"> 취소 </button>
 			</div>
 			<div class="btn1 bs"> 
-	 			 <button class="btn"> 확인 </button>
+	 			 <button class="btn" id="cons_btn_agree"> 확인 </button>
 			</div>
 		</div>
 </body>
+<script type="text/javascript">
+	$(document).ready(function () {
+	
+			$('#cons_btn_agree').on('click', function () {
+				var agree_one = $('#cons_chk1').is(':checked');
+				var agree_two = $('#cons_chk2').is(':checked');
+				var agree_three = $('#cons_chk3').is(':checked');
+				
+				if(agree_one == false || agree_two == false || agress_three == false){
+					$('.cons_err_check').css('display','block');
+					return false;
+				}
+				
+				location.href = "${path}/member/join?useon=" + agree_one
+														  +"&primaryon"+ agree_two
+													      +"&locon"+ agree_three
+														  +"&flag=1"; 
+			});
+		
+		
+		
+		
+	});
+	
+	
+
+
+
+</script>
 </html>

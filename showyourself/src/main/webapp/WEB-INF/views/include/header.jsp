@@ -224,7 +224,7 @@
 								</a>
 							</div>
 							<div class="btn_Login">
-								<a href="#">
+								<a href="${path}/member/login">
 									<img class="img-icon" src="${path}/resources/img/icons8-enter-64.png">
 									<span>Login</span>
 								</a>
