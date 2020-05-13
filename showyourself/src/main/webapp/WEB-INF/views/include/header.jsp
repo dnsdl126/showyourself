@@ -163,6 +163,7 @@
 		.header_btn a {
 			display: flex;
 			flex-direction: column;
+			align-items: center;
 		}
 		.btn_Signin {
 			padding-right: 30px;
