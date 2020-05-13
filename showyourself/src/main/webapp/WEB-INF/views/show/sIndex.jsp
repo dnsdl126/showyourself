@@ -36,6 +36,7 @@
 			background-repeat: no-repeat;
   			background-size: auto;
   			margin-bottom: 40px;
+  			z-index: 1;
 		}
 		.s_common_group {
 			width: 100%;
