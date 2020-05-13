@@ -268,7 +268,7 @@
 	div.sns_postinglist{
 		width: 53px;
 		height: 48px;
-		background-image: url(../showyourself/img/gall_on.png);
+		background-image: url('${path}/resources/img/gall.png');
 		background-size: cover;
 		border-top: 3px solid gray;
 		cursor: pointer;	
@@ -279,14 +279,14 @@
 		width: 53px;
 		height: 48px;
 		border-top: 3px solid #D1C2FF;
-		background-image: url(../showyourself/img/gall_on.png);
+		background-image: url('${path}/resources/img/gall_on.png');
 		background-size: cover;
 		cursor: pointer;	
 	}
 	.sns_classlist{
 		width: 53px;
 		height: 48px;
-		background-image: url(../showyourself/img/myclass_on.png);
+		background-image: url('${path}/resources/img/myclass.png');
 		background-size: cover;
 		border-top: 3px solid gray;
 		cursor: pointer;			
@@ -296,7 +296,7 @@
 		width: 53px;
 		height: 48px;
 		border-top: 3px solid #D1C2FF;
-		background-image: url(../showyourself/img/myclass_on.png);
+		background-image: url('${path}/resources/img/myclass_on.png');
 		background-size: cover;
 		cursor: pointer;	
 	}
@@ -335,40 +335,11 @@
 			<div class="foll_member">
 				<div class="follo_list">
 					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
-						<div class="follo_id">hobi_0217</div>
-					</div>
-					<button class="follo_btn">팔로워</button>
-				</div>
-				<div class="follo_list">
-					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
 						<div class="follo_id">hobi_0216</div>
 					</div>
 					<button class="follo_btn">팔로워</button>
-				</div>
-				<div class="follo_list">
-					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
-						<div class="follo_id">hobi_0216</div>
-					</div>
-					<button class="follo_btn">팔로워</button>
-				</div>
-				<div class="follo_list">
-					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
-						<div class="follo_id">hobi_0216</div>
-					</div>
-					<button class="follo_btn">팔로워</button>
-				</div>
-				<div class="follo_list">
-					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
-						<div class="follo_id">hobi_0216</div>
-					</div>
-					<button class="follo_btn">팔로워</button>
-				</div>
-					
+				</div>								
 			</div>
 		</div>
 	</div>
@@ -383,28 +354,70 @@
 			<div class="foll_member">
 				<div class="follo_list">
 					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
 						<div class="follo_id">hobi_0218</div>
 					</div>
 					<button class="follow_btn">팔로잉</button>
 				</div>
 				<div class="follo_list">
 					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
 						<div class="follo_id">hobi_0218</div>
 					</div>
 					<button class="follow_btn">팔로잉</button>
 				</div>
 				<div class="follo_list">
 					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
 						<div class="follo_id">hobi_0218</div>
 					</div>
 					<button class="follow_btn">팔로잉</button>
 				</div>			
 				<div class="follo_list">
 					<div class="follo_id_wrap">
-						<img src="../showyourself/img/5.jpg" class="follo_img">	
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
+						<div class="follo_id">hobi_0218</div>
+					</div>
+					<button class="follow_btn">팔로잉</button>
+				</div>	
+				<div class="follo_list">
+					<div class="follo_id_wrap">
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
+						<div class="follo_id">hobi_0218</div>
+					</div>
+					<button class="follow_btn">팔로잉</button>
+				</div>	
+				<div class="follo_list">
+					<div class="follo_id_wrap">
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
+						<div class="follo_id">hobi_0218</div>
+					</div>
+					<button class="follow_btn">팔로잉</button>
+				</div>	
+				<div class="follo_list">
+					<div class="follo_id_wrap">
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
+						<div class="follo_id">hobi_0218</div>
+					</div>
+					<button class="follow_btn">팔로잉</button>
+				</div>	
+				<div class="follo_list">
+					<div class="follo_id_wrap">
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
+						<div class="follo_id">hobi_0218</div>
+					</div>
+					<button class="follow_btn">팔로잉</button>
+				</div>	
+				<div class="follo_list">
+					<div class="follo_id_wrap">
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
+						<div class="follo_id">hobi_0218</div>
+					</div>
+					<button class="follow_btn">팔로잉</button>
+				</div>	
+				<div class="follo_list">
+					<div class="follo_id_wrap">
+						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
 						<div class="follo_id">hobi_0218</div>
 					</div>
 					<button class="follow_btn">팔로잉</button>
@@ -420,7 +433,7 @@
 		
 		<div class="sns_header">
 			<div class="sns_img">
-				<img src="../img/3.jpg" class="sns_mem_img">
+				<img src="${path}/resources/img/mygallery.PNG" class="sns_mem_img">
 				<span style="margin: 5px 18px;">Show 작가</span>
 			</div>
 			<div class="sns_userinfo">				
@@ -432,7 +445,7 @@
 						<a href="#"><i class="fas fa-edit"></i></a>
 					</div>	 -->
 				</div>						
-				<div class="sns_intro sns_interval" style="display: flex;">안녕하세요 호비에요</div>				
+				<div class="sns_intro sns_interval" style="display: flex;">호비가 그린 그림</div>				
 				
 				<div class="sns_info">
 					<div class="sns_posting_num sns_title sns_interval">
@@ -455,28 +468,28 @@
 		<div class="sns_menu">
 			<div class="sns_menu_box">
 				<div class="sns_postinglist"></div>
-				<div class="sns_text">게시물</div>	
+				<a href="#"><div class="sns_text">게시물</div></a>				
 			</div>	
 			<div class="sns_menu_box">
 				<div class="sns_classlist"></div>					
-				<div class="sns_text">나의 클래스</div>			
+				<a href="#"><div class="sns_text">나의 클래스</div>	</a>				
 			</div>
 		</div>
 		
 		<div class="three_box" style="margin:0 auto;">
 			<div class="box_size">
 				<div class="wrap_box_img_size">
-					<img src="../img/3.jpg" class="box_img_size">
+					<img src="${path}/resources/img/hobiDrawing1.jpg" class="box_img_size">
 				</div>		
 			</div>
 			<div class="box_size">	
 				<div class="wrap_box_img_size">
-					<img src="../img/3.jpg" class="box_img_size">
+					<img src="${path}/resources/img/hobiDrawing2.jpg" class="box_img_size">
 				</div>		
 			</div>
 			<div class="box_size">	
 				<div class="wrap_box_img_size">
-					<img src="../img/3.jpg" class="box_img_size">
+					<img src="${path}/resources/img/hobiDrawing3.jpg" class="box_img_size">
 				</div>		
 			</div>
 		</div>

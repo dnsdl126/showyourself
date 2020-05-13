@@ -199,7 +199,7 @@
 
 				<div class="iconWrap">
 						<!-- profile_img -->
-							<div class="profile_img"></div>
+						<a href="${path}/yourself/board/mygallery"><div class="profile_img"></div></a>						
 						<!-- MyPage/Message/Logout img.button -->
 						<div class="header_btn">
 							<div class="btn_mypage">
