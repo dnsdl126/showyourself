@@ -16,4 +16,10 @@ public class BoardController {
 		
 		return "/yourself/board/boardwrite";
 	}
+	
+	@GetMapping("/mygallery")
+	public String mygalleryView() {
+		
+		return "/yourself/board/mygallery";
+	}
 }

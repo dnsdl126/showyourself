@@ -195,7 +195,8 @@
 					<div class="header_content_member">
 						<!-- profile_img -->
 						<div class="header_profile">
-							<div class="profile_img"></div>
+						<a href="${path}/yourself/board/mygallery"><div class="profile_img"></div></a>
+							
 						</div>
 						<!-- MyPage/Message/Logout img.button -->
 						<div class="header_btn">

@@ -23,4 +23,10 @@ public class ClassController {
 		log.info("CLASSUPDATE PAGE 출력");
 		return "/show/class/classupdate";
 	}
+	
+	
+	@GetMapping("/schedule")
+	public String scheduleView() {
+		return "/show/class/schedule";
+	}
 }
