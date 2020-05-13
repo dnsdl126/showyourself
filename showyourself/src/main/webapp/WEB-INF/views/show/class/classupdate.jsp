@@ -315,12 +315,12 @@
 				<div class="class-txt">위치정보<span class="text-danger">*</span></div>
 				
 					<div class="addr-wrap">
-						<input class="input-addrtxt" type="text" name="" placeholder="예)양화로 161">	
-						<button type="submit" class="addrBtn btn"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
+						<input class="input-addrtxt addr_only" id="sample6_postcode" type="text" readonly placeholder="우편번호">	
+						<button type="submit" class="addrBtn btn" id="btn_post" onclick="sample6_execDaumPostcode()"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
 					</div>
-						<input class="input-addrtxt addrbox" type="text" name="" placeholder="">
-						<input class="input-addrtxt addrView" type="text" name="" placeholder="상세주소를 입력해주세요">
-
+					<input class="input-addrtxt addrbox addr_only" id="sample6_address" type="text" readonly placeholder="">
+					<input class="input-addrtxt addrView" id="sample6_detailAddress" type="text" name="" placeholder="상세주소를 입력해주세요">
+					
 					<div id="map" style="width:913px; height:400px;"></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06"></script>
 					<script>
@@ -370,6 +370,41 @@
 		</div>
 	</div>
 </body>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = '';
+                var extraAddr = '';
+
+                if (data.userSelectedType === 'R') { 
+                    addr = data.roadAddress;
+                } else { 
+                    addr = data.jibunAddress;
+                }
+                if(data.userSelectedType === 'R'){
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	var options = { //지도를 생성할 때 필요한 기본 옵션
@@ -378,5 +413,18 @@
 };
 
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+</script>
+<script type="text/javascript">
+		$('.addr_only').click(function(){
+			// 사용자가 우편번호 또는 주소 input을 클릭했을 때!
+		$('#btn_post').click();
+		});
+
+		// 상세주소를 클릭하면
+		$('#sample6_detailAddress').click(function(){
+			var addrPost = $('#sample6_postcode').val();
+			if(addrPost == '' || addrPost.length == 0) {
+			}
+		});
 </script>
 </html>
