@@ -206,7 +206,7 @@
 						<!-- MyPage/Message/Logout img.button -->
 						<div class="header_btn">
 							<div class="btn_mypage">
-								<a href="#">
+								<a href="${path}/show/member/myclass">
 									<img class="img-icon" src="${path}/resources/img/icons8-imac-64.png">
 									<span>My Class</span>
 								</a>	
