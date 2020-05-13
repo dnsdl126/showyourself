@@ -32,7 +32,7 @@
 			width: 100%;
 			height: 352px;
 			overflow: hidden;
-			background: url('../img/banner19.png');
+			background: url('${path}/resources/img/banner19.png');
 			background-repeat: no-repeat;
   			background-size: auto;
   			margin-bottom: 40px;
