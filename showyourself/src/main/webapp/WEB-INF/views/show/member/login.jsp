@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+<%@ include file="../../include/header.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,32 +17,27 @@
     margin-top: 100px;
     border-radius: 8px;
     box-shadow:3px 3px 3px 3px #ccc;
-
-
-
 }
 
 .login_box {
+	display: flex;
+	flex-direction: column;
 	width: 492px;
-    height: 530px;
-    margin: auto;
-
- 	
 }
 
 
 
 /* Mirror */
 .login_box_logo {
-	width: 479px;
-	background: url(../../../webworkspace/team_pj/img/showyourself.png);
-	height:121px;
+	width: 400px;
+	height: 90px;
+	background: url('${path}/resources/img/showyourself.png');
 	background-size: cover;
 	margin: 25px auto;
 	
  }
 	
-	/*아이디, 비밀번호   */
+	/*아이디, 비밀번호*/
 .login_box_name {
 
 	margin-top: 20px;
@@ -104,6 +99,7 @@
      margin-top: 25px;
      margin-bottom: 5px;
      padding-left: 5px;
+     text-align: center;
      color: #757575;
      font-size: 15px;
      font-weight: normal;
@@ -121,6 +117,7 @@
  	justify-content: space-around;
     display: flex;
     margin-top: 25px;
+    margin-bottom: 25px;
  }
 
         .sns_list_enter {
@@ -176,43 +173,36 @@
          background-color: white;
          opacity: 0;
        }
-
-
-       div.btn1 {
-		  position: relative;
-	    background-color: #222222;
-	    width: 339px;
-	    height: 42px;
-	    border-radius: 5px;
-	    cursor: pointer;
-	    margin: 20px auto;
-	    margin-top: 25px;
-
-
-		}
-		button.btn2 {
-		  padding: 0;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    bottom: 0px;
-	    right: 0px;
-	    margin: 1px 0px 0px 1px;
-	    white-space: nowrap;
-	    background-color: white;
-	    color: black;
-	    width: 337px;
-	    height: 40px;
-	    border-radius: 4px;
-	    text-align: center;
-	    line-height: 42px;
-	    border-style: none;
-	    cursor: pointer;
-		}
-		div.btn1:hover {
-		  background-image: linear-gradient(-90deg, rgba(240,172,242),rgba(209,194,255), rgba(161,231,253)); 	
+		
+		.login_button_group{
+			margin: auto;
 		}
 
+		.login_button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 337px;
+			height: 42px;
+		    position: relative;
+		    border: 1.3px solid #d5d5d5;
+		    border-radius: 5px;
+		 	background: white;
+		    background-clip: padding-box;
+		    padding: 5px;
+		}
+
+		.login_button::after {
+		    position: absolute;
+		    top: -1px; bottom: -1px; left: -1px; right: -1px;
+		    background: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
+		    content: '';
+		    z-index: -1;
+		    border-radius: 5px;
+		}
+		.login_button:hover {
+			 border: 1px solid transparent;
+		}
 
 </style>
 
@@ -278,11 +268,9 @@
                                      
                 </div>
         </div>
-        <div class="btn1 login_button_box"> 
-	 		 <button class="btn2 login_button" > 로그인 </button>
-		</div>
-
-
+        <div class="login_button_group">
+	 		 <button class="login_button" > 로그인 </button>
+	 	</div>
 	</div>
 </div>
 </body>
