@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>SHOWYOURSELF header</title>
+	<title> SHOW YOURSELF </title>
 	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<script src="https://kit.fontawesome.com/3d124ab517.js" crossorigin="anonymous"></script>
 	<style type="text/css">
@@ -22,7 +22,7 @@
 		}
 		.header_wrap {
 			width: 100%;
-			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+			box-shadow: 0 0 5px 5px rgba(20,23,28,0.03), 0 3px 1px 0 rgba(20,23,28,0.03);
 			z-index: 999;
 		}
 		.header_content {
@@ -120,6 +120,10 @@
 		.header_content_search_btn:hover {
 			color: rgba(240,172,242);
 		}
+		.iconWrap {
+			display: flex;
+			align-items: center;
+		}
 		
 		.header_content_member {
 			display: flex;
@@ -142,22 +146,25 @@
 		    background-repeat: no-repeat;
 		    background-size: cover;
 		    border-radius: 50%;
-		    width: 45px;
-		    height: 45px;
+		    width: 40px;
+		    height: 40px;
+		    margin-right: 30px;
 		}
 		.header_profile {
 			padding-right: 30px;
 		}
 		.header_btn  {
 			display: flex;
-			font-weight: bold;
+			font-weight: 550;
+			font-size: 13px;
 			color: rgba(0,0,0,0.7);
-			padding-right: 30px;
+			margin-right: 30px;
 		}
 		.header_btn a {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			justify-content: center;
 		}
 		.btn_Signin {
 			padding-right: 30px;
@@ -191,13 +198,8 @@
 				</div>
 
 				<div class="iconWrap">
-					<!--  header_content_member -->
-					<div class="header_content_member">
 						<!-- profile_img -->
-						<div class="header_profile">
-						<a href="${path}/yourself/board/mygallery"><div class="profile_img"></div></a>
-							
-						</div>
+						<a href="${path}/yourself/board/mygallery"><div class="profile_img"></div></a>						
 						<!-- MyPage/Message/Logout img.button -->
 						<div class="header_btn">
 							<div class="btn_mypage">
@@ -207,7 +209,6 @@
 								</a>	
 							</div>
 						</div>
-					</div>
 
 
 						<!-- Signin/Login img.button -->
