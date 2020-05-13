@@ -140,6 +140,10 @@
 			justify-content: center;
 			align-items: center;
 		}
+		.bs {
+			margin-right: 15px;
+    		margin-left: 15px;
+		}
 	</style>
 </head>
 <body>

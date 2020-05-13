@@ -173,6 +173,10 @@
 			justify-content: center;
 			align-items: center;
 		}
+		.bs {
+			margin-right: 15px;
+    		margin-left: 15px;
+		}
 		.span_only {
 			color: tomato;
 			font-weight: bold;
@@ -258,10 +262,10 @@
 
 		<!-- Button area -->
 		<div class="button-area">
-			<div class="btn1"> 
+			<div class="btn1 bs"> 
 	 			 <button class="btn"> 취소 </button>
 			</div>
-			<div class="btn1"> 
+			<div class="btn1 bs"> 
 	 			 <button class="btn"> 확인 </button>
 			</div>
 		</div>
