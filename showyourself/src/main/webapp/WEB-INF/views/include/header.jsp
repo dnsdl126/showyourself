@@ -144,7 +144,7 @@
 
 		/* profile_img */
 		.profile_img {
-			background-image: url(${path}/resources/img/profile.png);
+			background-image: url('${path}/resources/img/profile.png');
 		    background-repeat: no-repeat;
 		    background-size: cover;
 		    border-radius: 50%;
@@ -218,7 +218,7 @@
 						<!-- Signin/Login img.button -->
 						<div class="header_btn">
 							<div class="btn_Signin">
-								<a href="#">
+								<a href="${path}/member/contract">
 									<img class="img-icon" src="${path}/resources/img/icons8-task-completed-64.png">
 									<span>Signin</span>
 								</a>

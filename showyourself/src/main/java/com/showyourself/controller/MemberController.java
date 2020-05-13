@@ -8,6 +8,14 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class MemberController {
 	
+	
+	
+	@GetMapping("/member/contract")
+	public String contractView() {
+		log.info("MEMBER/CONTRACT PAGE 출력");
+		return "member/contract";
+	}
+	
 	@GetMapping("/member/myclass")
 	public String myclassView() {
 		return "member/myclass";
