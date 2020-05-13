@@ -163,7 +163,7 @@
 		<div class="s_common_group">
 			<div class="s_titleNmore">
 				<div class="s_common_title" style="font-weight:600;"> <i class="fas fa-palette" style="padding-right:5px;"></i> 내 주변 오프라인  클래스 </div>
-				<a href="#" class="s_class_more"> 더보기 + </a>
+				<a href="${path}/show/class/classlist" class="s_class_more"> 더보기 + </a>
 			</div>
 			<div class=s_common_class_list_group>
 				<span class="s_left"><i class="fas fa-chevron-left"></i></span>
@@ -217,7 +217,7 @@
 			<div class="s_common_group">
 			<div class="s_titleNmore">	
 				<div class="s_common_title" style="font-weight:600;"> <i class="fas fa-highlighter" style="padding-right:5px;"></i> BEST 클래스 </div>
-				<a href="#" class="s_class_more"> 더보기 + </a>
+				<a href="${path}/show/class/classlist" class="s_class_more"> 더보기 + </a>
 			</div>
 			<div class=s_common_class_list_group>
 				<span class="s_left"><i class="fas fa-chevron-left"></i></span>
@@ -257,7 +257,7 @@
 		<div class="s_common_group">
 			<div class="s_titleNmore">	
 				<div class="s_common_title" style="font-weight:600;"> <i class="fas fa-heart" style="padding-right:5px;"></i> 신규 클래스 </div>
-				<a href="#" class="s_class_more"> 더보기 + </a>
+				<a href="${path}/show/class/classlist" class="s_class_more"> 더보기 + </a>
 			</div>
 			<div class=s_common_class_list_group>
 				<span class="s_left"><i class="fas fa-chevron-left"></i></span>
