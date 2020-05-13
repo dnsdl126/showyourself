@@ -132,6 +132,9 @@
 		.box_size:hover .box_img_size {
 			transform: scale(1.3);
 		}
+		.y_class_box_details {
+			text-align: center;
+		}
 
 	
 			/*모달창 start*/
@@ -464,54 +467,66 @@
 					<li><a id="l1" href="#">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/22.jpg"></div>
-							<div>인테리어</div>
-							<div>#하루 #하루하루해</div>
-							<div>하와이에서 하루!</div>
+							<div class="y_class_box_details">
+								<div>인테리어</div>
+								<div>#하루 #하루하루해</div>
+								<div>하와이에서 하루!</div>
+							</div>
 						</div>
 					</a></li>
 
 					<li><a id="l1" href="#">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/28.jpg"></div>
-							<div>인테리어</div>
-							<div>#푸크린 #핑크핑크해</div>
-							<div>사랑스러운 푸크린!</div>
+							<div class="y_class_box_details">
+								<div>인테리어</div>
+								<div>#하루 #하루하루해</div>
+								<div>하와이에서 하루!</div>
+							</div>
 						</div>
 					</a></li>
 
 					<li><a id="l2" href="#">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/13.jpg"></div>
-							<div>인테리어</div>
-							<div>#푸크린 #핑크핑크해</div>
-							<div>사랑스러운 푸크린!</div>
+							<div class="y_class_box_details">
+								<div>인테리어</div>
+								<div>#하루 #하루하루해</div>
+								<div>하와이에서 하루!</div>
+							</div>
 						</div></a>
 					</li>
 
 					<li><a id="l3" href="#">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/6.jpg"></div>
-							<div>인테리어</div>
-							<div>#푸크린 #핑크핑크해</div>
-							<div>사랑스러운 푸크린!</div>
+							<div class="y_class_box_details">
+								<div>인테리어</div>
+								<div>#하루 #하루하루해</div>
+								<div>하와이에서 하루!</div>
+							</div>
 						</div>
 					</a></li>
 
 					<li><a id="l3" href="#">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/18.jpg"></div>
-							<div>인테리어</div>
-							<div>#푸크린 #핑크핑크해</div>
-							<div>사랑스러운 푸크린!</div>
+							<div class="y_class_box_details">
+								<div>인테리어</div>
+								<div>#하루 #하루하루해</div>
+								<div>하와이에서 하루!</div>
+							</div>
 						</div>
 					</a></li>
 
 					<li><a id="l3" href="#">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/20.jpg"></div>
-							<div>인테리어</div>
-							<div>#푸크린 #핑크핑크해</div>
-							<div>사랑스러운 푸크린!</div>
+							<div class="y_class_box_details">
+								<div>인테리어</div>
+								<div>#하루 #하루하루해</div>
+								<div>하와이에서 하루!</div>
+							</div>
 						</div>
 					</a></li>
 
