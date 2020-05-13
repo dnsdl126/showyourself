@@ -227,7 +227,7 @@
 				</div>
 					<!-- input-chk -->
 					<div class="input-chk">
-						<input type="checkbox" class="chk" id="tremsService cons_chk1" " name="">
+						<input type="checkbox" class="chk tremsService" id="cons_chk1">
 							<label class="tremsService">이용약관 동의</label>
 							<span class="span_only">(필수)</span>
 					</div>
@@ -243,7 +243,7 @@
 					</div>
 						<!-- input-chk -->
 						<div class="input-chk2">
-							<input type="checkbox" class="chk" id="tremsService cons_chk2" name="">
+							<input type="checkbox" class="chk tremsService" id="cons_chk2">
 								<label class="tremsService">개인정보 수집 및 이용에 대한 안내</label>
 								<span class="span_only">(필수)</span>
 						</div>
@@ -260,7 +260,7 @@
 					</div>
 						<!-- input-chk -->
 						<div class="input-chk3">
-							<input type="checkbox" class="chk" id="tremsService cons_chk3" name="">
+							<input type="checkbox" class="chk tremsService" id="cons_chk3">
 							<label class="tremsService">위치정보 이용약관 동의</label>
 							<span class="span_only">(필수)</span>
 						</div>
@@ -296,18 +296,21 @@
 				var agree_two = $('#cons_chk2').is(':checked');
 				var agree_three = $('#cons_chk3').is(':checked');
 				
-				if(agree_one == false || agree_two == false || agress_three == false){
+				if(agree_one == false || agree_two == false || agree_three == false){
 					$('.cons_err_check').css('display','block');
 					return false;
 				}
 				
-				location.href = "${path}/member/join?useon=" + agree_one
+				location.href = "${path}/show/member/member?useon=" + agree_one
 														  +"&primaryon"+ agree_two
 													      +"&locon"+ agree_three
 														  +"&flag=1"; 
 			});
 		
-		
+
+			$('#cons_btn_cancel').on('click', function () {
+					location.href = '${path}/';	
+			});
 		
 		
 	});
