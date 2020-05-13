@@ -10,9 +10,8 @@
 <style type="text/css">
 .login_wrap {
 	width: 494px;
-    height: 686px;
+    height: 628px;
     padding: 8px;
-    
     margin: auto;
     margin-top: 100px;
     border-radius: 8px;
@@ -34,6 +33,7 @@
 	background: url('${path}/resources/img/showyourself.png');
 	background-size: cover;
 	margin: 25px auto;
+	margin-bottom: 0;
 	
  }
 	
@@ -176,6 +176,7 @@
 		
 		.login_button_group{
 			margin: auto;
+			margin-top: 10px;
 		}
 
 		.login_button {
@@ -210,9 +211,7 @@
 <div class="login_wrap">
 	<div class="login_box">
 		<!-- Mirror -->
-		<div class="login_box_logo">
-			
-		</div>
+		<div class="login_box_logo"></div>
 		<!-- 아이디 -->
 		<div class="login_box_id"> 
 			<div class="login_box_name"> 
@@ -251,18 +250,18 @@
                 <div class="sns_list">
                    <a class="sns_list_enter" href="https://www.facebook.com/login">
                       <span class="facebook" aria-label="페이스북으로 로그인">
-                         <img class="facebook_img" src="../../../webworkspace/team_pj/img/facebook.png ">
+                         <img class="facebook_img" src="${path}/resources/img/facebook.png ">
                       </span>
                    </a>
                    <a class="sns_list_enter" href="https://www.naver.com">
                       <span class="naver" aria-label="네이버로 로그인">
-                         <img class="naver_img" src="../../../webworkspace/team_pj/img/kakao.png">                    
+                         <img class="naver_img" src="${path}/resources/img/kakao.png">                    
                          
                       </span>
                    </a>
                    <a class="sns_list_enter" href="https://www.facebook.com/login">
                       <span class="kako" aria-label="카카오 로그인">
-                         <img class="kakao_img" src="../../../webworkspace/team_pj/img/naversm.png">
+                         <img class="kakao_img" src="${path}/resources/img/naversm.png">
                       </span>
                    </a>
                                      
