@@ -14,4 +14,8 @@ public class ClassController {
 	public String curriculum(){
 		return "/show/class/curriculum";
 	}
+	@GetMapping("/classlist")
+	public String viewClassList(){
+		return "/show/class/classlist";
+	}
 }
