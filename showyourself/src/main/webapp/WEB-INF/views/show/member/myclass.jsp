@@ -16,6 +16,7 @@
 	}
 	.myclass_icontxt_wrap{
 		margin-bottom: 10px;
+		display:flex;
 	}
 	.myclass_icontxt_wrap > span{
 		height: 60px;
@@ -23,7 +24,9 @@
 		margin-right: 10px;
 		
 	}
-	
+	.myclass_icon{
+		float:left;
+	}
 	.myclass_content{
 		margin-bottom: 50px;		
 	}
@@ -100,8 +103,8 @@
 <body>
 	<div class="myclass_tot_wrap">
 		<div class="myclass_icontxt_wrap">
-			<span class="myclass_icon"><img src ="${path}/resources/img/my_class_on.png" style = "width:25px; height:25px; vertical-allign:center;"/></span>
-			<span class="myclass_icon">나의클래스</span>
+			<div class="myclass_icon"><img src ="${path}/resources/img/my_class_on.png" style = "width:35px; height:35px;"/></div>
+			<div class="myclass_icon" style ="font-size:28px;">나의클래스</div>
 			
 		</div>
 		<div class="myclass_content_wrap">
