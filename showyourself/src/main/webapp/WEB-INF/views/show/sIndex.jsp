@@ -16,7 +16,12 @@
 		font-size: 14px;
 		color: rgba(0,0,0,0.7);		
 		}
-
+		
+		.s_index_banner > img {
+			width: 100%;
+			margin-bottom: 40px;
+  			z-index: 1;
+		}
 
 		.s_index_wrap{
 			display: flex;
@@ -28,16 +33,7 @@
 			flex-direction: column;
 			align-items: center;
 		}	
-		.s_index_banner {
-			width: 100%;
-			height: 352px;
-			overflow: hidden;
-			background: url('${path}/resources/img/banner19.png');
-			background-repeat: no-repeat;
-  			background-size: auto;
-  			margin-bottom: 40px;
-  			z-index: 1;
-		}
+
 		.s_common_group {
 			width: 100%;
 			height: 440px;
@@ -159,8 +155,8 @@
 	</style>
 </head>
 <body>
+	<div class="s_index_banner"><img src="${path}/resources/img/banner123.png"></div>
 	<div class="s_index_wrap">
-		<div class="s_index_banner"></div>
 		<div class="s_common_group">
 			<div class="s_titleNmore">
 				<div class="s_common_title" style="font-weight:600;"> <i class="fas fa-palette" style="padding-right:5px;"></i> 내 주변 오프라인  클래스 </div>
