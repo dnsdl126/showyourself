@@ -35,4 +35,12 @@ public class HomeController {
 		return "/yourself/index";
 	}
 	
+	
+	@GetMapping("/intro")
+	public String viewMainIndex(Locale locale, Model model) {
+		log.info(">>>>>>showyourself MAIN 페이지 출력");
+		
+		return "/intro";
+	}
+	
 }
