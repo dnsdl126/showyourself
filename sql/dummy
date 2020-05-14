@@ -1,9 +1,10 @@
+-- 회원 테이블 
 DROP TABLE tbl_member;
 CREATE TABLE tbl_member(
  mno NUMBER PRIMARY KEY, --회원번호
  id VARCHAR2(100) NOT NULL, -- 아이디
  pw VARCHAR2(100) NOT NULL, -- 비밀번호
- upw VARCHAR2(300) NOT NULL,-- 비밀번호 재확인 
+ checkpw VARCHAR2(300) NOT NULL,-- 비밀번호 재확인 
  email VARCHAR2(500) NOT NULL, -- 이메일
  name VARCHAR2(500) NOT NULL, -- 이름
  phone VARCHAR2(700) NOT NULL, -- 연락처
