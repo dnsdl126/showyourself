@@ -28,7 +28,7 @@
 			font-size: 18px;
 			cursor: pointer;
 		}
-		button.follo_btn{
+		button.follo_delect_btn{
 			border: 1px solid #A1E7FD;
 			background-color: white;
 		    font-size: 12px;
@@ -230,9 +230,11 @@
 	.s_btn i{
 		cursor: pointer;
 		color: #d5d5d5;
+		font-size:21px;
 	}
 	.s_btn:hover i{
 		color: #2d3436;
+		font-size:21px;
 	}
 	.sns_write{
 		margin-top: 3px;
@@ -319,8 +321,19 @@
 	.sns_text{
 		text-align: center;
 		margin-top: 5px;
+		margin-left:8px;
 	}
-
+	.sns_two_btn{
+		margin-right: 7px;
+    	width: 130px;
+    	display: flex;	
+	}
+	.sns_twobutton{
+		display: flex;
+    	justify-content: center;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -329,7 +342,7 @@
 		<div class="follw_content">
 			<div class="foll_modal_header">
 				<div class="follo_modal_title">팔 로 워</div>
-				<button class="follo_modal_x"><i class="fas fa-times"></i></button> 
+				<button  class="follo_modal_x"><i class="fas fa-times"></i></button> 
 			</div>
 
 			<div class="foll_member">
@@ -338,7 +351,7 @@
 						<img src="${path}/resources/img/follow.jpg" class="follo_img">	
 						<div class="follo_id">hobi_0216</div>
 					</div>
-					<button class="follo_btn">팔로워</button>
+					<button type="button" class="follo_delect_btn">삭제</button>
 				</div>								
 			</div>
 		</div>
@@ -439,16 +452,12 @@
 			<div class="sns_userinfo">				
 				<div class="sns_user_setting sns_interval">
 					<div class="sns_userid">showyourself</div>
-					<div class="s_btn sns_user_icon"><a href="#"><i class="fas fa-cog" style="margin: 5px;"></i></a></div> 
-					<div class="s_btn sns_message"><a href="#"><i class="fas fa-paper-plane" style="margin: 5px 0;"></i></a> </div>
-					<!-- <div class="s_btn sns_write">
-						<a href="#"><i class="fas fa-edit"></i></a>
-					</div>	 -->
+					<div class="s_btn sns_user_icon"><a href="#"><i class="fas fa-cog" style="margin: 5px;"></i></a></div>  
 				</div>						
 				<div class="sns_intro sns_interval" style="display: flex;">호비가 그린 그림</div>				
 				
 				<div class="sns_info">
-					<div class="sns_posting_num sns_title sns_interval">
+					<div class="sns_posting_num sns_title sns_interval"">
 						<div>게시물: </div>
 						<div class="sns_infonum">134</div>
 					</div>
@@ -463,12 +472,15 @@
 					</div>			
 			</div>			
 		</div>
-			
+		<div class="sns_twobutton">
+			<button type="button" class="btn sns_two_btn" id="sns_foll_btn">팔로우</button>
+			<button type="button" class="btn sns_two_btn" id="sns_foll_btn">메세지or글쓰기</button>
+		</div>
 		<div class="sns_line"></div>			
 		<div class="sns_menu">
 			<div class="sns_menu_box">
 				<div class="sns_postinglist"></div>
-				<a href="#"><div class="sns_text">게시물</div></a>				
+				<a href="#"><div class="sns_text"  style="margin-left:17px;">게시물</div></a>				
 			</div>	
 			<div class="sns_menu_box">
 				<div class="sns_classlist"></div>					
