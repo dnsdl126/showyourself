@@ -296,14 +296,22 @@
 				var agree_two = $('#cons_chk2').is(':checked');
 				var agree_three = $('#cons_chk3').is(':checked');
 				
+				console.log('동의1'+agree_one);
+				console.log('동의2'+agree_two);
+				console.log('동의3'+agree_three);
+				
+				alert('성공');
 				if(agree_one == false || agree_two == false || agree_three == false){
 					$('.cons_err_check').css('display','block');
 					return false;
 				}
 				
+				
+		
+				
 				location.href = "${path}/show/member/member?useon=" + agree_one
-														  +"&primaryon"+ agree_two
-													      +"&locon"+ agree_three
+														  +"&primaryon="+ agree_two
+													      +"&locon="+ agree_three
 														  +"&flag=1"; 
 			});
 		
