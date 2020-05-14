@@ -92,8 +92,14 @@
 			display: flex;
 			align-items: center;
 			border: 1px solid rgba(20,23,28,.1);
-			border-radius: 4px;
-			margin-top: 14px;
+			margin-top: 15px;
+			
+		}
+		.header_content_search_group:hover {
+			border: 1px solid rgba(20,23,28,.1);
+			border-style: solid;
+			border-image: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
+			border-image-slice: 1;
 		}
 		.header_content_search_input {
 			background-color: transparent;
@@ -103,7 +109,6 @@
 			margin-bottom: -2px;
 			font-size: 13px;
 			border-radius: 2px;
-			border-right: 1px solid #d5d5d5;
 			padding: 10px 12px;
 			outline: none; /* input 태그 focus시 파란테두리*/
 		}

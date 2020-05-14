@@ -216,7 +216,7 @@
 			display: flex;
 		}
 		.imgUpBtn {
-			margin-right: 5px;
+			margin-right: 10px;
 		}
 
 		.board-txt {
@@ -302,6 +302,17 @@
 							<option value="">상급</option>
 						</select>
 					</div>
+					
+				<div class="class-txt">대표사진 등록<span class="text-danger">*</span></div>
+					<div class="imgArea">
+						<button type="submit" class="imgUpBtn btn">사진 등록</button>
+						<button type="submit" class="imgDelBtn btn">전체 삭제</button>
+					</div>
+				<div class="imgBoard">
+					<div class="board-txt">
+						<img class="imgCamera" src="${path}/resources/img/icons8-compact-camera-64.png">
+					</div>
+				</div>
 
 				<div class="class-txt">클래스 소개 입력<span class="text-danger">*</span></div>
 				<textarea class="inputBox" placeholder="클래스 소개를 자세히 입력해주세요"></textarea>
@@ -338,16 +349,6 @@
 					<div class="inputgroup">
 						<div class="class-txt">클래스 정가<span class="text-danger">*</span></div>
 						<input class="input-pricetxt" type="text" name="" placeholder="금액입력(원)">
-					</div>
-				</div>
-				<div class="class-txt">대표사진 등록<span class="text-danger">*</span></div>
-					<div class="imgArea">
-						<button type="submit" class="imgUpBtn btn">사진 등록</button>
-						<button type="submit" class="imgDelBtn btn">전체 삭제</button>
-					</div>
-				<div class="imgBoard">
-					<div class="board-txt">
-						<img class="imgCamera" src="${path}/resources/img/icons8-compact-camera-64.png">
 					</div>
 				</div>
 			</div>
