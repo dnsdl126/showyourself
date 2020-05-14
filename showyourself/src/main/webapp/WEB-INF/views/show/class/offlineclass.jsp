@@ -114,6 +114,8 @@ height: 80px;
 	.off_pdt_content{
 		width: 390px;
 		height: 801px;
+		position:fixed;
+		right:485px;
 		
 		padding: 15px;
 	}
@@ -346,7 +348,16 @@ height: 80px;
     margin: 0 auto;
     margin-top: 10px;
 		}
-  
+.confirm{
+
+}
+.confirm > div {
+	margin:20px 0;
+	padding : 0 30px;
+}
+#offlineclass_curriculum{
+	display: flex;
+}
 </style>
 <body>
 	<div class="offline_pdt_wrap">
@@ -408,6 +419,33 @@ height: 80px;
 		    		<button class="buy_box "> 클래스 후기 </button>
 		       </div> 
 				<div class="gradient-bar"></div>
+				<div class="confirm">
+					<div id="offlineclass_title">안녕하세요.<br>leehansss 입니다.<br>제가 진행할 금손 클래스는...</div>
+					✔ 수업 소개
+					<div id="offlineclass_content"><br>와이어아트는 크게 평면작품과 입체 작품으로 나뉘며<br>작업 사이즈는 통상 A4사이즈로 진행이 됩니다.<br>소요 시간은 통상 2시간 가량이며<br><br>동물, 인체, 사물 등 매우 자유로운 주제로<br>
+						<br>작품진행이 가능하며 수업 당일날 제작하고<br>싶으신 이미지를 휴대폰에 가져오시면 됩니다.<br>(완성된 도안보다는 사진 이미지를 권해드립니다.)<br><br>*와이어로 제작이 된 작품에 오일파스텔을 이용하여 포인트 컬러링 하는
+						<br>과정을 추가하였습니다. 제작한 작품이 다소 심심하다 느껴지신다면<br><br>오일파스텔을 이용하여 포인트 되는 부분에 색을 입혀도 좋습니다.*<br>미술을 전공하지 않아도 누구나 스타일이 있고 개성이라는게 있습니다.
+						<br>제가 주체가 되어 저의 방식을 강요하기 보다는 수강생분 본인의 개성이 묻어나는<br>작품을 만드는 것을 추구하는 클래스입니다.<br>어려워 하시는 부분은 세세하게 알려드리니 걱정하지 않으셔도 됩니다 :)
+					</div>
+					✔ 커리큘럼
+					<div id="offlineclass_curriculum">
+						
+						<div class="offlineclass_curriculum_img" id="offlineclass_curriculum_img"> <img src="${path}/resources/img/잠만보.png" style= "width:100px;"></img></div>
+						<div class="offlineclass_curriculum_content" id="offlineclass_curriculum_content">1. 신청후에 그리고 싶은 이미지를 클래스1일전까지 보내주세요</div>	
+					</div>
+					✔ 위치
+					<div id="offlineclass_map" style="width:700px; height:400px; margin : 0 auto;"></div>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06"></script>
+					<script>
+					var container = document.getElementById('offlineclass_map');
+					var options = {
+						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						level: 3
+					};
+			
+					var map = new kakao.maps.Map(container, options);
+					</script>
+				</div>
             </div>
 			<div class="off_pdt_content">
 				 <div class="off_pdt_title"> 
@@ -509,6 +547,7 @@ height: 80px;
 		</div>
 		
 	</div>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
    <script src="${path}/resources/slick/slick.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
@@ -568,7 +607,14 @@ height: 80px;
 	});
       
  });
+   
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+	center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+	level: 3 //지도의 레벨(확대, 축소 정도)
+};
 
+	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 </script>
+
 </body>
 </html>
