@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../../include/header.jsp" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -156,6 +157,7 @@
 </head>
 <body>
 	<div class="wrap">
+	<form:form id="frm_member">
 		<!-- Member -->
 		<div class="subject">
 			<img class="Member-logo" src="${path}/resources/img/memberjoin.png">
@@ -179,7 +181,7 @@
 
 					<!-- 프로필 소개란-->
 					<div class="profile-write-area">
-						<input class="profile-write" type="text" name="profile" placeholder="프로필을 입력해주세요">
+						<input class="profile-write" type="text" name="procoment" placeholder="프로필을 입력해주세요">
 					</div>
 				</div>	
 			</div>
@@ -239,7 +241,7 @@
 					<div class="memberPhon input-group">
 						<label class="commonlabel">휴대폰번호</label>
 						<div class="input-wrap">
-							<input  class="input-box"type="tel" name="phon">
+							<input  class="input-box"type="tel" name="phone">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -249,11 +251,11 @@
 						<div class="input-wrap">		
 							<div class="addr-group">
 								<div class="postcode">
-									<input class="input-postcode" type="text" id="sample6_postcode" class="int addr_only" placeholder="우편번호" readonly value="1234">
+									<input class="input-postcode" type="text" id="sample6_postcode" class="int addr_only" placeholder="우편번호" name="postcode" >
 										<input class="btn-input" type="button" id=btn_post onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 								</div>
-									<input class="input-box" type="text" id="sample6_address" class="int addr_only" placeholder="주소" readonly value="광주광역시 북구 중흥동">
-									<input  class="input-box"type="text" id="sample6_detailAddress" class="int" placeholder="상세주소">
+									<input class="input-box" type="text" id="sample6_address" name="addr1" class="int addr_only" placeholder="주소" >
+									<input  class="input-box"type="text" id="sample6_detailAddress" name="addr2"  class="int" placeholder="상세주소">
 							</div>
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
@@ -290,7 +292,9 @@
 	 			 <button class="btn"> 확인 </button>
 			</div>
 		</div>
+			</form:form>
 	</div>
+
 </body>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
