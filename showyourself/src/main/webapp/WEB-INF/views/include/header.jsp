@@ -169,6 +169,9 @@
 		.btn_Signin {
 			padding-right: 30px;
 		}
+		.btn_Message {
+			padding-right: 30px;
+		}
 		.header_btn a:hover {
 			color: rgba(240,172,242);
 		}
@@ -202,6 +205,12 @@
 						<a href="${path}/yourself/board/mygallery"><div class="profile_img"></div></a>						
 						<!-- MyPage/Message/Logout img.button -->
 						<div class="header_btn">
+							<div class="btn_Message">
+								<a href="#">
+									<img class="img-icon" src="${path}/resources/img/icons8-envelope-64.png">
+									<span>Message</span>
+								</a>
+							</div>
 							<div class="btn_mypage">
 								<a href="${path}/show/member/myclass">
 									<img class="img-icon" src="${path}/resources/img/icons8-imac-64.png">

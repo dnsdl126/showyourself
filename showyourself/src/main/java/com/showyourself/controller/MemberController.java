@@ -61,6 +61,11 @@ public class MemberController {
 		log.info("Login PAGE 출력");
 		return "/show/member/login";
 	}
-	
+	// 메세지페이지
+	@GetMapping("/message")
+	public String messageView() {
+		log.info("MESSAGE PAGE 출력");
+		return "/show/member/message";
+	}
 	
 }
