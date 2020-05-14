@@ -36,7 +36,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/intro")
+	@GetMapping("/")
 	public String viewMainIndex(Locale locale, Model model) {
 		log.info(">>>>>>showyourself MAIN 페이지 출력");
 		
