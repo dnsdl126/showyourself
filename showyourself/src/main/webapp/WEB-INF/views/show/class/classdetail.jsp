@@ -73,6 +73,7 @@
 		}
 		.allclass_onlinebtnwrap{
 			margin: 2px 0 0 11px;
+			cursor: pointer;
 		}
 		.allclass_onlinetitle{
 			margin-left: 3px;
@@ -174,7 +175,7 @@
 						<div class="allclass_oltitle_txt">무민 봉제 인형 클래스</div>
 					</div>
 					<div class="allclass_onlinebtnwrap">
-						<button type="button" class="allclass_onlinebtn">이어서 학습</button>
+						<button type="button btn" class="allclass_onlinebtn">이어서 학습</button>
 					</div>
 				</div>		
 			</div>

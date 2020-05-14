@@ -116,7 +116,7 @@
 							<div class="myclass_profile_name font_title myclass_profile_name_css">조운이</div>
 							<div class="myclass_profile_id myclass_profile_name_css">아이디 : 조운이@조운이.조운이</div>
 							<div class="myclass_profile_lecture myclass_profile_name_css">수강중인 강의 : x건 </div>
-							<button class="btn myclass_profile_name_css">내 모든강의</button>
+							<button class="btn myclass_profile_name_css"><a href="${path}/show/class/classdetail"> 내 모든강의</a> </button>
 						</div>
 					</div>
 				</div>
@@ -132,7 +132,8 @@
 							<div class="myclass_blecture_title font_title" style="margin-bottom: 5px;">잠만보 만들기</div>
 							<div class="myclass_profile_id myclass_profile_name_css hidden">글</div>
 							<div class="myclass_profile_lecture myclass_profile_name_css hidden">글</div>
-							<button class="btn">이어서 학습</button>
+							<button class="btn" >이어서 학습</button>
+							
 						</div> 
 					</div>
 

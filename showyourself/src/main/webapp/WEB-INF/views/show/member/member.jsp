@@ -187,7 +187,7 @@
 			<!-- contents-box-->
 			<div class="contents-box">
 				<div class="contents-container">
-					<div class="memberCheck input-group">
+				<!-- 	<div class="memberCheck input-group">
 						<label class="commonlabel">회원 구분</label>
 						<div class="checkGroup">
 							<input type="checkbox" id="cbox"><label>사업자</label>
@@ -195,7 +195,7 @@
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
-
+ -->
 					<div class="memberId input-group">
 						<label class="commonlabel">아이디</label>
 						<div class="input-wrap">
@@ -259,7 +259,7 @@
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
 
-					<div class="memberBNumber input-group">
+					<!-- <div class="memberBNumber input-group">
 						<label class="commonlabel">사업자번호</label>
 						<div class="input-wrap">
 							<input class="input-box" type="text" name="bnumber">
@@ -273,7 +273,7 @@
 							<input  class="input-box" type="text" name="monumber">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
-					</div>
+					</div> -->
 				</div>
 			</div>	
 		</div>

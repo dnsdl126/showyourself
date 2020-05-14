@@ -243,7 +243,7 @@
 		</div>
 		<!-- 회원가입 이동 -->
 		<div class="login_join_box" style="margin-top: 15px;"> 
-			<a href="${path}/member/contract" class="login_join_box_search"> 회원가입</a>후 다양한 혜택을 즐겨 보세요
+			<a href="${path}/show/member/contract" class="login_join_box_search"> 회원가입</a>후 다양한 혜택을 즐겨 보세요
 		</div>
 		<!-- 간편로그인 -->
 		<div class="SNS">

@@ -30,8 +30,21 @@ public class ClassController {
 		return "/show/class/schedule";
 	}
 	
+	// 오프라인 클래스 상세 페이지 
 	@GetMapping("/offlineclass")
 	public String offlineclass () {
 		return "/show/class/offlineclass";
 	}
+	
+	// 온라인 클래스 상세 페이지 
+		@GetMapping("/onlineclass")
+		public String onlineclass () {
+			return "/show/class/onlineclass";
+		}
+		
+	// 내 모든 강의 리스트 페이지
+		@GetMapping("/classdetail")
+		public String classdetail () {
+			return "/show/class/classdetail";
+		}
 }
