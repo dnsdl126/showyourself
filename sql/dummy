@@ -1,0 +1,27 @@
+-- 회원테이블 
+
+DROP TABLE tbl_member;
+CREATE TABLE tbl_member(
+ mno NUMBER PRIMARY KEY, --회원번호
+ id VARCHAR2(100) NOT NULL, -- 아이디
+ pw VARCHAR2(100) NOT NULL, -- 비밀번호
+ upw VARCHAR2(300) NOT NULL,-- 비밀번호 재확인 
+ email VARCHAR2(500) NOT NULL, -- 이메일
+ name VARCHAR2(500) NOT NULL, -- 이름
+ phone VARCHAR2(700) NOT NULL, -- 연락처
+ postcode VARCHAR2(30) NOT NULL, -- 우편번호
+ addr1 VARCHAR2(300) NOT NULL, -- 주소
+ addr2 VARCHAR2(300) NOT NULL, -- 상세 주소
+ useon VARCHAR2(20) DEFAULT 'false', -- 정보동의 1
+ primaryon VARCHAR2(20)  DEFAULT 'false', -- 정보동의 2
+ locon VARCHAR2(20) DEFAULT 'false', -- 정보동의 
+ regdate DATE DEFAULT SYSDATE,
+ seller VARCHAR2(20) DEFAULT 'N' -- 작가여부
+	   
+);
+
+DROP SEQUENCE seq_member;
+CREATE SEQUENCE seq_member
+  start WITH 1
+  INCREMENT BY 1
+  NOCYCLE;
