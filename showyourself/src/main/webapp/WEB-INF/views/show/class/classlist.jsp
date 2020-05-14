@@ -21,11 +21,11 @@
 		.s_list_category_group {
 			width: 100%;
 			height: 65px;
-			padding-top: 10px;
+			padding-top: 0px;
+    		margin-top: 10px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			
 		}
 		.s_category_buttons {
 			display: flex;
@@ -146,6 +146,14 @@
 		.box_size:hover .box_img_size {
 			transform: scale(1.3);
 		}
+		.wrap_class_detail {
+			width: 100%;
+			padding: 2px 10px 10px 10px;
+		}
+		.wrap_class_detail > div {
+			text-align : center;
+			padding: 0 0 5px 0;
+		}
 
 	</style>
 </head>
@@ -215,31 +223,39 @@
 			<ul class="common_class_list">
 						<li><a href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner1.jpg"></div>
-							<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
-							<div style="padding:5px; font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
-							<div>130,000원</div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner13.jpg"></div>
+							<div class="wrap_class_detail">
+								<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
+								<div style="font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
+								<div>130,000원</div>
+							</div>
 						</div></a></li>
 						<li><a href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner3.jpg"></div>
-							<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
-							<div style="padding:5px; font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
-							<div>130,000원</div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner14.jpg"></div>
+							<div class="wrap_class_detail">
+								<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
+								<div style="font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
+								<div>130,000원</div>
+							</div>
 						</div></a></li>
 						<li><a href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner2.jpg"></div>
-							<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
-							<div style="padding:5px; font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
-							<div>130,000원</div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner15.jpg"></div>
+							<div class="wrap_class_detail">
+								<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
+								<div style="font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
+								<div>130,000원</div>
+							</div>
 						</div></a></li>
 						<li><a href="#">
 						<div class="box_size">
-							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner4.jpg"></div>
-							<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
-							<div style="padding:5px; font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
-							<div>130,000원</div>
+							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner17.jpg"></div>
+							<div class="wrap_class_detail">
+								<div><i class="fas fa-map-marker-alt"></i><span style="margin-right: 5px;"> 광주 광산구</span><span style="font-size: 12px;">인테리어</span></div>
+								<div style="font-weight: 600;">나무위에 새겨지는 따스함, 우드카빙 클래스</div>
+								<div>130,000원</div>
+							</div>
 						</div></a></li>
 					</ul>
 		</div>
