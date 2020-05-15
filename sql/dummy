@@ -48,3 +48,20 @@ CREATE TABLE tbl_product(
     tag VARCHAR2(100) NOT NULL,          -- 태그
     regdate DATE DEFAULT SYSDATE
 );
+
+
+--상품첨부파일등록테이블
+DROP TABLE tbl_mainpic CASCADE CONRTRAINTS;
+CREATE TABLE tbl_mainpic(
+    fullname VARCHAR2(150) NOT NULL,      -- 대표사진
+    bno NUMBER NOT NULL,
+    regdate DATE DEFAULT SYSDATE    
+);
+
+ALTER TABLE tbl_mainpic ADD CONSTRAINT pk_mainpic
+PRIMARY KEY(fullname);
+
+ALTER TABLE tbl_mainpic
+ADD CONSTRAINT fk_mainpic_bno
+FOREIGN KEY(bno) REFERENCES tbl_product(pno)
+ON DELETE CASCADE;

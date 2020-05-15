@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">	
 	<style type="text/css">
 		 * {box-sizing: border-box;}
@@ -18,25 +19,34 @@
 		a { text-decoration: none; cursor: pointer; color: inherit;}
 		.footer_wrap {
 			width: 100%;
-			
+			background-color: #fff;
 			box-shadow:3px 0 0 0 #d5d5d5;
 			z-index: 999;
+			border-top: 1px solid #d5d5d5;
+   			padding-top: 20px;
 		}
 		.footer_event_wrap{
-			box-shadow:3px 3px 0 0 #d5d5d5;
+			box-shadow: 0 0 5px 5px rgba(20,23,28,0.03), 0 3px 1px 0 rgba(20,23,28,0.03);
 		}
 		.footer_title_wrap{
-			width: 100%;
-			
+			width: 100%;		
 			box-shadow:1px 1px 0 0 #d5d5d5;
 			z-index: 999;	
 		}
+		.gradient-bar {
+			box-sizing: border-box;
+			display: inline-block;
+		    width: 100%;
+			border-style: solid;
+			border-image: linear-gradient(to right, #A1E7FD 0%, #D1C2FF 50%, #F0ACF2 100%);
+			border-image-slice: 1;
+		}
 		.footer_title {
 			width: 1200px;
-			height: 30px;
-			margin: 8px auto 0;
+			height: 35px;
+			margin: 0 auto;
+			margin-top: 10px;
 			box-sizing: border-box;
-			
 			display: flex;
 			justify-content: center;
 			
@@ -45,9 +55,8 @@
 		.footer_content {
 			width: 1200px;
 			height: 170px;
-			margin: 40px auto 0;
+			margin: 0 auto;
 			box-sizing: border-box;
-			
 			display: flex;
 			justify-content: space-between;
 			
@@ -65,17 +74,17 @@
 		    height: 34px;
 		    border-radius: 100%;
 		    background: #bdbdbd;
-		    text-align: center;
-		    line-height: 34px;		    
+		    text-align: center;	    
 		}
 		.footer_bottom_right a i {
 			display: inline-block;
 		    font-size: 18px;
 		    vertical-align: center;
-		    color: #333;		    
+		    color: #333;		  
+		    padding-top: 7px;
+		      
     	}
     	.footer_bottom_right a i.text {
-    		font-size: 22px;
     		font-weight: 700;
     		font-style: normal;
     	}
@@ -104,7 +113,7 @@
 		.apply_wrapper {
 			display: flex;
 		    padding: 13px 0;
-		    max-width: 1200px;
+		    width: 1200px;
 		    margin: 0 auto;
 		    justify-content: center;
 		    align-items: center;
@@ -148,6 +157,11 @@
 			 border: 1px solid transparent;
 			 cursor: pointer;
 		}
+		.footer_txt {
+			font: 16px bold;
+		    color: #ff5862;
+		    font-weight: bold;
+		}
 	</style>
 </head>
 
@@ -168,11 +182,13 @@
 			</div>
 		</div>
 	</div>
+	<!-- gradient-bar -->
+	<div class="gradient-bar"></div>
 	<div class="footer_title_wrap">
 		<div class="footer_title">
 				<a href="#">이용약관</a>
 				<div>|</div>
-				<a href="#" style="font :16px bold">개인정보처리방침</a>
+				<a href="#" class="footer_txt">개인정보처리방침</a>
 				<div>|</div>
 				<a href="#">공지사항</a>
 				<div>|</div>
@@ -190,7 +206,7 @@
 	<div class="footer_wrap">
 		
 		<div class="footer_content">
-			<div class="footer_content_div"><img src="../img/잠만보.png" style="width: 128px"></div>
+			<div class="footer_content_div"><img src="${path}/resources/img/moomin.png" style="width: 128px"></div>
 			<div class="footer_content_div">
 				<div>showyourself</div>
 				<div class="linechange"></div>

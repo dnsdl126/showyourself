@@ -7,6 +7,7 @@
 	<meta charset="utf-8">
 	<title> SHOW YOURSELF </title>
 	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
+	<link rel="icon" type="image/png" href="${path}/resources/img/icons8-ruby64.png">
 	<script src="https://kit.fontawesome.com/3d124ab517.js" crossorigin="anonymous"></script>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');

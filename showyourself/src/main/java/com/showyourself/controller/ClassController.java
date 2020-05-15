@@ -31,7 +31,7 @@ public class ClassController {
 	}
 	
 	// 오프라인 클래스 상세 페이지 
-	@GetMapping("/offlineclass")
+//	@GetMapping("/offlineclass")
 	public String offlineclass () {
 		return "/show/class/offlineclass";
 	}
