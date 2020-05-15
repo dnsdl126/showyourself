@@ -159,7 +159,33 @@
 			margin-right: 10px;
 		}
 
-
+		.top_btn {
+			bottom: 25px;
+			background-color: #D1C2FF;
+			display: none;
+		}
+		.fix_btn {
+			right: 20px;
+		}
+		.fix_btn {
+			position: fixed;
+			color: white;
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 30px;
+			cursor: pointer;
+			box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,.19);
+		}
+		.fix_btn > i {
+			transition: transform .3s;
+		}
+		.fix_btn:hover > i {
+			transform: scale(1.3);
+		}
 	</style>
 </head>
 <body>
@@ -324,5 +350,23 @@
 			</div>
 		</div>
 	</div>
+	<div class="top_btn fix_btn"><i class="fas fa-arrow-up"></i></div>
 </body>
+<%@ include file="../include/footer.jsp" %>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	// Scroll TOP버튼 생성 및 TOP으로 이동
+	$(window).scroll(function(){ //스크롤이 움직이면
+		if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
+			$('.top_btn').fadeIn().css("display","flex"); 
+			// fadeIn은 잔상효과처럼 Top버튼이 나오는 것
+		} else {
+			$('.top_btn').fadeOut();
+		}
+	});
+	$('.top_btn').click(function(){
+		// Top버튼을 클릭했을때 이 동작을 하게끔 만드는 것
+		$('html, body').animate({scrollTop : 0}, 800);
+	});
+</script>
 </html>

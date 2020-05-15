@@ -19,6 +19,8 @@
 	<script src='${path}/resources/fullcalendar-4.4.0/packages/interaction/main.js'></script>
 	<script src='${path}/resources/fullcalendar-4.4.0/packages/daygrid/main.js'></script>
 	<script src='${path}/resources/fullcalendar-4.4.0/packages/core/locales/ko.js'></script>
+	<script src='${path}/resources/fullcalendar-4.4.0/packages/moment/main.js'></script>
+	
 </head>
 <script>
 
@@ -27,29 +29,37 @@
     var calendarEl = document.getElementById('calendar');
 
    var calendar = new FullCalendar.Calendar(calendarEl, {
-      contentHeight: 310,
-     
-      plugins: [ 'interaction', 'dayGrid' ],
-      selectable: true,
-     
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
-      eventColor: "blue",      
-      eventBackgroundColor: "#blue",
-      eventBorderColor: "#blue",
-      eventTextColor: '#blue',
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2020-02-01'
-        }
-     
-
-      ],
-
-
-      locale: 'ko'
-    });
+	   plugins: [ 'interaction', 'dayGrid'],
+	   defaultView: 'dayGridMonth',
+	   validRange: function(nowDate) {
+		    return {
+		      start: nowDate,
+		      end: '2020-05-25'
+		    };
+		},
+	   contentHeight: 310,   
+	   selectable: true,
+	   editable: true,
+	   eventLimit: true,
+	   
+	   events: 
+		   [{	    	  
+	      	start: '2020-05-16',
+	      daysOfWeek: [1, 3,5],
+	      	end: '2020-05-25', 
+	       		 
+	       
+	     	rendering: 'background'
+	     },{
+	          
+	          start: '2020-05-25',
+	          rendering: 'background'
+	     }
+	   ],
+	  
+	      locale: 'ko'
+	 });	   
+    
 
    
     calendar.render();
