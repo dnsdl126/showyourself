@@ -41,15 +41,6 @@ public class MemberController {
 		}		
 		return "/show/member/member";		
 	}
-
-	
-	
-	
-	@GetMapping("/msgbox")
-	public String msgboxView() {
-		return "/show/member/msgbox";
-	}
-	
 	
 	@GetMapping("/myclass")
 	public String myclassView() {
@@ -61,6 +52,7 @@ public class MemberController {
 		log.info("Login PAGE 출력");
 		return "/show/member/login";
 	}
+	
 	// 메세지페이지
 	@GetMapping("/message")
 	public String messageView() {

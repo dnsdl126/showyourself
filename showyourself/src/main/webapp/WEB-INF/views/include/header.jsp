@@ -211,7 +211,7 @@
 						<!-- MyPage/Message/Logout img.button -->
 						<div class="header_btn">
 							<div class="btn_Message">
-								<a href="#">
+								<a href="${path}/show/member/message">
 									<img class="img-icon" src="${path}/resources/img/icons8-envelope-64.png">
 									<span>Message</span>
 								</a>
