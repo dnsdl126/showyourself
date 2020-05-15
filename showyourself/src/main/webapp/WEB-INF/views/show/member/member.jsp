@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>SHOWYOURSELF Member</title>
+	<title>SHOWYOURSELF 회원가입</title>
 	<link rel="stylesheet" type="text/css" href="${path}/resources/css/common.css">
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Abel&family=Nanum+Gothic&display=swap');
@@ -138,6 +138,7 @@
 			/*visibility: hidden;*/
 			width: 50%;
 			color: tomato;
+			visibility: hidden;
 		}
 
 		/* 버튼 */
@@ -201,7 +202,7 @@
 					<div class="memberId input-group">
 						<label class="commonlabel">아이디</label>
 						<div class="input-wrap">
-							<input class="input-box" type="text" name="id">
+							<input class="input-box" type="text" name="id" id="mid">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -209,7 +210,7 @@
 					<div class="memberPw input-group">
 						<label class="commonlabel">비밀번호</label>
 						<div class="input-wrap">
-							<input class="input-box" type="password" name="pw">
+							<input class="input-box" type="password" name="pw" id="mpw">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -217,7 +218,7 @@
 					<div class="memberPwCheck input-group">
 						<label class="commonlabel">비밀번호 확인</label>
 						<div class="input-wrap">
-							<input class="input-box" type="password" name="pwcheck">
+							<input class="input-box" type="password" name="pwcheck" id="mpwchek">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -225,7 +226,7 @@
 					<div class="memberEmail input-group">
 						<label class="commonlabel">Email</label>
 						<div class="input-wrap">
-							<input class="input-box" type="text" name="email">
+							<input class="input-box" type="text" name="email" id="memail">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -233,7 +234,7 @@
 					<div class="memberName input-group">
 						<label class="commonlabel">이름</label>
 						<div class="input-wrap">
-							<input  class="input-box"type="text" name="name">
+							<input  class="input-box"type="text" name="name" id="mname">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -241,7 +242,7 @@
 					<div class="memberPhon input-group">
 						<label class="commonlabel">휴대폰번호</label>
 						<div class="input-wrap">
-							<input  class="input-box"type="tel" name="phone">
+							<input  class="input-box"type="tel" name="phone" id="mphone">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -251,11 +252,11 @@
 						<div class="input-wrap">		
 							<div class="addr-group">
 								<div class="postcode">
-									<input class="input-postcode" type="text" id="sample6_postcode" class="int addr_only" placeholder="우편번호" name="postcode" >
+									<input class="input-postcode" type="text" id="sample6_postcode" class="int addr_only" placeholder="우편번호" id="postcode" >
 										<input class="btn-input" type="button" id=btn_post onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 								</div>
-									<input class="input-box" type="text" id="sample6_address" name="addr1" class="int addr_only" placeholder="주소" >
-									<input  class="input-box"type="text" id="sample6_detailAddress" name="addr2"  class="int" placeholder="상세주소">
+									<input class="input-box" type="text" id="sample6_address" id="addr1" class="int addr_only" placeholder="주소" >
+									<input  class="input-box"type="text" id="sample6_detailAddress" id="addr2"  class="int" placeholder="상세주소">
 							</div>
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
@@ -297,37 +298,65 @@
 
 </body>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    function sample6_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                var addr = '';
-                var extraAddr = '';
+<script src="${path}/resources/js/daum_post.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="${path}/resources/js/validation.js"></script>
+<script type="text/javascript">
+$(function(){ 
+	
+	// 아이디, 비밀번호, 비밀번호체크, Email, 이름, 휴대폰번호, 주소 7개값을 모두 채워야 함 
+	// 처음 접속시 값이 모두 입력이 안되어 있으므로 false 로 설정 
+	var checkArr = new Array(7).fill(false);
+	
+	//유효성 체크 통과 불토오가 여부 확인 해주는 변수
+	// 통과시 true로 변경 
+	var checkAll = false;
+	
 
-                if (data.userSelectedType === 'R') { 
-                    addr = data.roadAddress;
-                } else { 
-                    addr = data.jibunAddress;
-                }
-                if(data.userSelectedType === 'R'){
-                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                        extraAddr += data.bname;
-                    }
-                    if(data.buildingName !== '' && data.apartment === 'Y'){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    if(extraAddr !== ''){
-                        extraAddr = ' (' + extraAddr + ')';
-                    }
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
-                } else {
-                    document.getElementById("sample6_extraAddress").value = '';
-                }
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
-                document.getElementById("sample6_detailAddress").focus();
-            }
-        }).open();
-    }
+	// 유효성 체크 결과
+	// validate code와 desc를 받아 에러 메세지 및 div 테두리 변경하여 출력 
+	function checktrue(code, desc, line, msg){
+		if(code == 0 || code == 10) { // 통과 
+			$('.input-wrap:eq('+line+')').css('border', '2px solid #A1E7FD');
+			$('.error_next_box:eq('+msg+')').css('visibility','visible').text(desc).css('color','#A1E7FD');
+			
+			return true;
+		} else {
+			$('.input-wrap:eq('+line+')').css('border', '2px solid tomato');
+			$('.error_next_box:eq('+msg+')').css('visibility','visible').text(desc).css('color','tomato');
+			
+			return false;
+		}
+		
+	};
+	
+	
+	
+	//아이디 확인
+	$('#mid').keyup(function(){
+		//trim : 좌우 공백 제거 
+		var id = $(this).val().trim();
+		//console.log(id) 입력여부 확인 완료 
+		
+		var result = joinvalidate.checkid(id);
+		console.log (result.code + "," + result.desc);
+		
+		if(result.code == 0) {
+			checkArr[0] = true;
+		} else {
+			checkArr[0] = false;
+		}
+	    
+		checktrue(result.code, result.desc, 0, 0);
+			
+	});
+	
+	
+	
+	
+});	
+
+  
+  
 </script>
 </html>
