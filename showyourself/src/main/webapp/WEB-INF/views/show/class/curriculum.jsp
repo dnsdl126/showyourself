@@ -210,7 +210,7 @@
 	for (i = 0; i < close.length; i++) {
 	  close[i].onclick = function() {
 	    var c_list = this.parentElement;
-	    c_list.style.display = "none";
+	    c_list.remove();
 	  }
 	}
 
@@ -254,7 +254,7 @@
 		  for (i = 0; i < close.length; i++) {
 			    close[i].onclick = function() {
 			      var c_list = this.parentElement;
-			      c_list.style.display = "none";
+			      c_list.remove();
 			    }
 			  }
 		  
