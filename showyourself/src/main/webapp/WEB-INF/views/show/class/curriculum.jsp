@@ -14,8 +14,18 @@
     font-size: 24px;
     font-weight: bold;
     padding-top: 15px;
-    padding-left: 51px;s
-}
+    margin-left: 20px;
+	}
+	.curriculum_title_box {
+		width: 913px;
+		height: 50px;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    	border: 1px solid #ccc;
+    	border-radius: 4px;
+   	 	margin-bottom: 10px;
+    	outline: none;
+    	padding-left: 10px;
+	}
    .curriculum_content_box{
     width: 913px;
     height: 150px;
@@ -43,7 +53,7 @@
 		margin: 0 auto;
 	}
 	.curriculum_input_wrap{
-		 margin-left: 50px;
+		margin-left: 47px;
 		
 	}
 	
@@ -90,13 +100,33 @@
 	
 	}
 	
-	.search_tag{
-	width: 178px;
-    height: 29px;
-    border-radius: 4px;
-    outline: none;
-    border: solid 1px #d5d5d5;
+	.curri_list {
+		width:908px; 
+		border:1px solid #d5d5d5;
+		padding: 20px 10px 20px 10px;
+		margin-bottom: 20px;
 	}
+	
+	.curri_list > li {
+		margin-bottom: 30px;
+		border-bottom: 1px solid #d5d5d5;
+	}
+	
+	.curri_list > li:last-child {
+		border: none;
+	}
+	
+	.curri_list div {
+		margin-bottom: 10px;
+		font-size: 15px;
+	}
+	
+	.c_list_photo {
+		width: 300px;
+		height: 300px;
+		object-fit: cover;
+	}
+			
 </style>
 </head>
 <body>
@@ -109,7 +139,7 @@
 				<div class="board_div fileDrop float_left">
 					<p><i class ="fas fa-paperclip"></i>사진을 드래그 해주세요.
 				</div>
-				<div style="margin-left: 8px; margin-top: 37px;">
+				<div style="margin-left: 30px; margin-top: 37px;">
 					<div class="float_left" >-커리큘럼은 수업순서를 작성하는 부분입니다</div>
 					<div class="float_left" >-단계별 관련사진을 등록해주세요.</div>
 					<div class="float_left" >-가로사진을 권장합니다.</div>
@@ -120,28 +150,60 @@
 					
 			</div>
 			<div class="curriculum_title_input">
+				<div class="curriculum_title_txt curri_photo" > 커리큘럼 제목 </div>
+					<input class="curriculum_title_box" id="ctitle" type="text" name="ctitle" placeholder="제목을 입력하세요">
+				</div>
 				<div class="curriculum_title_txt curri_photo" > 커리큘럼 내용</div>
-				
-				<textarea class="curriculum_content_box" type="text" name="curriculum_title" placeholder="내용을 입력하세요"></textarea>
-			</div>
+					<textarea class="curriculum_content_box" id="c_content"type="text" name="c_content" placeholder="내용을 입력하세요"></textarea>
+
 			
 			<button class="curriculuem_plus btn" style = "margin-bottom : 20px;"> 추가하기 </button>
 			<div class="curriculum_title_txt curri_photo" > 커리큘럼 리스트</div>
-			<div style="width:908px;height: 150px; border:1px solid #d5d5d5;margin-bottom: 20px;"></div>
-			<div class="curriculum_searchoption_input" style="margin-bottom: 20px;">
-				<div class="curriculum_title_txt curri_photo" > 검색어</div>
-				<input class="search_tag" type="text" name="curriculum_searchtag1" placeholder="#태그">
-				<input class="search_tag" type="text" name="curriculum_searchtag2" placeholder="#태그">
-				<input class="search_tag" type="text" name="curriculum_searchtag3" placeholder="#태그">
-				<input class="search_tag" type="text" name="curriculum_searchtag4" placeholder="#태그">
-				<input class="search_tag" type="text" name="curriculum_searchtag5" placeholder="#태그">
-			</div>
+			<ul class="curri_list">
+				<li id="c_li_1" style="display: none"> 
+					<div class="curri_seq" style="font-size:20px; font-weight: 600;"> 1 </div>
+					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/푸크린.png"> </div> 
+					<div class="li_ctitle" style="font-weight: 600;"> 제목 </div> 
+					<div class="li_c_content"> 내용 </div> 
+				</li>
+				<li id="c_li_2" style="display: none"> 
+					<div class="curri_seq" style="font-size:20px; font-weight: 600;"> 2 </div>
+					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/쏘드라.png"> </div> 
+					<div class="li_ctitle" style="font-weight: 600;"> 제목 </div> 
+					<div class="li_c_content"> 내용 </div> 
+				</li>
+				<li id="c_li_3" style="display: none"> 
+					<div class="curri_seq" style="font-size:20px; font-weight: 600;"> 3 </div>
+					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/고라파덕.png"> </div> 
+					<div class="li_ctitle" style="font-weight: 600;"> 제목 </div> 
+					<div class="li_c_content"> 내용 </div> 
+				</li>
+			</ul>
+			
 		</div>
-		    <div class="gradient-bar"></div>
-			<div style="padding-top: 20px;">
+		  <div class="gradient-bar"></div>
+		  <div style="margin-top:20px">
 				<button class="btn" style="margin: auto"> 다음 </button>
 			</div>
 	</div>
-
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function(){
+	
+	
+	$('.curriculuem_plus').click(function(){
+		var title = $('#ctitle').val();
+		var content = $('#c_content').val();
+		
+		$('.li_ctitle:eq(0)').text(title);
+		$('.li_c_content:eq(0)').text(content);
+		
+		$('#c_li_1').css('display','block');
+		
+	});
+	
+	
+});
+</script>
 </html>
