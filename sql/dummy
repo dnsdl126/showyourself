@@ -15,7 +15,7 @@ CREATE TABLE tbl_member(
  primaryon VARCHAR2(20)  DEFAULT 'false', -- 정보동의 2
  locon VARCHAR2(20) DEFAULT 'false', -- 정보동의 
  propic VARCHAR2(1000) NOT NULL, -- 프로필 사진 
- procoment VARCHAR2(1000) NOT NULL, -- 자기소개 
+ procoment VARCHAR2(1000) , -- 자기소개 
  regdate DATE DEFAULT SYSDATE,
  seller VARCHAR2(20) DEFAULT 'N' -- 작가여부
 	   
