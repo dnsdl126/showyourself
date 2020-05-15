@@ -107,7 +107,7 @@
 		.input-box {
 			width: 250px;
 			height: 28px;
-			margin-bottom: 3px;
+			
 		}
 		.postcode {
 		    display: flex;
@@ -304,6 +304,9 @@
 <script type="text/javascript">
 $(function(){ 
 	
+	// 비밀번호가 유효한지 확인하는 flag
+	var pwFlag = false;
+	
 	// 아이디, 비밀번호, 비밀번호체크, Email, 이름, 휴대폰번호, 주소 7개값을 모두 채워야 함 
 	// 처음 접속시 값이 모두 입력이 안되어 있으므로 false 로 설정 
 	var checkArr = new Array(7).fill(false);
@@ -317,12 +320,12 @@ $(function(){
 	// validate code와 desc를 받아 에러 메세지 및 div 테두리 변경하여 출력 
 	function checktrue(code, desc, line, msg){
 		if(code == 0 || code == 10) { // 통과 
-			$('.input-wrap:eq('+line+')').css('border', '2px solid #A1E7FD');
+			$('.input-box:eq('+line+')').css('border', '1px solid #A1E7FD');
 			$('.error_next_box:eq('+msg+')').css('visibility','visible').text(desc).css('color','#A1E7FD');
 			
 			return true;
 		} else {
-			$('.input-wrap:eq('+line+')').css('border', '2px solid tomato');
+			$('.input-box:eq('+line+')').css('border', '1px solid tomato');
 			$('.error_next_box:eq('+msg+')').css('visibility','visible').text(desc).css('color','tomato');
 			
 			return false;
@@ -349,6 +352,55 @@ $(function(){
 	    
 		checktrue(result.code, result.desc, 0, 0);
 			
+	});
+	
+	//비밀번호 확인 
+	$('#mpw').keyup(function(){
+		
+		var pw = $(this).val().trim();
+		var pwcheck = $('#mpwchek').val().trim();
+		 
+		var result = joinvalidate.checkpw("", pw, pwcheck);
+		
+		if (result.code == 0 || result.code == 10) {
+	    	pwFlag = true;
+	    	checktrue(result.code, result.desc, 1, 1);
+	    } else if(result.code == 6){//입력한 비밀번호가 일치하지 않습니다.
+	    	pwFlag = true;
+	    	checktrue(result.code, result.desc, 1, 2);
+	    } else {
+	    	pwFlag = false;
+	    	checktrue(result.code, result.desc, 1, 1);
+	    }  if(result.code == 10){ // 비밀 번호 재확인 값과 일치
+	    	checkArr[1] = true;		
+		    $('.input-box:eq(1)').css('border','1px solid #A1E7FD');
+	    } else {
+	    	checkArr[1] = false; // 비밀 번호 재확인 값과 불일치 
+	    }
+		
+		
+	});
+	
+	//비밀번호 재확인 체크 
+	
+	$('#mpwchek').keyup(function(){
+		var pw = $('#mpw').val().trim();
+		var pwcheck = $('#mpwchek').val().trim();
+		
+		var result = joinvalidate.checkRpw(pw, pwcheck, pwFlag);
+		console.log(result.code+","+result.desc);
+
+		if(result.code == 10){//입력한 비밀번호가 일치합니다.
+			checkArr[1] = true;
+			$('.input-box:eq(2)').css('border','1px solid #A1E7FD');
+		} else if(result.code == 6){
+			checkArr[1] = false;
+			$('.input-box:eq(2)').css('border','1px solid tomato');
+		}
+		checktrue(result.code, result.desc, 2, 2);
+		
+		
+		
 	});
 	
 	
