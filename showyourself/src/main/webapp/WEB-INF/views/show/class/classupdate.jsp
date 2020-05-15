@@ -322,12 +322,15 @@
 
 				<div class="class-txt">위치정보<span class="text-danger">*</span></div>
 				
-					<div class="addr-wrap">
-						<input class="input-addrtxt addr_only" id="sample6_postcode" type="text" readonly placeholder="우편번호">	
-						<button type="submit" class="addrBtn btn" id="btn_post" onclick="sample6_execDaumPostcode()"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
+					<div class="addr-wrap ps_box">
+						<input type="text" class="input-addrtxt addr_only" id="sample6_postcode" name="postcode" readonly placeholder="우편번호" value="${user.postcode}">	
+						<button type="submit" class="addrBtn btn" id="btn_post" onclick="sample6_execDaumPostcode()" value="검색"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
 					</div>
-					<input class="input-addrtxt addrbox addr_only" id="sample6_address" type="text" readonly placeholder="">
-					<input class="input-addrtxt addrView" id="sample6_detailAddress" type="text" name="" placeholder="상세주소를 입력해주세요">
+					<div class="ps_box">
+						<input type="text" class="input-addrtxt addrbox addr_only" id="sample6_address" name="addr1"  readonly placeholder="주소" value="${user.addr1}" >
+						<input type="text"  class="input-addrtxt addrView" id="sample6_detailAddress" name="addr2" placeholder="상세주소를 입력해주세요" value="${user.addr2}">
+						<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
+					</div>
 					
 					<div id="map" style="width:913px; height:400px;"></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06"></script>
@@ -424,5 +427,76 @@
 			if(addrPost == '' || addrPost.length == 0) {
 			}
 		});
+</script>
+<script src="${path}/resources/js/validation.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var postcode = '${user.postcode}';
+		var addr1 = '${user.addr1}';
+		var addr2 = '${user.addr2}';
+		checkAddr(postcode, addr2);
+		checkArr[0] = true;
+		checkArr[1] = true;
+		printcheckArr(checkArr);
+		
+		// 에러메세지 출력
+		function ckDesign(code, desc, line, msg) {
+			if (code == 0 || code == 10) { // 통과 o
+				$('.ps_box:eq('+line+')').css('border', '2px solid #3885ca');
+				$('.error_next_box:eq('+msg+')').css('visibility', 'visible')
+									   .text(desc)
+									   .css('color', '#3885ca');
+				return true;
+	
+			} else { // 통과 x
+				$('.ps_box:eq('+line+')').css('border', '2px solid #f46665');
+				$('.error_next_box:eq('+msg+')').css('visibility', 'visible')
+									   .text(desc)
+									   .css('color', '#f46665');
+				return false; 
+				}
+			}
+		$('.addr_only').click(function(){
+			// 사용자가 우편번호 또는 주소 input을 클릭했을 때!
+			$('#btn_post').click();
+		});
+
+		// 상세주소를 클릭하면
+		$('#sample6_detailAddress').click(function(){
+			var addrPost = $('#sample6_postcode').val();
+			if(addrPost == '' || addrPost.length == 0) {
+				// $('#btn_post').click();
+			}
+		});
+
+		// 주소 유효성체크
+		$('#sample6_detailAddress').keyup(function(){
+			//var postcode = $.trim($('#sample6_detailAddress').val());
+			var postcode = $('#sample6_postcode').val();
+			var addr2 = $.trim($('#sample6_detailAddress').val());
+			//console.log('우편번호: '+ addrPost+', 상세주소: '+addrDtail); //테스트 창
+			ckAddr(postcode, addr2);
+		});
+			
+		function checkArr(postcode, addr2) {  
+			var result = joinValidate.checkAddr(addr2, postcode);
+			// console.log(result.code);
+			
+			if(result.code == 3) { // 우편번호 & 주소가 없다. 
+				ckDesign(result.code, result.desc, 6, 6);
+				ckDesign(result.code, result.desc, 7, 6);
+				checkArr[5] = false;
+			} else if (result.code == 0) { // 성공
+				ckDesign(result.code, result.desc, 6, 6);
+				ckDesign(result.code, result.desc, 7, 6);
+				ckDesign(result.code, result.desc, 8, 6);
+				checkArr[5] = true;
+			} else { // 상세주소 통과 x한 모든 경우
+				ckDesign(result.code, result.desc, 8, 6);
+				checkArr[5] = false;
+				}
+			}
+		//printcheckArr(checkArr);
+	});
 </script>
 </html>

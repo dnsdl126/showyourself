@@ -1,5 +1,5 @@
 package com.showyourself.service;
 
-public class ProductService {
+public interface ProductService {
 
 }
