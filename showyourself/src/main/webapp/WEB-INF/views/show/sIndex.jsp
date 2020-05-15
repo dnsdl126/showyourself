@@ -199,7 +199,7 @@
 			<div class=s_common_class_list_group>
 				<span class="s_left"><i class="fas fa-chevron-left"></i></span>
 					<ul class="common_class_list">
-						<li><a href="#">
+						<li><a href="${path}/show/class/offlineclass?pno=1">
 						<div class="box_size">
 							<div class="wrap_box_img_size"><img class="box_img_size" src="${path}/resources/img/banner13.jpg"></div>
 							<div class="wrap_class_detail">

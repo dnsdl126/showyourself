@@ -375,25 +375,25 @@ height: 80px;
 			
 			<select class="on_off off_pdt_select">
 				<option> 온/오프라인</option>
-				<option> 온라인</option>
-				<option> 오프라인</option>
+				<option value='on'> 온라인</option>
+				<option value='off'> 오프라인</option>
 			</select>
 			<i class="fas fa-angle-right pdt_arrow"></i>	
 			<select class="off_pdt_cat_list off_pdt_select">
 				<option> 전체카테고리</option>
-				<option> 디지털</option>
-				<option> 베이킹</option>
-				<option> 악세사리</option>
-				<option> 인테리어</option>
-				<option> 소품</option>
+				<option value='digital'> 디지털</option>
+				<option value= 'baking'> 베이킹</option>
+				<option value='accesory'> 악세사리</option>
+				<option value= 'interior'> 인테리어</option>
+				<option value= 'smallproduct'> 소품</option>
 			</select>
 			<i class="fas fa-angle-right pdt_arrow" ></i>	
 			<select class="off_pdt_area off_pdt_select">
 				<option> 지역</option>
-				<option> 강남구</option>
-				<option> 강북구</option>
-				<option> 강동구</option>
-				<option> 강서구</option>
+				<option value='gangnam'> 강남구</option>
+				<option value='gangbuk'> 강북구</option>
+				<option value= 'gangdong'> 강동구</option>
+				<option value= 'gangseo'> 강서구</option>
 			</select>
             <i class="fas fa-angle-right pdt_arrow"></i>
 			<div class="off_pdt_name off_pdt_select"> 
@@ -430,12 +430,9 @@ height: 80px;
 		       </div> 
 				<div class="gradient-bar"></div>
 				<div class="confirm">
-					<div id="offlineclass_title">안녕하세요.<br>leehansss 입니다.<br>제가 진행할 금손 클래스는...</div>
+					<div id="offlineclass_title">${pDto.title}</div>
 					✔ 수업 소개
-					<div id="offlineclass_content"><br>와이어아트는 크게 평면작품과 입체 작품으로 나뉘며<br>작업 사이즈는 통상 A4사이즈로 진행이 됩니다.<br>소요 시간은 통상 2시간 가량이며<br><br>동물, 인체, 사물 등 매우 자유로운 주제로<br>
-						<br>작품진행이 가능하며 수업 당일날 제작하고<br>싶으신 이미지를 휴대폰에 가져오시면 됩니다.<br>(완성된 도안보다는 사진 이미지를 권해드립니다.)<br><br>*와이어로 제작이 된 작품에 오일파스텔을 이용하여 포인트 컬러링 하는
-						<br>과정을 추가하였습니다. 제작한 작품이 다소 심심하다 느껴지신다면<br><br>오일파스텔을 이용하여 포인트 되는 부분에 색을 입혀도 좋습니다.*<br>미술을 전공하지 않아도 누구나 스타일이 있고 개성이라는게 있습니다.
-						<br>제가 주체가 되어 저의 방식을 강요하기 보다는 수강생분 본인의 개성이 묻어나는<br>작품을 만드는 것을 추구하는 클래스입니다.<br>어려워 하시는 부분은 세세하게 알려드리니 걱정하지 않으셔도 됩니다 :)
+					<div id="offlineclass_content">${pDto.content}
 					</div>
 					✔ 커리큘럼
 					<div id="offlineclass_curriculum">
