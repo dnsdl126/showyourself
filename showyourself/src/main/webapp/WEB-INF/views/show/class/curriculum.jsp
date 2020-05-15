@@ -6,9 +6,7 @@
 <head>
 <meta charset="UTF-8">
 	<title>curriculum</title>
-<link rel="stylesheet" type="text/css" href="common.css">
 <style type="text/css">
-
 	.curriculum_title {
     color: rgba(0,0,0,0.7);
     font-size: 24px;
@@ -95,7 +93,7 @@
 	
 	.flex{display: flex;}
 	
-	.curriculuem_plus{
+	.curriculum_plus{
 	cursor: pointer;
 	
 	}
@@ -107,27 +105,44 @@
 		margin-bottom: 20px;
 	}
 	
-	.curri_list > li {
-		margin-bottom: 30px;
+	#curri_list > li {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
 		border-bottom: 1px solid #d5d5d5;
 	}
 	
-	.curri_list > li:last-child {
+	#curri_list > li:last-child {
 		border: none;
 	}
 	
-	.curri_list div {
+	#curri_list div {
+		text-align: center;
 		margin-bottom: 10px;
 		font-size: 15px;
 	}
 	
 	.c_list_photo {
-		width: 300px;
-		height: 300px;
-		object-fit: cover;
+		width: 150px;
+		height: 150px;
 	}
-			
+	.cphoto {
+		width: 20%;
+	}
+	.li_ctitle {
+		width: 20%;
+		font-weight: 600;
+	}
+	.li_c_content {
+		width: 40%;
+	}
+	.li_delete {
+		width: 10%;	
+	}
+				
 </style>
+
 </head>
 <body>
 	<div class="curriculum_tot_wrap">
@@ -154,29 +169,29 @@
 					<input class="curriculum_title_box" id="ctitle" type="text" name="ctitle" placeholder="제목을 입력하세요">
 				</div>
 				<div class="curriculum_title_txt curri_photo" > 커리큘럼 내용</div>
-					<textarea class="curriculum_content_box" id="c_content"type="text" name="c_content" placeholder="내용을 입력하세요"></textarea>
+					<textarea class="curriculum_content_box" id="c_content" type="text" name="c_content" placeholder="내용을 입력하세요"></textarea>
 
 			
-			<button class="curriculuem_plus btn" style = "margin-bottom : 20px;"> 추가하기 </button>
+			<button onclick="newElement()" class="curriculum_plus btn" style = "margin-bottom : 20px;"> 추가하기 </button>
 			<div class="curriculum_title_txt curri_photo" > 커리큘럼 리스트</div>
-			<ul class="curri_list">
-				<li id="c_li_1" style="display: none"> 
-					<div class="curri_seq" style="font-size:20px; font-weight: 600;"> 1 </div>
+			<ul id="curri_list">
+				<li class="c_li"> 
 					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/푸크린.png"> </div> 
-					<div class="li_ctitle" style="font-weight: 600;"> 제목 </div> 
+					<div class="li_ctitle"> 제목 </div> 
 					<div class="li_c_content"> 내용 </div> 
+					<div class="li_delete"> 삭제하기 </div>
 				</li>
-				<li id="c_li_2" style="display: none"> 
-					<div class="curri_seq" style="font-size:20px; font-weight: 600;"> 2 </div>
+				<li class="c_li"> 
 					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/쏘드라.png"> </div> 
-					<div class="li_ctitle" style="font-weight: 600;"> 제목 </div> 
-					<div class="li_c_content"> 내용 </div> 
+					<div class="li_ctitle"> 제목 </div> 
+					<div class="li_c_content"> 내용 </div>
+					<div class="li_delete"> 삭제하기 </div> 
 				</li>
-				<li id="c_li_3" style="display: none"> 
-					<div class="curri_seq" style="font-size:20px; font-weight: 600;"> 3 </div>
+				<li class="c_li"> 
 					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/고라파덕.png"> </div> 
-					<div class="li_ctitle" style="font-weight: 600;"> 제목 </div> 
+					<div class="li_ctitle"> 제목 </div> 
 					<div class="li_c_content"> 내용 </div> 
+					<div class="li_delete"> 삭제하기 </div>
 				</li>
 			</ul>
 			
@@ -189,21 +204,63 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-$(function(){
+
+	var close = document.getElementsByClassName("li_delete");
+	var i;
+	for (i = 0; i < close.length; i++) {
+	  close[i].onclick = function() {
+	    var c_list = this.parentElement;
+	    c_list.style.display = "none";
+	  }
+	}
+
 	
-	
-	$('.curriculuem_plus').click(function(){
-		var title = $('#ctitle').val();
-		var content = $('#c_content').val();
+	function newElement() {
+		  var li = document.createElement("li");
+		  li.className = "c_li";
+
+		  var div1 = document.createElement("div");
+		  var title = $('#ctitle').val();
+		  var ctitle = document.createTextNode(title);
+		  div1.appendChild(ctitle);
+		  div1.className = "li_ctitle";
+		  li.appendChild(div1);
+		  
+		  var div2 = document.createElement("div");
+		  var content = $('#c_content').val();
+		  var c_content = document.createTextNode(content);
+		  div2.appendChild(c_content);
+		  div2.className = "li_c_content";
+		  li.appendChild(div2);
+		  
+		  
+		  
+		  if (title == '' || content == '') {
+		    alert("You must write something!");
+		  } else {
+		    document.getElementById("curri_list").appendChild(li);
+		  }
+		  document.getElementById("ctitle").value = "";
+		  document.getElementById("c_content").value = "";
+		  
+		  
+		  
+		  var div3 = document.createElement("div");
+		  var c_del = document.createTextNode("삭제하기");
+		  div3.appendChild(c_del);
+		  div3.className = "li_delete";
+		  li.appendChild(div3);
 		
-		$('.li_ctitle:eq(0)').text(title);
-		$('.li_c_content:eq(0)').text(content);
-		
-		$('#c_li_1').css('display','block');
-		
-	});
+		  for (i = 0; i < close.length; i++) {
+			    close[i].onclick = function() {
+			      var c_list = this.parentElement;
+			      c_list.style.display = "none";
+			    }
+			  }
+		  
+	}
 	
 	
-});
+
 </script>
 </html>
