@@ -65,3 +65,31 @@ ALTER TABLE tbl_mainpic
 ADD CONSTRAINT fk_mainpic_bno
 FOREIGN KEY(bno) REFERENCES tbl_product(pno)
 ON DELETE CASCADE;
+
+
+--커리큘럼 테이블(혜원)
+
+--showyourself 테이블 목록 사진, 순서, 내용, 태그
+
+
+DROP TABLE tbl_curri CASCADE CONSTRAINTS;
+CREATE TABLE tbl_curri(
+    pno NUMBER,
+    ctitle VARCHAR(300) NOT NULL,
+    c_content VARCHAR2(4000) NOT NULL,
+    cimg VARCHAR2(300) NOT NULL
+);
+
+INSERT INTO tbl_curri (pno, ctitle, c_content, cimg)
+VALUES(1,'썬데이스카의 가죽공예 프롤로그', '안녕하세요! 썬데이스카의 가죽 클래스를 소개합니다.','${path}/resources/img/banner13.jpg');
+INSERT INTO tbl_curri (pno, ctitle, c_content, cimg)
+VALUES(1, '재료와 도구', '공예의 기본, 재료와 도구에 대해 알아볼까요?','${path}/resources/img/banner14.jpg');
+INSERT INTO tbl_curri (pno, ctitle, c_content, cimg)
+VALUES(1,'연습작품: 책갈피 만들기', '첫 작품 책갈피를 만들면서 기본적인 가죽공예를 익혀보아요.','${path}/resources/img/banner15.jpg');
+INSERT INTO tbl_curri (pno, ctitle, c_content, cimg)
+VALUES(1, '카드지갑 만들기', '이제 직접 카드지갑을 만들어 볼까요?','${path}/resources/img/banner16.jpg');
+
+select * from tbl_curri;
+
+
+
