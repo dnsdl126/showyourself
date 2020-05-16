@@ -92,4 +92,16 @@ VALUES(1, '카드지갑 만들기', '이제 직접 카드지갑을 만들어 볼
 select * from tbl_curri;
 
 
+--스케줄 테이블 (시윤)
+DROP TABLE tbl_schedule;
+CREATE TABLE tbl_schedule(  
+    startdate VARCHAR(50) NOT NULL, --시작 일자
+    enddate VARCHAR(50) NOT NULL,   --끝나는 일자
+    day VARCHAR(50) NOT NULL,       -- 요일
+    starttime VARCHAR(50) NOT NULL, -- 시작 시간
+    endtime VARCHAR(50) NOT NULL,   -- 끝나는 시간
+    avalmincnt NUMBER NOT NULL, -- 최소 참여가능인원  
+    avalmaxcnt NUMBER NOT NULL, -- 최대 참여가능인원
+    deadlinetime NUMBER NOT NULL --신청마감시간    
+);
 
