@@ -217,6 +217,24 @@ var joinvalidate = {
 			}
 		} 
 	},
+	
+	//이메일
+	checkEmail : function(email){
+		
+		var regEmpty = /\s/g; //공백이 있는지 없는지 체크
+		var regEmail =/^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/g; // 이메일 유효한 문자 체크
+
+		if(email == '' || email.length == 0){ //1. 값 유무체크
+			return this.resultCode.empty_val;
+		}else if(email.match(regEmpty)){ // 2. 공백 체크
+				return this.resultCode.space_length_val;
+		}else if(!email.match(regEmail)){ // 3. 정규식 체크
+			return this.resultCode.invalid_email;
+		}else{ // 4.통과
+			return this.resultCode.success_email;
+		}
+	},
+	
 	 checkName : function(name){
 		var regEmpty = /\s/g;   // 공백문자
 		var regName = /^[가-힣a-zA-Z]+$/;
@@ -248,6 +266,9 @@ var joinvalidate = {
 
 
 	},
+	
+	
+	
 	
 	checkAddr : function(addrDetail, addrPost){
 		// 영어대문자, 영어소문자, 한글, -, 공백외에 전부 체크

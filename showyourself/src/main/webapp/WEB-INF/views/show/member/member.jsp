@@ -154,6 +154,10 @@
 			margin-right: 15px;
     		margin-left: 15px;
 		}
+		
+		.btn_ok {
+		cursor: no-drop;
+		}
 	</style>
 </head>
 <body>
@@ -242,7 +246,7 @@
 					<div class="memberPhon input-group">
 						<label class="commonlabel">휴대폰번호</label>
 						<div class="input-wrap">
-							<input  class="input-box"type="tel" name="phone" id="mphone">
+							<input  class="input-box"type="tel" name="phone" id="mphone" placeholder="-없이 입력 예)0101234567">
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
 					</div>
@@ -257,6 +261,7 @@
 								</div>
 									<input class="input-box" type="text" id="sample6_address" id="addr1" class="int addr_only" placeholder="주소" >
 									<input  class="input-box"type="text" id="sample6_detailAddress" id="addr2"  class="int" placeholder="상세주소">
+									<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 							</div>
 						</div>
 						<span class="error_next_box">필수 정보입니다.</span>
@@ -287,10 +292,10 @@
 		<!-- Button area -->
 		<div class="button-area">
 			<div class="btn1 bs"> 
-	 			 <button class="btn"> 취소 </button>
+	 			 <button  class="btn btn_no"> 취소 </button>
 			</div>
 			<div class="btn1 bs"> 
-	 			 <button class="btn"> 확인 </button>
+	 			 <button id="input_agree" class="btn btn_ok"> 확인 </button>
 			</div>
 		</div>
 			</form:form>
@@ -309,7 +314,7 @@ $(function(){
 	
 	// 아이디, 비밀번호, 비밀번호체크, Email, 이름, 휴대폰번호, 주소 7개값을 모두 채워야 함 
 	// 처음 접속시 값이 모두 입력이 안되어 있으므로 false 로 설정 
-	var checkArr = new Array(7).fill(false);
+	var checkArr = new Array(6).fill(false);
 	
 	//유효성 체크 통과 불토오가 여부 확인 해주는 변수
 	// 통과시 true로 변경 
@@ -349,7 +354,7 @@ $(function(){
 		} else {
 			checkArr[0] = false;
 		}
-	    
+		printCheckArr(checkArr)
 		checktrue(result.code, result.desc, 0, 0);
 			
 	});
@@ -400,11 +405,179 @@ $(function(){
 		checktrue(result.code, result.desc, 2, 2);
 		
 		
+	});
+	
+	// 이메일
+	
+	// 이메일 유효성 체크
+		$('#memail').keyup(function(){
+			//1.사용자가 입력한 값 받기
+			var email = $.trim($(this).val());
+			ckEmail(email)
+		});
+		
+		function ckEmail(email) {
+			var result = joinvalidate.checkEmail(email);
+			checktrue(result.code, result.desc, 3, 3);
+			if(result.code == 0){
+					checkArr[2] = true;
+			}else {
+					checkArr[2] = false;
+			}
+			
+			printCheckArr(checkArr)
+		}	
+	
+	// 이름
+	$('#mname').keyup(function(){
+		var name = $(this).val().trim()
+		console.log(name);//출력확인
+		
+		var result = joinvalidate.checkName(name);
+		 console.log("이름코드" + result.code);
+			if(result.code == 0){
+				checkArr[3] = true;
+			} else {
+				checkArr[3] = false;
+			}
+			printCheckArr(checkArr)
+			checktrue(result.code, result.desc, 4,4);
+		
 		
 	});
 	
+	// 전화번호 
+	$('#mphone').keyup(function(){
+		var phone = $.trim($('#mphone').val());
+		console.log(phone); 
+		$('.input-box').text(phone.lengh);
+		ckPhone(phone);
+
+	});
+	
+	function ckPhone(phone) {
+		var result = joinvalidate.checkPhone(phone);
+		checktrue(result.code, result.desc, 5, 5);
+		
+		if(result.code == 0){
+			checkArr[4] = true;
+		} else {
+			checkArr[4] = false;
+		}
+		printCheckArr(checkArr);
+		
+	}
 	
 	
+	
+	// 주소 확인
+	$('.input-postcode').click(function(){
+		// 사용자가 주소 직접 입력하는 것 방지
+		// 우편번호 div input 진행시 자동으로 우편번호 찾기 버튼 클릭 진행 
+		$('.btn-input').click();
+	});
+	
+	// 주소를 적지않고 상세주소를 적으러 왔을때 먼저 주소를 적게 하기위해 우편번호찾기 버튼을 누르게함
+	$('#sample6_detailAddress').focus(function(){
+		var addrPost = $('#sample6_postcode').val();
+		if(addrPost == '' || addrPost == 0){
+		  $('#btn_post').click();
+		}
+	});
+	
+
+	//주소 유효성 체크
+	$('#sample6_detailAddress').keyup(function(){ //keyup : 키보드로 입력할때 마다 
+		var addr2 = $.trim($(this).val());
+		var postcode = $('#sample6_postcode').val();
+		ckAddr(postcode, addr2)
+		
+	});
+	
+	function ckAddr(postcode, addr2) {
+		var result = joinvalidate.checkAddr(addr2, postcode); // 유효성 체크 	
+		if(result.code == 3){ // 우편번호&주소x
+			checkArr[5] = false;
+			checktrue(result.code, result.desc, 6,6);
+		} else if(result.code == 0){ // 성공
+			checkArr[5] = true;
+			checktrue(result.code, result.desc, 6,6);
+			checktrue(result.code, result.desc, 7,6);
+		} else { // 상세주소 통과x한 모든경우
+			checkArr[5] = false;
+			checktrue(result.code, result.desc, 7,6);
+		}
+		printCheckArr(checkArr);
+	}
+	
+	
+	//버튼 활성화!
+	$('.input-box').keyup(function(){
+		
+		ckColorBtn();
+		
+	});
+	function ckColorBtn() {
+		var checkAll = true;
+		for(var i = 0; i < checkArr.length; i++){
+			if(!checkArr[i]){
+				checkAll = false;
+			}
+		}
+		printCheckArr(checkArr);
+		if(checkAll){
+			$('#input_agree').addClass('.btn_ok');
+			$('#input_agree').css('cursor','pointer');
+		} else{
+			$('#input_agree').removeClass('.btn_ok');
+			$('#input_agree').css('cursor','no-drop');
+		}
+	
+	}
+	
+	$('#input_agree').click(function(){
+		var invalidAll = true;
+		for(var i=0; i < checkArr.length; i++){
+			if(!checkArr[i]){
+				invalidAll = false;
+				$('.input-box:eq('+line+')').css('border', '1px solid #A1E7FD').css('visibility','visible');
+							  
+			} 
+		}
+		printCheckArr(checkArr);
+		if(invalidAll){
+	
+			console.log(invalidAll);
+			
+			
+			FunLoadingBarStart(); //로딩바 생성
+			//$('#frm_member').submit();
+		} else{
+			console.log(invalidAll);
+			alert('값을 모두 입력해주세요.');
+			
+		}
+	});
+	
+	
+	// 개발시 사용 : 유효성 체크 전체 여부를  출력해주는 함수 (true, false)
+	 function printCheckArr(checkArr) {
+	 	for(var i=0; i < checkArr.length; i++) {
+		 	console.log(i+'번지: ' + checkArr[i]); 
+		 }
+	 }
+	
+	// 로딩바 출력
+	 function FunLoadingBarStart() {
+	 	var loadingBarImage = ''; // 가운데 띄워 줄 이미지
+	 	loadingBarImage += "<div id='back'>";
+	 	loadingBarImage += "<div id='loadingBar'>";
+	 	loadingBarImage += "<i class='fas fa-spinner loading_img'></i>";
+	 	loadingBarImage += "</div></div>";
+	 	$('body').append(loadingBarImage);
+	 	$('#back').css('display', 'flex');
+	 	$('#loadingImg').show();
+	 }
 	
 });	
 
