@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.showyourself.domain.ProductTestDTO;
+import com.showyourself.domain.ProductDTO;
 import com.showyourself.persistence.ClassDetailDAO;
 
 @Service
@@ -17,7 +17,7 @@ public class ClassDetailService {
 		cDAO = sqlsession.getMapper(ClassDetailDAO.class);
 	}
 	
-	public ProductTestDTO classDetail(int pno) {
+	public ProductDTO classDetail(int pno) {
 		return cDAO.classDetail(pno);
 		
 	}
