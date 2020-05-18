@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file = "../../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -174,6 +175,7 @@
 			
 			<button onclick="newElement()" class="curriculum_plus btn" style = "margin-bottom : 20px;"> 추가하기 </button>
 			<div class="curriculum_title_txt curri_photo" > 커리큘럼 리스트</div>
+			<form:form id="frm_curri">
 			<ul id="curri_list">
 				<li class="c_li"> 
 					<div class="cphoto"> <img class="c_list_photo" src="${path}/resources/img/푸크린.png"> </div> 
@@ -194,11 +196,11 @@
 					<div class="li_delete"> 삭제하기 </div>
 				</li>
 			</ul>
-			
+			</form:form>	
 		</div>
 		  <div class="gradient-bar"></div>
 		  <div style="margin-top:20px">
-				<button class="btn" style="margin: auto"> 다음 </button>
+				<button type="submit" id="btn_curri" class="btn" style="margin: auto"> 다음 </button>
 			</div>
 	</div>
 </body>
@@ -260,7 +262,18 @@
 		  
 	}
 	
-	
+	$(function(){
+		var j = 0;
+		var titles = document.getElementsByClassName("li_ctitle");
+		var contents = document.getElementsByClassName("li_c_content");
+		$('#btn_curri').click(function(){
+			for (j = 0; j < titles.length; j++) {
+				console.log( j + '번째 제목 ' + titles[j].textContent);
+				console.log( j + '번째 내용 ' + contents[j].textContent);
+			}
+		});
+	});
+
 
 </script>
 </html>

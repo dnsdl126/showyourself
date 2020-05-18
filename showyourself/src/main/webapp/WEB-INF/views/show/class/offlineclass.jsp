@@ -374,18 +374,34 @@ height: 80px;
 		<div class="off_pdf_cat">
 			
 			<select class="on_off off_pdt_select">
-				<option> 온/오프라인</option>
+				<c:choose>
+				<c:when test="${pDto.classonoff=='on'}">
 				<option value='on'> 온라인</option>
+				</c:when>
+				<c:otherwise>
 				<option value='off'> 오프라인</option>
+				</c:otherwise>
+				</c:choose>
 			</select>
 			<i class="fas fa-angle-right pdt_arrow"></i>	
 			<select class="off_pdt_cat_list off_pdt_select">
-				<option> 전체카테고리</option>
+				<c:choose>
+				<c:when test="${pDto.category=='digital'}">
 				<option value='digital'> 디지털</option>
+				</c:when>
+				<c:when test="${pDto.category=='baking'}">
 				<option value= 'baking'> 베이킹</option>
+				</c:when>
+				<c:when test="${pDto.category=='accesory'}">
 				<option value='accesory'> 악세사리</option>
+				</c:when>
+				<c:when test="${pDto.category=='interior'}">				
 				<option value= 'interior'> 인테리어</option>
+				</c:when>
+				<c:when test="${pDto.category=='smallproduct'}">				
 				<option value= 'smallproduct'> 소품</option>
+				</c:when>
+				</c:choose>
 			</select>
 			<i class="fas fa-angle-right pdt_arrow" ></i>	
 			<select class="off_pdt_area off_pdt_select">
@@ -397,7 +413,7 @@ height: 80px;
 			</select>
             <i class="fas fa-angle-right pdt_arrow"></i>
 			<div class="off_pdt_name off_pdt_select"> 
-               아기 무민 만들기 클래스
+               ${pDto.title} 클래스
 			</div>		
 				
 		</div>
@@ -435,8 +451,7 @@ height: 80px;
 					<div id="offlineclass_content">${pDto.content}
 					</div>
 					✔ 커리큘럼
-					<div id="offlineclass_curriculum">
-						
+					<div id="offlineclass_curriculum">						
 						<div class="offlineclass_curriculum_img" id="offlineclass_curriculum_img"> <img src="${path}/resources/img/잠만보.png" style= "width:100px;"></img></div>
 						<div class="offlineclass_curriculum_content" id="offlineclass_curriculum_content">1. 신청후에 그리고 싶은 이미지를 클래스1일전까지 보내주세요</div>	
 					</div>
@@ -476,13 +491,14 @@ height: 80px;
 					</div>
 					<div class="pdt_seller_price"> 
 						<div class="pdt_seller_sale"> 
-							10%
+							${discount} %
+							
 						</div>
 						<div class="pdt_seller_sale_price"> 
-							19,000원
+							${pDto.selprice} 원
 						</div>
 						<div class="pdt_seller_nosale"> 
-							22,000
+							${pDto.price} 원
 						</div>						
 					</div>	
 					<div class="off_pdt_date"> 
