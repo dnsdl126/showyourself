@@ -292,10 +292,10 @@
 		<!-- Button area -->
 		<div class="button-area">
 			<div class="btn1 bs"> 
-	 			 <button  class="btn btn_no"> 취소 </button>
+	 			 <button  class="btn"> 취소 </button>
 			</div>
 			<div class="btn1 bs"> 
-	 			 <button id="input_agree" class="btn btn_ok"> 확인 </button>
+	 			 <button type=button id="input_agree" class="btn "> 확인 </button>
 			</div>
 		</div>
 			</form:form>
@@ -314,7 +314,7 @@ $(function(){
 	
 	// 아이디, 비밀번호, 비밀번호체크, Email, 이름, 휴대폰번호, 주소 7개값을 모두 채워야 함 
 	// 처음 접속시 값이 모두 입력이 안되어 있으므로 false 로 설정 
-	var checkArr = new Array(6).fill(false);
+	var checkArr = new Array(7).fill(false);
 	
 	//유효성 체크 통과 불토오가 여부 확인 해주는 변수
 	// 통과시 true로 변경 
@@ -369,6 +369,7 @@ $(function(){
 		
 		if (result.code == 0 || result.code == 10) {
 	    	pwFlag = true;
+	    	
 	    	checktrue(result.code, result.desc, 1, 1);
 	    } else if(result.code == 6){//입력한 비밀번호가 일치하지 않습니다.
 	    	pwFlag = true;
@@ -376,12 +377,15 @@ $(function(){
 	    } else {
 	    	pwFlag = false;
 	    	checktrue(result.code, result.desc, 1, 1);
-	    }  if(result.code == 10){ // 비밀 번호 재확인 값과 일치
+	    } 
+		
+		
+		if(result.code == 10){ // 비밀 번호 재확인 값과 일치
 	    	checkArr[1] = true;		
 		    $('.input-box:eq(1)').css('border','1px solid #A1E7FD');
 	    } else {
 	    	checkArr[1] = false; // 비밀 번호 재확인 값과 불일치 
-	    }
+	    } 
 		
 		
 	});
@@ -513,19 +517,27 @@ $(function(){
 	
 	//버튼 활성화!
 	$('.input-box').keyup(function(){
-		
+	
 		ckColorBtn();
 		
 	});
+	
 	function ckColorBtn() {
+		
 		var checkAll = true;
+		
+		
+		
 		for(var i = 0; i < checkArr.length; i++){
 			if(!checkArr[i]){
 				checkAll = false;
+				
 			}
 		}
+		
 		printCheckArr(checkArr);
 		if(checkAll){
+			// 아이디가 input_agree인 곳에 클래스 btn_ok 더해라 
 			$('#input_agree').addClass('.btn_ok');
 			$('#input_agree').css('cursor','pointer');
 		} else{
@@ -540,18 +552,20 @@ $(function(){
 		for(var i=0; i < checkArr.length; i++){
 			if(!checkArr[i]){
 				invalidAll = false;
-				$('.input-box:eq('+line+')').css('border', '1px solid #A1E7FD').css('visibility','visible');
+				$('.input-box:eq('+i+')').css('border', '1px solid tomato').css('visibility','visible');
+				$('.error_next_box:eq('+i+')').css('visibility','visible').css('color','tomato');
 							  
 			} 
 		}
 		printCheckArr(checkArr);
 		if(invalidAll){
-	
+			
+			alert('회원가입 성공');
 			console.log(invalidAll);
 			
 			
 			FunLoadingBarStart(); //로딩바 생성
-			//$('#frm_member').submit();
+		
 		} else{
 			console.log(invalidAll);
 			alert('값을 모두 입력해주세요.');
