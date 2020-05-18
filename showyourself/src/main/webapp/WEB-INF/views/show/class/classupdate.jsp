@@ -405,15 +405,55 @@
         }).open();
     }
 </script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06&libraries=LIBRARY"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06&libraries=services"></script>
+<script>
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-	var options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-	level: 3 //지도의 레벨(확대, 축소 정도)
-};
+    //지도를 미리 생성1
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    //주소-좌표 변환 객체를 생성
+    var geocoder = new daum.maps.services.Geocoder();
+    //마커를 미리 생성
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.537187, 127.005476),
+        map: map
+    });
 
-	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("sample6_address").value = addr;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+                    }
+                });
+            }
+        }).open();
+    }
 </script>
 <script type="text/javascript">
 		$('.addr_only').click(function(){
@@ -431,13 +471,6 @@
 <script src="${path}/resources/js/validation.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var postcode = '${user.postcode}';
-		var addr1 = '${user.addr1}';
-		var addr2 = '${user.addr2}';
-		checkAddr(postcode, addr2);
-		checkArr[0] = true;
-		checkArr[1] = true;
-		printcheckArr(checkArr);
 		
 		// 에러메세지 출력
 		function ckDesign(code, desc, line, msg) {
@@ -469,34 +502,6 @@
 			}
 		});
 
-		// 주소 유효성체크
-		$('#sample6_detailAddress').keyup(function(){
-			//var postcode = $.trim($('#sample6_detailAddress').val());
-			var postcode = $('#sample6_postcode').val();
-			var addr2 = $.trim($('#sample6_detailAddress').val());
-			//console.log('우편번호: '+ addrPost+', 상세주소: '+addrDtail); //테스트 창
-			ckAddr(postcode, addr2);
-		});
-			
-		function checkArr(postcode, addr2) {  
-			var result = joinValidate.checkAddr(addr2, postcode);
-			// console.log(result.code);
-			
-			if(result.code == 3) { // 우편번호 & 주소가 없다. 
-				ckDesign(result.code, result.desc, 6, 6);
-				ckDesign(result.code, result.desc, 7, 6);
-				checkArr[5] = false;
-			} else if (result.code == 0) { // 성공
-				ckDesign(result.code, result.desc, 6, 6);
-				ckDesign(result.code, result.desc, 7, 6);
-				ckDesign(result.code, result.desc, 8, 6);
-				checkArr[5] = true;
-			} else { // 상세주소 통과 x한 모든 경우
-				ckDesign(result.code, result.desc, 8, 6);
-				checkArr[5] = false;
-				}
-			}
-		//printcheckArr(checkArr);
 	});
 </script>
 </html>
