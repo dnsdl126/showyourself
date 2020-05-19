@@ -1,10 +1,9 @@
--- 회원 테이블 
+- 회원 테이블 
 DROP TABLE tbl_member;
 CREATE TABLE tbl_member(
  mno NUMBER PRIMARY KEY, --회원번호
  id VARCHAR2(100) NOT NULL, -- 아이디
  pw VARCHAR2(100) NOT NULL, -- 비밀번호
- checkpw VARCHAR2(300) NOT NULL,-- 비밀번호 재확인 
  email VARCHAR2(500) NOT NULL, -- 이메일
  name VARCHAR2(500) NOT NULL, -- 이름
  phone VARCHAR2(700) NOT NULL, -- 연락처
@@ -14,7 +13,7 @@ CREATE TABLE tbl_member(
  useon VARCHAR2(20) DEFAULT 'false', -- 정보동의 1
  primaryon VARCHAR2(20)  DEFAULT 'false', -- 정보동의 2
  locon VARCHAR2(20) DEFAULT 'false', -- 정보동의 
- propic VARCHAR2(1000) NOT NULL, -- 프로필 사진 
+ propic VARCHAR2(1000) , -- 프로필 사진 
  procoment VARCHAR2(1000) NOT NULL, -- 자기소개 
  regdate DATE DEFAULT SYSDATE,
  seller VARCHAR2(20) DEFAULT 'N' -- 작가여부
@@ -26,7 +25,7 @@ CREATE SEQUENCE seq_member
   start WITH 1
   INCREMENT BY 1
   NOCYCLE;
-
+  
 
 --상품등록테이블
 DROP SEQUENCE seq_product;
