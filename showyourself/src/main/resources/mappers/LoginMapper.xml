@@ -6,4 +6,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT * FROM tbl_product
         WHERE pno = #{pno}
 </select>
+<select id="classSchedule" resultType = "ScheduleDTO">
+        SELECT * FROM tbl_schedule
+        WHERE pno = #{pno}
+</select>
+<select id="classCurri" resultType = "CurriculumDTO">
+        SELECT * FROM tbl_curri
+        WHERE pno = #{pno}
+</select>
 </mapper>
