@@ -273,9 +273,8 @@
 				param.push(i);
 			});
 			
-			var jsonData = JSON.stringify(param);
+			jsonData = JSON.stringify(param);
 			alert(jsonData);
-			
 			
 			$.ajax({
 				url: '${path}/show/class/curriculum',
@@ -283,7 +282,9 @@
 				data: jsonData,
 				dataType:'json',
 				success: function(data) {
-					alert('커리큘럼이 추가되었습니다');
+					if(data.answer == 'success') {
+						alert('커리큘럼 추가 성공');
+					}
 				},
 				error : function() {
 					alert(' System Error :( ');
