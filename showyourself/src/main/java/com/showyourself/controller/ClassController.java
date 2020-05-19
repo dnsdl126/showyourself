@@ -1,8 +1,25 @@
 package com.showyourself.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,6 +31,18 @@ public class ClassController {
 	public String curriculum(){
 		return "/show/class/curriculum";
 	}
+	
+	@ResponseBody
+	@PostMapping("/curriculum")
+	public String addCurriculum(@RequestParam Map<String, Object> parameters) {
+		log.info(">>>>>SHOW POST 페이지 로딩!!!!!!!!!!!");
+		String json = parameters.get("jsonData").toString();
+		
+		log.info(json);
+		
+		return "redirect:/show/class/classlist";
+	}
+	
 	@GetMapping("/classlist")
 	public String viewClassList(){
 		return "/show/class/classlist";

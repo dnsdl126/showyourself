@@ -263,17 +263,37 @@
 	}
 	
 	$(function(){
-		var j = 0;
+		var param = [];
 		var titles = document.getElementsByClassName("li_ctitle");
 		var contents = document.getElementsByClassName("li_c_content");
 		$('#btn_curri').click(function(){
-			for (j = 0; j < titles.length; j++) {
-				console.log( j + '번째 제목 ' + titles[j].textContent);
-				console.log( j + '번째 내용 ' + contents[j].textContent);
-			}
+	
+			$(".c_li").each(function(i){
+				var i = {"cno" : i+1, "ctitle" : titles[i].textContent, "c_content" : contents[i].textContent}
+				param.push(i);
+			});
+			
+			jsonData = JSON.stringify(param);
+			alert(jsonData);
+			
+			$.ajax({
+				url: '${path}/show/class/curriculum',
+				type: 'POST',
+				data: jsonData,
+				dataType:'json',
+				success: function(data) {
+					if(data.answer == 'success') {
+						alert('커리큘럼 추가 성공');
+					}
+				},
+				error : function() {
+					alert(' System Error :( ');
+				}
+			});
+	
 		});
-	});
 
+	});
 
 </script>
 </html>
