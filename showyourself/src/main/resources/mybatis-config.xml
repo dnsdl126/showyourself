@@ -7,6 +7,9 @@
 	<typeAliases>
 		 <typeAlias type="com.showyourself.domain.MemberDTO" alias="MemberDTO"></typeAlias>
 		 <typeAlias type="com.showyourself.domain.ProductDTO" alias="ProductDTO"></typeAlias>
+		 <typeAlias type="com.showyourself.domain.ScheduleDTO" alias="ScheduleDTO"></typeAlias>
+		 <typeAlias type="com.showyourself.domain.CurriculumDTO" alias="CurriculumDTO"></typeAlias>
+		 
 	</typeAliases>
 
 </configuration>

@@ -33,8 +33,8 @@
 	   defaultView: 'dayGridMonth',
 	   validRange: function(nowDate) {
 		    return {
-		      start: nowDate,
-		      end: '2020-05-25'
+		      start: '${map.sDto.startdate}',
+		      end: '${map.sDto.enddate}'
 		    };
 		},
 	   contentHeight: 310,   
@@ -44,16 +44,14 @@
 	   
 	   events: 
 		   [{	    	  
-	      	start: '2020-05-16',
-	      daysOfWeek: [1, 3,5],
-	      	end: '2020-05-25', 
+			  
+			      	
+	      	daysOfWeek: ${map.sDto.day},
+			
+	      	 
 	       		 
 	       
 	     	rendering: 'background'
-	     },{
-	          
-	          start: '2020-05-25',
-	          rendering: 'background'
 	     }
 	   ],
 	  
@@ -375,7 +373,7 @@ height: 80px;
 			
 			<select class="on_off off_pdt_select">
 				<c:choose>
-				<c:when test="${pDto.classonoff=='on'}">
+				<c:when test="${map.pDto.classonoff=='on'}">
 				<option value='on'> 온라인</option>
 				</c:when>
 				<c:otherwise>
@@ -386,19 +384,19 @@ height: 80px;
 			<i class="fas fa-angle-right pdt_arrow"></i>	
 			<select class="off_pdt_cat_list off_pdt_select">
 				<c:choose>
-				<c:when test="${pDto.category=='digital'}">
+				<c:when test="${map.pDto.category=='digital'}">
 				<option value='digital'> 디지털</option>
 				</c:when>
-				<c:when test="${pDto.category=='baking'}">
+				<c:when test="${map.pDto.category=='baking'}">
 				<option value= 'baking'> 베이킹</option>
 				</c:when>
-				<c:when test="${pDto.category=='accesory'}">
+				<c:when test="${map.pDto.category=='accesory'}">
 				<option value='accesory'> 악세사리</option>
 				</c:when>
-				<c:when test="${pDto.category=='interior'}">				
+				<c:when test="${map.pDto.category=='interior'}">				
 				<option value= 'interior'> 인테리어</option>
 				</c:when>
-				<c:when test="${pDto.category=='smallproduct'}">				
+				<c:when test="${map.pDto.category=='smallproduct'}">				
 				<option value= 'smallproduct'> 소품</option>
 				</c:when>
 				</c:choose>
@@ -413,7 +411,7 @@ height: 80px;
 			</select>
             <i class="fas fa-angle-right pdt_arrow"></i>
 			<div class="off_pdt_name off_pdt_select"> 
-               ${pDto.title} 클래스
+               ${map.pDto.title} 클래스
 			</div>		
 				
 		</div>
@@ -446,14 +444,14 @@ height: 80px;
 		       </div> 
 				<div class="gradient-bar"></div>
 				<div class="confirm">
-					<div id="offlineclass_title">${pDto.title}</div>
+					<div id="offlineclass_title">${map.pDto.title}</div>
 					✔ 수업 소개
-					<div id="offlineclass_content">${pDto.content}
+					<div id="offlineclass_content">${map.pDto.content}
 					</div>
 					✔ 커리큘럼
 					<div id="offlineclass_curriculum">						
-						<div class="offlineclass_curriculum_img" id="offlineclass_curriculum_img"> <img src="${path}/resources/img/잠만보.png" style= "width:100px;"></img></div>
-						<div class="offlineclass_curriculum_content" id="offlineclass_curriculum_content">1. 신청후에 그리고 싶은 이미지를 클래스1일전까지 보내주세요</div>	
+						<div class="offlineclass_curriculum_img" id="offlineclass_curriculum_img">${map.cDto.cimg}, ${map.cDto.ctitle} </div>
+						<div class="offlineclass_curriculum_content" id="offlineclass_curriculum_content">${map.cDto.cno}. ${map.cDto.c_content}</div>	
 					</div>
 					✔ 위치
 					<div id="offlineclass_map" style="width:700px; height:400px; margin : 0 auto;"></div>
@@ -475,7 +473,7 @@ height: 80px;
 						소품
 					</div>	
 					<div class="off_pdt_title_main"> 
-						아기 무민 만들기 클래스
+						${map.pDto.title} 클래스
 					</div>
 					<div class="off_pdt_seller"> 
 						<div class="seller_wrap" style="display: flex;"> 
@@ -490,15 +488,18 @@ height: 80px;
 
 					</div>
 					<div class="pdt_seller_price"> 
-						<div class="pdt_seller_sale"> 
-							${discount} %
+						<div class="pdt_seller_sale" id="discount"> 
+							<script type="text/javascript">
+								var discount = ${map.pDto.selprice*100/map.pDto.price};
+								$('#discount').val(discount);
+							</script>
 							
 						</div>
 						<div class="pdt_seller_sale_price"> 
-							${pDto.selprice} 원
+							${map.pDto.selprice} 원
 						</div>
 						<div class="pdt_seller_nosale"> 
-							${pDto.price} 원
+							${map.pDto.price} 원
 						</div>						
 					</div>	
 					<div class="off_pdt_date"> 
@@ -508,7 +509,7 @@ height: 80px;
 									최대인원
 								</div>
 								<div class="pdt_cnt_title_cnt" style="font-size: 14px;">
-									8 명 
+									${map.sDto.avalmaxcnt}명 
 								</div>
 							</div>
 							<div class="off_pdt_cnt_abiliy ability_css" style="border-right: solid 1px black;">
@@ -516,7 +517,10 @@ height: 80px;
 									난이도
 								</div>
 								<div class="pdt_cnt_title_cnt"  style="font-size: 14px; color: gray">
-									상 <strong style="color: black">중</strong> 하
+									<c:choose>
+									<c:when test="${map.pDto.plevel=='high'}"><strong style="color: black">상</strong></c:when>
+									 <c:when test="${map.pDto.plevel=='middle'}"><strong style="color: black">중</strong></c:when><c:when test="${map.pDto.plevel=='easy'}"><strong style="color: black">하</strong> </c:when>
+									</c:choose>
 								</div>
 							</div>
 							<div class="off_pdt_time ability_css">
@@ -534,11 +538,7 @@ height: 80px;
 						</div>
 						<select class="pdtTagSelect" name="all">
 								<option value="">시간을 선택 하세요</option>
-								<option value="">2시</option>
-								<option value="">3시</option>
-								<option value="">4시</option>
-								<option value="">5시</option>
-								<option value="">6시</option>
+								<option value="">${map.sDto.starttime} ~${map.sDto.endtime}</option>								
 						 </select>
 				       </div>
 						<div class="pdt_cnt_money"> 
@@ -553,7 +553,7 @@ height: 80px;
 									<button class="cnt_plus cnt_cnt"><i class="fas fa-plus pdt_cnt_arrow"></i></button>	
 								</div>
 								<div class="pdt_seller_cnt_price"> 
-									19000
+									${map.pDto.selprice}
 						        </div>원				
 						  </div>	
 		
