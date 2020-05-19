@@ -140,6 +140,15 @@
 			color: tomato;
 			visibility: hidden;
 		}
+		
+		.profile_msg {
+			color: tomato;
+			visibility: hidden;
+			width: 224px;
+			margin-top: 5px;
+		
+		}
+		
 
 		/* 버튼 */
 		.button-area {
@@ -181,12 +190,18 @@
 
 					<!-- 첨부파일 버튼 -->
 					<div class="btn-file-area">
-						<button class="btn-file">사진 올리기</button>
+						<button type="button" class="btn-file">사진 올리기</button>
 					</div>
 
 					<!-- 프로필 소개란-->
+						
 					<div class="profile-write-area">
-						<input class="profile-write" type="text" name="procoment" placeholder="프로필을 입력해주세요">
+				      <div style="display: flex;">
+						<div class="cnt">0</div>/20
+						
+					</div>
+					<input class="profile-write" type="text" name="procoment" placeholder="프로필을 입력해주세요"></input>
+					<div class="profile_msg">글자수는 20자를 넘어갈수 없습니다.</div>
 					</div>
 				</div>	
 			</div>
@@ -256,11 +271,11 @@
 						<div class="input-wrap">		
 							<div class="addr-group">
 								<div class="postcode">
-									<input class="input-postcode" type="text" id="sample6_postcode" class="int addr_only" placeholder="우편번호" id="postcode" >
+									<input class="input-postcode" type="text" id="sample6_postcode" class="int addr_only" placeholder="우편번호" id="postcode" name="postcode">
 										<input class="btn-input" type="button" id=btn_post onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 								</div>
-									<input class="input-box" type="text" id="sample6_address" id="addr1" class="int addr_only" placeholder="주소" >
-									<input  class="input-box"type="text" id="sample6_detailAddress" id="addr2"  class="int" placeholder="상세주소">
+									<input class="input-box" type="text" id="sample6_address" name="addr1" class="int addr_only" placeholder="주소" >
+									<input  class="input-box"type="text" id="sample6_detailAddress" name="addr2"  class="int" placeholder="상세주소">
 									<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 							</div>
 						</div>
@@ -292,7 +307,7 @@
 		<!-- Button area -->
 		<div class="button-area">
 			<div class="btn1 bs"> 
-	 			 <button  class="btn"> 취소 </button>
+	 			 <button type="button" class="btn"> 취소 </button>
 			</div>
 			<div class="btn1 bs"> 
 	 			 <button type=button id="input_agree" class="btn "> 확인 </button>
@@ -314,7 +329,7 @@ $(function(){
 	
 	// 아이디, 비밀번호, 비밀번호체크, Email, 이름, 휴대폰번호, 주소 7개값을 모두 채워야 함 
 	// 처음 접속시 값이 모두 입력이 안되어 있으므로 false 로 설정 
-	var checkArr = new Array(7).fill(false);
+	var checkArr = new Array(6).fill(false);
 	
 	//유효성 체크 통과 불토오가 여부 확인 해주는 변수
 	// 통과시 true로 변경 
@@ -339,6 +354,27 @@ $(function(){
 	};
 	
 	
+	// 프로필 글자수 제한 
+	$('.profile-write').keyup(function(){
+		
+		var procoment = $(this).val().trim();
+			
+		$('.cnt').text(procoment.length);
+		
+		if(procoment.length > 20) {
+			
+			$(this).val(procoment.substring(0,20));
+			$('.cnt').text($(this).val().length);
+			$('.profile_msg').css('visibility','visible').css('color','tomato');
+			
+		} else {
+			$('.profile_msg').css('visibility','hidden')
+		}
+		
+		console.log(procoment);
+		
+		
+	});
 	
 	//아이디 확인
 	$('#mid').keyup(function(){
@@ -565,6 +601,7 @@ $(function(){
 			
 			
 			FunLoadingBarStart(); //로딩바 생성
+			$('#frm_member').submit();
 		
 		} else{
 			console.log(invalidAll);

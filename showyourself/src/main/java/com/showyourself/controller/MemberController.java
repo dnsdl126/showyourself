@@ -1,6 +1,9 @@
 package com.showyourself.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.showyourself.domain.MemberDTO;
 import com.showyourself.service.member.MemberService;
@@ -23,6 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 	
 	
+	
+	
 	@Autowired
 	MemberService mService;
 	
@@ -30,6 +37,8 @@ public class MemberController {
 	public MemberDTO newMember() {
 		return new MemberDTO();
 	}
+	
+	
 	
 	// 회원 정보동의 페이지 출력
 	@GetMapping("/contract")
@@ -49,6 +58,20 @@ public class MemberController {
 			return "member/contract";
 		}		
 		return "/show/member/member";		
+	}
+	
+	
+	// 회원가입 정보 DB입력 
+	@PostMapping("/member")
+	public String memUpdate(@ModelAttribute("memberDTO") MemberDTO mDto, SessionStatus sessionStatus, 
+            											HttpServletRequest request,RedirectAttributes rttr) {
+		
+		log.info("회원가입 정보 입력 완료 ");
+		log.info(mDto.toString());
+		int result = mService.memInsert(mDto);
+		
+		
+		return "redirect:/";
 	}
 	
 	// 아이디 중복 체크 
