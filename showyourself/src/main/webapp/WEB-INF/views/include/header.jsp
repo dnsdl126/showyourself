@@ -41,10 +41,22 @@
 		/* Mirror */
 		.mirror{
 		  	display: inline-flex;
+		  	width: 280px;
 		}
-		.mirror_Text {
-			width: 280px;
+		
+		.mirror_Text_show{
+		width:104px;
+		height: 65px;
+		
+		
 		}
+		
+		.mirror_Text_yourself{
+		width:176px;
+		height: 65px;
+		
+		}
+		
 		.Show{
 			font-size: 30px;
 			line-height: 121px;
@@ -190,9 +202,13 @@
 				
 				<!-- Mirror -->
 				<div class="mirror">
-					<a href="#">
-						<img class="mirror_Text" src="${path}/resources/img/showyourself.png">
-					</a>
+					
+					<div class="header_log" style="display: flex">						
+						<a href="${path}/show/"><img class="mirror_Text_show" src="${path}/resources/img/showlog.png"></a>
+						<a href="${path}/yourself/"><img class="mirror_Text_yourself" src="${path}/resources/img/yourselflog.png"></a>
+						
+					
+				    </div>
 				</div>
 
 				
