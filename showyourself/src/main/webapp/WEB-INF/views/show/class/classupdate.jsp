@@ -66,7 +66,7 @@
 			padding: 0;
 			position: relative;
 			display: flex;
-			right: -55px;
+			right: -20px;
 		}
 		.h2-container h2 {
 			color: rgba(0,0,0,0.7);;
@@ -144,6 +144,9 @@
 			margin-bottom: 25px;
 			outline: none;
 			padding-left: 10px;
+		}
+		.classVideo {
+			padding-top: 35px;
 		}
 		.input-vediotxt {
 			width: 600px;
@@ -225,7 +228,7 @@
 			height: 200px;
 			border: 2px dashed #D1C2FF;
 			margin-top: 15px;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 			padding-left: 10px;
 		}
 		.imgCamera {
@@ -248,6 +251,25 @@
 		.bs {
 			margin-right: 15px;
     		margin-left: 15px;
+		}
+		.btn_type {
+			cursor: no-drop;
+		}
+		.error_next_box {
+		    width: 50%;
+		    font-size: 13px;
+		    padding-top: 4px;
+		    padding-left: 6px;
+		    color: tomato;
+			visibility: hidden;
+		}
+		.title-msg {
+		    padding-bottom: 2px;
+		    visibility: hidden;
+		    color: tomato;
+		    margin-top: -15px;
+		    padding-left: 6px;
+		
 		}
 	</style>
 </head>
@@ -274,40 +296,46 @@
 
 		<!-- gradient-bar -->
 		<div class="gradient-bar"></div>
+		
 	<form:form id="frm_class"> 
 		<div class="group-box">
 			<div class="classContent">
-				<div class="class-txt">클래스 제목<span class="text-danger">*</span></div>
-				<input class="input-txt" type="text" name="" placeholder="클래스 제목을 입력해주세요">
+				<div class="class-txt">클래스 제목<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
+				<input class="input-txt classSubject int" type="text" name="procoment" placeholder="클래스 제목을 입력해주세요">
+					<div style=" margin-top: -19px; text-align: right; padding-right: 39px;">
+						<span class="cnt">0</span>/40
+					</div>
+					<div class="title-msg">글자 수는 40자를 넘어갈 수 없습니다.</div>
 
-				<div class="class-txt">카테고리 등록<span class="text-danger">*</span></div>
+				
+				<div class="class-txt">카테고리 등록<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
 					<div class="selectBox">
-						<select class="allClassSelect" name="all">
+						<select class="allClassSelect ps_box int" id="classall"  name="classall">
 							<option value="">카테고리</option>
-							<option value="">온라인</option>
-							<option value="">오프라인</option>
+							<option value="online">온라인</option>
+							<option value="offline">오프라인</option>
 						</select>
-						<select class="allTagSelect" name="all">
+						<select class="allTagSelect int" id="tagall" name="tagall">
 							<option value="">소분류</option>
-							<option value="">인테리어</option>
-							<option value="">디지털</option>
-							<option value="">요리</option>
-							<option value="">액세서리</option>
-							<option value="">베이킹</option>
+							<option value="interior">인테리어</option>
+							<option value="digital">디지털</option>
+							<option value="cooking">요리</option>
+							<option value="accessory">액세서리</option>
+							<option value="baking">베이킹</option>
 						</select>	
-						<select class="allDifficultySelect" name="all">
+						<select class="allDifficultySelect int" id="difficultyall" name="difficultyall">
 							<option value="">난이도</option>
-							<option value="">입문</option>
-							<option value="">초급</option>
-							<option value="">중급</option>
-							<option value="">상급</option>
+							<option value="introduction">입문</option>
+							<option value="beginner">초급</option>
+							<option value="Middle class">중급</option>
+							<option value="Senior">상급</option>
 						</select>
 					</div>
 					
-				<div class="class-txt">대표사진 등록<span class="text-danger">*</span></div>
+				<div class="class-txt">대표사진 등록<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
 					<div class="imgArea">
-						<button type="submit" class="imgUpBtn btn">사진 등록</button>
-						<button type="submit" class="imgDelBtn btn">전체 삭제</button>
+						<button type="button" class="imgUpBtn btn int">사진 등록</button>
+						<button type="button" class="imgDelBtn btn">전체 삭제</button>
 					</div>
 				<div class="imgBoard">
 					<div class="board-txt">
@@ -315,22 +343,22 @@
 					</div>
 				</div>
 
-				<div class="class-txt">클래스 소개 입력<span class="text-danger">*</span></div>
+				<div class="class-txt">클래스 소개 입력<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
 				<script type="text/javascript" src="${path}/resources/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 				<textarea id="board_content" class="inputBox" placeholder="클래스 소개를 자세히 입력해주세요">${one.content}</textarea>
 
-				<div class="class-txt">동영상 소개</div>
+				<div class="class-txt classVideo">동영상 소개</div>
 				<input class="input-vediotxt" type="text" name="" placeholder="동영상 URL을 입력해주세요">
 
-				<div class="class-txt">위치정보<span class="text-danger">*</span></div>
+				<div class="class-txt">위치정보<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
 				
 					<div class="addr-wrap ps_box">
-						<input type="text" class="input-addrtxt addr_only" id="sample6_postcode" name="postcode" readonly placeholder="우편번호" value="${user.postcode}">	
+						<input type="text" class="input-addrtxt addr_only int" id="sample6_postcode" name="postcode" readonly placeholder="우편번호" value="${user.postcode}">	
 						<button type="button" class="addrBtn btn" id="btn_post" onclick="sample6_execDaumPostcode()" value="검색"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
 					</div>
 					<div class="ps_box">
-						<input type="text" class="input-addrtxt addrbox addr_only" id="sample6_address" name="addr1"  readonly placeholder="주소" value="${user.addr1}" >
-						<input type="text"  class="input-addrtxt addrView" id="sample6_detailAddress" name="addr2" placeholder="상세주소를 입력해주세요" value="${user.addr2}">
+						<input type="text" class="input-addrtxt addrbox addr_only int" id="sample6_address" name="addr1"  readonly placeholder="주소" value="${user.addr1}" >
+						<input type="text"  class="input-addrtxt addrView int" id="sample6_detailAddress" name="addr2" placeholder="상세주소를 입력해주세요" value="${user.addr2}">
 						<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 					</div>
 					
@@ -348,11 +376,11 @@
 
 				<div class="priceBoard">
 					<div class="inputgroup pricebox">
-						<div class="class-txt">클래스 최종가격<span class="text-danger">*</span></div>
+						<div class="class-txt">클래스 최종가격<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
 						<input class="input-pricetxt" type="text" name="" placeholder="금액입력(원)">
 					</div>
 					<div class="inputgroup">
-						<div class="class-txt">클래스 정가<span class="text-danger">*</span></div>
+						<div class="class-txt">클래스 정가<span class="text-danger">*</span><span class="error_next_box">필수 정보입니다.</span></div>
 						<input class="input-pricetxt" type="text" name="" placeholder="금액입력(원)">
 					</div>
 				</div>
@@ -365,51 +393,35 @@
 		<!-- Button area -->
 		<div class="button-area">
 			<div class="btn1 bs"> 
-	 			 <button class="btn"> 취소 </button>
+	 			 <button type="button" class="btn"> 취소 </button>
 			</div>
 			<div class="btn1 bs"> 
-	 			 <button class="btn"> 확인 </button>
+	 			 <button type="button" class="btn btn_type btn-agree" id="btn-check"> 확인 </button>
 			</div>
 		</div>
 		</form:form>
+		
 	</div>
 </body>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    function sample6_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                var addr = '';
-                var extraAddr = '';
-
-                if (data.userSelectedType === 'R') { 
-                    addr = data.roadAddress;
-                } else { 
-                    addr = data.jibunAddress;
-                }
-                if(data.userSelectedType === 'R'){
-                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                        extraAddr += data.bname;
-                    }
-                    if(data.buildingName !== '' && data.apartment === 'Y'){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    if(extraAddr !== ''){
-                        extraAddr = ' (' + extraAddr + ')';
-                    }
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
-                } else {
-                    document.getElementById("sample6_extraAddress").value = '';
-                }
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
-                document.getElementById("sample6_detailAddress").focus();
-            }
-        }).open();
-    }
-</script>
+<script src="${path}/resources/js/daum_post.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="${path}/resources/js/validation.js"></script>
 <script type="text/javascript">
+$(function() {	
+	
+	var addr2 = $.trim($(this).val());
+	var postcode = $('#sample6_postcode').val();
+	
+	var checkArr = new Array(8).fill(false);
+	checkAddr(postcode, addr2);
+	checkArr[0] = false;
+	checkArr[1] = false;
+	ckColorBtn();
+
+	var checkAll = false;
+	var postcode = 0;
+
 		$('.addr_only').click(function(){
 			// 사용자가 우편번호 또는 주소 input을 클릭했을 때!
 		$('#btn_post').click();
@@ -419,29 +431,153 @@
 		$('#sample6_detailAddress').click(function(){
 			var addrPost = $('#sample6_postcode').val();
 			if(addrPost == '' || addrPost.length == 0) {
+				$('#btn_post').click();
 			}
 		});
-
-	$(function() {
 		
-		// 에러메세지 출력
-		function ckDesign(code, desc, line, msg) {
+		//주소 유효성 체크
+		$('#sample6_detailAddress').keyup(function(){ //keyup : 키보드로 입력할때 마다 
+			var addr2 = $.trim($(this).val());
+			var postcode = $('#sample6_postcode').val();
+			checkAddr(postcode, addr2)
+			
+		});
+		
+		function checkAddr(postcode, addr2) {
+			var result = joinvalidate.checkAddr(addr2, postcode); // 유효성 체크
+			var addr2 = $.trim($('#sample6_detailAddress').val());
+			var postcode = $('#sample6_postcode').val();
+			if(result.code == 3){ // 우편번호&주소x
+				checkArr[5] = false;
+				checktrue(result.code, result.desc, 5,4);
+			} else if(result.code == 0){ // 성공
+				checkArr[5] = true;
+				checktrue(result.code, result.desc, 4,4);
+				checktrue(result.code, result.desc, 5,4);
+			} else { // 상세주소 통과x한 모든경우
+				checkArr[5] = false;
+				checktrue(result.code, result.desc, 4,4);
+			}
+			printCheckArr(checkArr);
+		} 
+
+		
+		function checktrue(code, desc, line, msg) {
 			if (code == 0 || code == 10) { // 통과 o
-				$('.ps_box:eq('+line+')').css('border', '2px solid #3885ca');
-				$('.error_next_box:eq('+msg+')').css('visibility', 'visible')
-									   .text(desc).css('color', '#3885ca');
+				$('.ps_box:eq('+line+')').css('border', '1px solid #A1E7FD');
+				$('.error_next_box:eq('+msg+')').css('visibility', 'visible').text(desc).css('color', '#A1E7FD');
 				return true;
 	
 			} else { // 통과 x
-				$('.ps_box:eq('+line+')').css('border', '2px solid #f46665');
-				$('.error_next_box:eq('+msg+')').css('visibility', 'visible')
-									   .text(desc).css('color', 'tomato');
+				$('.ps_box:eq('+line+')')/*.css('border', '1px solid tomato');*/
+				$('.error_next_box:eq('+msg+')').css('visibility', 'visible').text(desc).css('color', 'tomato');
 				return false; 
 				}
+			};
+			
+			function ckColorBtn() {
+				var checkAll = true;
+				
+				for (var i = 0; i < checkArr.length; i++) {
+					if(!checkArr[i]) {
+						checkAll = false;
+					}
+				}
+
+				if(checkAll) {
+					$('.btn_type').removeClass('btn-agree')
+					.addClass('btn-primary');
+					$('.btn_type').css('cursor', 'pointer');
+				} else {
+					$('.btn_type').removeClass('btn-primary')
+					.addClass('btn-agree');
+					$('.btn_type').css('cursor', 'no-drop');
+				}
 			}
-
-
-	});
+		
+	$(function() {
+		
+		// 클래스 제목 글자수 제한
+		$('.classSubject').keyup(function(){
+			
+			var procoment = $(this).val().trim();
+			
+			$('.cnt').text(procoment.length);
+			
+			if(procoment.length > 40) {
+				
+				$(this).val(procoment.substring(0,40));
+				$('.cnt').text($(this).val().length);
+				$('.title-msg').css('visibility','visible').css('color','tomato');
+				
+			} else {
+				$('.title-msg').css('visibility','hidden').css('border', '1px solid #f46665');
+			}
+			
+		});
+		
+		// selectbox 선택여부 유효성 체크
+		$('#classall').change(function(){	
+	          if($('#classall').val() == "") {
+	              alert('항목을 선택해 주세요.');
+	              return false;
+	          }
+		});
+		
+		$('#tagall').change(function(){	
+	          if($('#tagall').val() == "") {
+	              alert('항목을 선택해 주세요.');
+	              return false;
+	          }
+		});
+		
+		$('#difficultyall').change(function(){	
+	          if($('#difficultyall').val() == "") {
+	              alert('항목을 선택해 주세요.');
+	              return false;
+	          }
+		});
+		
+		// 버튼 활성화!
+		$('.int').keyup(function(){
+			ckColorBtn();
+		});
+		
+		
+		
+		// 확인 버튼 클릭!
+		$('#btn-check').click(function(){
+			 alert('test');
+			var invalidAll = true;
+			
+			for(var i = 0; i <checkArr.length; i++) {
+				if (checkArr[i]) {
+			$('.error_next_box:eq('+i+')').css('visibility', 'visible')
+									   		.css('color', '#3885ca');
+				}
+			}
+			for(var i = 0; i <checkArr.length; i++) {
+				console.log('포문고장?:'+i);
+				if (!checkArr[i]) {
+					invalidAll = false;
+					console.log(i+'번지  색변경: ' + checkArr[i]); 
+					$('.error_next_box:eq('+i+')').css('visibility', 'visible').css('color', 'tomato');
+				}else{
+					console.log('넌왜안나와'+checkArr[i]);
+					console.log('조건문고장?'+i);
+				}
+				
+			}
+		});	
+	});	
+	
+	// 개발시 사용 : 유효성 체크 전체 여부를  출력해주는 함수 (true, false)
+	 function printCheckArr(checkArr) {
+	 	for(var i=0; i < checkArr.length; i++) {
+		 	console.log(i+'번지: ' + checkArr[i]); 
+		 }
+	 }
+});
 </script>
 	<script type="text/javascript">
 		var oEditors = [];
