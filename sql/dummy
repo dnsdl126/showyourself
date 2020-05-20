@@ -73,21 +73,22 @@ ON DELETE CASCADE;
 DROP TABLE tbl_curri CASCADE CONSTRAINTS;
 CREATE TABLE tbl_curri( 
     cno NUMBER,
-    pno NUMBER,
     ctitle VARCHAR(300) NOT NULL,
-    c_content VARCHAR2(4000) NOT NULL,
-    cimg VARCHAR2(300) NOT NULL
+    c_content VARCHAR2(4000) NOT NULL
 );
-
-ALTER TABLE tbl_curri 
-ADD CONSTRAINT pk_curri_cno
-PRIMARY KEY(cno);
 
 ALTER TABLE tbl_curri 
 ADD CONSTRAINT fk_curri_pno
 FOREIGN KEY(pno) REFERENCES tbl_product(pno)
 ON DELETE CASCADE;
 
+select * from tbl_curri;
+
+INSERT ALL 
+INTO tbl_curri(cno, ctitle, c_content) VALUES (1,'제목1', '내용3')
+INTO tbl_curri(cno, ctitle, c_content) VALUES (2,'제목2', '내용3')
+INTO tbl_curri(cno, ctitle, c_content) VALUES (3,'제목2', '내용3')
+SELECT * FROM DUAL;
 
 
 --스케줄 테이블 (시윤)
