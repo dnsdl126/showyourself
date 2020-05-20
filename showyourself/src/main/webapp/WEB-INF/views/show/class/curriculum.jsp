@@ -280,10 +280,11 @@
 				url: '${path}/show/class/curriculum',
 				type: 'POST',
 				data: jsonData,
+				contentType: "application/json; charset=utf-8;",
 				dataType:'json',
 				success: function(data) {
-					if(data.answer == 'success') {
-						alert('커리큘럼 추가 성공');
+					if(data == 1) {
+						alert('커리큘럼 리스트 추가 성공!');
 					}
 				},
 				error : function() {

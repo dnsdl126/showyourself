@@ -1,25 +1,20 @@
 package com.showyourself.controller;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.showyourself.domain.CurriculumDTO;
+import com.showyourself.service.showclass.ClassService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,20 +22,43 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class ClassController {
+	
+	@Autowired
+	ClassService cService;
+	
+	
 	@GetMapping("/curriculum")
 	public String curriculum(){
 		return "/show/class/curriculum";
 	}
 	
-	@ResponseBody
+	
 	@PostMapping("/curriculum")
-	public String addCurriculum(@RequestParam Map<String, Object> parameters) {
+	@ResponseBody
+	public int addCurriculum(@RequestBody List<Map<String,Object>> list) {
 		log.info(">>>>>SHOW POST 페이지 로딩!!!!!!!!!!!");
-		String json = parameters.get("jsonData").toString();
+	ArrayList<CurriculumDTO> curriList = new ArrayList<CurriculumDTO>();
+
 		
-		log.info(json);
-		
-		return "redirect:/show/class/classlist";
+		for(Map<String, Object> c : list) {
+
+			log.info("curriculum : " + c);
+
+			CurriculumDTO curri = new CurriculumDTO();
+			int cno = Integer.parseInt(c.get("cno").toString());
+			
+			curri.setCno(cno);
+			curri.setCtitle(c.get("ctitle").toString());
+			curri.setC_content(c.get("c_content").toString());
+			
+			curriList.add(curri);
+	
+
+		}
+			
+
+		return 1;
+
 	}
 	
 	@GetMapping("/classlist")
