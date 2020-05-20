@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file = "../../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -273,7 +274,7 @@
 
 		<!-- gradient-bar -->
 		<div class="gradient-bar"></div>
-
+	<form:form id="frm_class"> 
 		<div class="group-box">
 			<div class="classContent">
 				<div class="class-txt">클래스 제목<span class="text-danger">*</span></div>
@@ -315,7 +316,8 @@
 				</div>
 
 				<div class="class-txt">클래스 소개 입력<span class="text-danger">*</span></div>
-				<textarea class="inputBox" placeholder="클래스 소개를 자세히 입력해주세요"></textarea>
+				<script type="text/javascript" src="${path}/resources/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+				<textarea id="board_content" class="inputBox" placeholder="클래스 소개를 자세히 입력해주세요">${one.content}</textarea>
 
 				<div class="class-txt">동영상 소개</div>
 				<input class="input-vediotxt" type="text" name="" placeholder="동영상 URL을 입력해주세요">
@@ -324,7 +326,7 @@
 				
 					<div class="addr-wrap ps_box">
 						<input type="text" class="input-addrtxt addr_only" id="sample6_postcode" name="postcode" readonly placeholder="우편번호" value="${user.postcode}">	
-						<button type="submit" class="addrBtn btn" id="btn_post" onclick="sample6_execDaumPostcode()" value="검색"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
+						<button type="button" class="addrBtn btn" id="btn_post" onclick="sample6_execDaumPostcode()" value="검색"><img class="glassImg" src="${path}/resources/img/icons8-search-30.png">검색</button>
 					</div>
 					<div class="ps_box">
 						<input type="text" class="input-addrtxt addrbox addr_only" id="sample6_address" name="addr1"  readonly placeholder="주소" value="${user.addr1}" >
@@ -369,6 +371,7 @@
 	 			 <button class="btn"> 확인 </button>
 			</div>
 		</div>
+		</form:form>
 	</div>
 </body>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -405,56 +408,7 @@
         }).open();
     }
 </script>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06&libraries=LIBRARY"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b4faa49f7f1a458092ece2c22ecde06&libraries=services"></script>
-<script>
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-        mapOption = {
-            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-            level: 5 // 지도의 확대 레벨
-        };
-
-    //지도를 미리 생성1
-    var map = new daum.maps.Map(mapContainer, mapOption);
-    //주소-좌표 변환 객체를 생성
-    var geocoder = new daum.maps.services.Geocoder();
-    //마커를 미리 생성
-    var marker = new daum.maps.Marker({
-        position: new daum.maps.LatLng(37.537187, 127.005476),
-        map: map
-    });
-
-
-    function sample6_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                var addr = data.address; // 최종 주소 변수
-
-                // 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("sample6_address").value = addr;
-                // 주소로 상세 정보를 검색
-                geocoder.addressSearch(data.address, function(results, status) {
-                    // 정상적으로 검색이 완료됐으면
-                    if (status === daum.maps.services.Status.OK) {
-
-                        var result = results[0]; //첫번째 결과의 값을 활용
-
-                        // 해당 주소에 대한 좌표를 받아서
-                        var coords = new daum.maps.LatLng(result.y, result.x);
-                        // 지도를 보여준다.
-                        mapContainer.style.display = "block";
-                        map.relayout();
-                        // 지도 중심을 변경한다.
-                        map.setCenter(coords);
-                        // 마커를 결과값으로 받은 위치로 옮긴다.
-                        marker.setPosition(coords)
-                    }
-                });
-            }
-        }).open();
-    }
-</script>
+<script src="${path}/resources/js/validation.js"></script>
 <script type="text/javascript">
 		$('.addr_only').click(function(){
 			// 사용자가 우편번호 또는 주소 input을 클릭했을 때!
@@ -467,9 +421,7 @@
 			if(addrPost == '' || addrPost.length == 0) {
 			}
 		});
-</script>
-<script src="${path}/resources/js/validation.js"></script>
-<script type="text/javascript">
+
 	$(function() {
 		
 		// 에러메세지 출력
@@ -477,31 +429,27 @@
 			if (code == 0 || code == 10) { // 통과 o
 				$('.ps_box:eq('+line+')').css('border', '2px solid #3885ca');
 				$('.error_next_box:eq('+msg+')').css('visibility', 'visible')
-									   .text(desc)
-									   .css('color', '#3885ca');
+									   .text(desc).css('color', '#3885ca');
 				return true;
 	
 			} else { // 통과 x
 				$('.ps_box:eq('+line+')').css('border', '2px solid #f46665');
 				$('.error_next_box:eq('+msg+')').css('visibility', 'visible')
-									   .text(desc)
-									   .css('color', '#f46665');
+									   .text(desc).css('color', 'tomato');
 				return false; 
 				}
 			}
-		$('.addr_only').click(function(){
-			// 사용자가 우편번호 또는 주소 input을 클릭했을 때!
-			$('#btn_post').click();
-		});
 
-		// 상세주소를 클릭하면
-		$('#sample6_detailAddress').click(function(){
-			var addrPost = $('#sample6_postcode').val();
-			if(addrPost == '' || addrPost.length == 0) {
-				// $('#btn_post').click();
-			}
-		});
 
 	});
 </script>
+	<script type="text/javascript">
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+		oAppRef: oEditors,
+		elPlaceHolder: "board_content",
+	    sSkinURI: "${path}/resources/smarteditor/SmartEditor2Skin.html",
+		fCreator: "createSEditor2"
+		});
+	</script>
 </html>
