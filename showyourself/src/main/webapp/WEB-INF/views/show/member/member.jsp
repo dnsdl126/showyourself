@@ -205,7 +205,7 @@
 					
 					<form id="ajaxFrom" method="post">
 					    <!-- display:none으로 화면상에서 파일 확인 창을 숨겨둔다 -->
-					    <input type="file" id="ajaxFile" onChange="ajaxFileChange();" name="propic" style="display:none;"/>
+					    <input type="file" id="ajaxFile" onChange="ajaxFileChange();" name="propic" style="display:none;" accept="image/*"/>
 					    <button type="button" class="btn-file" onClick="ajaxFileUpload();">사진 올리기</button>
 					</form>
 						
@@ -351,42 +351,47 @@ function ajaxFileChange() {
     ajaxFileTransmit();
 }
 
-function ajaxFileTransmit() {
+function ajaxFileTransmit(e) { //이미지파일을 로컬에 저장하는 함수
 	
-	
-	  var file = $("#ajaxFrom")[0];
-	  var formData = new FormData(); 
+	   var fileInput = document.getElementById("ajaxFile"); //  input ajaxFile 이미지를 담음
+	   var files = fileInput.files; // 배열로 여러가지 이미지를 담음
+	   var file=files[0];  // 그중 첫번째만 가지고온다
+	    
+	   var thumbext = fileInput.value; // 추가한 이미지의 이름 
+	   var fileExt = thumbext.slice(thumbext.indexOf(".") + 1).toLowerCase() // input에 이미지 파일만 업로드 하도록 확장자 파일을 가지고옴 
+
+		if(fileExt != "jpg" && fileExt != "png" &&  fileExt != "gif" &&  fileExt != "bmp"){ //확장자가 이미지가 맞는지 체크 
+			
+			alert('프로필 사진은 (jpg, png, gif, bmp)만 등록 가능합니다.');
+			return;
+
+		} 
+
+		var formData = new FormData(); 
 		// 폼 객체 생성
 		// 파일하나를 드래그 드롭하면 그순간 바로 Ajax를 바로 저장해야해서
 		// 한번에 form태그로 쌀필요가 없기때문에
 		// 깡통 formData를 만들어서이용
 		
-		formData.append('file',file); 
-
-  	$.ajax({
-		url: '${path}/upload/uploadAjax',
-		data: formData,
-		datatype: "text",  
-		processData: false,	 // 쿼리스트링 형식으로 보내지 않기 위해서 false를 해줌   			
-		contentType: false,     			
-		type: 'POST',	    			
-		success: function(data){
-			
-			console.log(data);
-			
-			printFiles(data, '${path}'); 
-		}
 		
-	});
+		formData.append('file',file); 
+		  	$.ajax({
+				url: '${path}/upload/uploadAjax',
+				data: formData,
+				datatype: "text",  
+				processData: false,	 // 쿼리스트링 형식으로 보내지 않기 위해서 false를 해줌   			
+				contentType: false,     			
+				type: 'POST',	    			
+				success: function(data){
+					
+					console.log(data);
+					
+					printFiles(data, '${path}'); 
+				}
+				
+			}); 
 
 
-    
-   
-  /*   var formData = new FormData(form);
-    formData.append("message", "파일 확인 창 숨기기");
-    formData.append("file", jQuery("#ajaxFile")[0].files[0]);
-	 */
-    
  
 }
 

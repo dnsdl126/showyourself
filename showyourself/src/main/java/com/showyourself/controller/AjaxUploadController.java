@@ -2,11 +2,15 @@ package com.showyourself.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+
+import com.showyourself.utill.UploadProfileUtill;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,7 +26,9 @@ public class AjaxUploadController {
 	public ResponseEntity<String> uploadAjax(MultipartFile file)throws Exception {
 
 		 log.info("POST: uploadAjax");
-		return null;
+		 log.info("파일이름 :" + file.getOriginalFilename());
+		return new ResponseEntity<String>(UploadProfileUtill.uploadProfile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.OK);
+		
 	}
 	
 }
