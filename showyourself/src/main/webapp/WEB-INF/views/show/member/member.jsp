@@ -366,6 +366,7 @@ function ajaxFileTransmit(e) { //이미지파일을 로컬에 저장하는 함�
 			
 			alert('프로필 사진은 (jpg, png, gif, bmp)만 등록 가능합니다.');
 			return;
+			// 테스트 메세지 진행 
 
 		} 
 
