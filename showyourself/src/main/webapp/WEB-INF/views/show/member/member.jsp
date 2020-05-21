@@ -340,6 +340,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="${path}/resources/js/validation.js"></script>
 <script type="text/javascript">
+
+// 프로필 사진 업로드 
 function ajaxFileUpload() {
     // 업로드 버튼이 클릭되면 파일 찾기 창을 띄운다.
     $("#ajaxFile").click();
