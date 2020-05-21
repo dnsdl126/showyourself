@@ -53,13 +53,20 @@
 		.btn-file {
 			width: 200px;
 			height: 40px;
-			background-color: #C2CDFF;
-			border: none;
-			color: white;
+			background-color: white;
+			border: solid 1px  #C2CDFF;
+			color:  #C2CDFF;
 			font-size: 17px;
 			font-weight: bold;
 			border-radius: 6px;
 			outline: none;
+			cursor: pointer;
+		}
+		
+		
+		.btn-file:hover  {
+			background-color: #C2CDFF;
+			color: white;
 		}
 
 		/* 프로필 쓰는 곳 */
@@ -167,6 +174,11 @@
 		.btn_ok {
 		cursor: no-drop;
 		}
+		
+		.input_image {
+		display: none;
+		}
+		
 	</style>
 </head>
 <body>
@@ -190,7 +202,13 @@
 
 					<!-- 첨부파일 버튼 -->
 					<div class="btn-file-area">
-						<button type="button" class="btn-file">사진 올리기</button>
+					
+					<form id="ajaxFrom" method="post">
+					    <!-- display:none으로 화면상에서 파일 확인 창을 숨겨둔다 -->
+					    <input type="file" id="ajaxFile" onChange="ajaxFileChange();" name="propic" style="display:none;"/>
+					    <button type="button" class="btn-file" onClick="ajaxFileUpload();">사진 올리기</button>
+					</form>
+						
 					</div>
 
 					<!-- 프로필 소개란-->
@@ -322,6 +340,57 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="${path}/resources/js/validation.js"></script>
 <script type="text/javascript">
+function ajaxFileUpload() {
+    // 업로드 버튼이 클릭되면 파일 찾기 창을 띄운다.
+    $("#ajaxFile").click();
+}
+
+function ajaxFileChange() {
+    // 파일이 선택되면 업로드를 진행한다.
+    
+    ajaxFileTransmit();
+}
+
+function ajaxFileTransmit() {
+	
+	
+	  var file = $("#ajaxFrom")[0];
+	  var formData = new FormData(); 
+		// 폼 객체 생성
+		// 파일하나를 드래그 드롭하면 그순간 바로 Ajax를 바로 저장해야해서
+		// 한번에 form태그로 쌀필요가 없기때문에
+		// 깡통 formData를 만들어서이용
+		
+		formData.append('file',file); 
+
+  	$.ajax({
+		url: '${path}/upload/uploadAjax',
+		data: formData,
+		datatype: "text",  
+		processData: false,	 // 쿼리스트링 형식으로 보내지 않기 위해서 false를 해줌   			
+		contentType: false,     			
+		type: 'POST',	    			
+		success: function(data){
+			
+			console.log(data);
+			
+			printFiles(data, '${path}'); 
+		}
+		
+	});
+
+
+    
+   
+  /*   var formData = new FormData(form);
+    formData.append("message", "파일 확인 창 숨기기");
+    formData.append("file", jQuery("#ajaxFile")[0].files[0]);
+	 */
+    
+ 
+}
+
+
 $(function(){ 
 	
 	// 비밀번호가 유효한지 확인하는 flag
@@ -353,6 +422,10 @@ $(function(){
 		
 	};
 	
+	
+
+	
+
 	
 	// 프로필 글자수 제한 
 	$('.profile-write').keyup(function(){

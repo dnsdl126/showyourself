@@ -1,10 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.showyourself.persistence.ClassDetailDAO">
 <select id="classDetail" resultType = "ProductDTO">
-		SELECT * FROM tbl_product
-		WHERE pno = #{pno}
-	</select>
+        SELECT * FROM tbl_product
+        WHERE pno = #{pno}
+</select>
+<select id="classSchedule" resultType = "ScheduleDTO">
+        SELECT * FROM tbl_schedule
+        WHERE pno = #{pno}
+</select>
+<select id="classCurri" resultType = "CurriculumDTO">
+        SELECT * FROM tbl_curri
+        WHERE pno = #{pno}
+</select>
 </mapper>

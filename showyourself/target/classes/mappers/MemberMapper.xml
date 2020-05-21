@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
 	<insert id="memInsert">
 	   INSERT INTO tbl_member(mno, id, pw, email, name ,phone, postcode, addr1, addr2, primaryon, locon ,useon ,procoment)
-        VALUES(seq_memver.NEXTVAL, #{id}, #{pw}, #{email}, #{name}, #{phone}, #{postcode}, #{addr1}, #{addr2},  #{primaryon}, #{locon}, #{useon}, #{procoment})
+        VALUES(seq_member.NEXTVAL, #{id}, #{pw}, #{email}, #{name}, #{phone}, #{postcode}, #{addr1}, #{addr2},  #{primaryon}, #{locon}, #{useon}, #{procoment})
 	</insert>
 	
 </mapper>
