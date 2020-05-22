@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AjaxUploadController {
 
-	@Resource(name = "uploadPath")
+	@Resource(name = "uploadPath")//C:/showyourself/upload
 	String uploadPath;	
 	
 	@ResponseBody // 페이지 이동을 안할때,  ajax를 쓸때 ResponseBody
@@ -27,6 +27,7 @@ public class AjaxUploadController {
 
 		 log.info("POST: uploadAjax");
 		 log.info("파일이름 :" + file.getOriginalFilename());
+		                                                                 // uploadPath: 파일위치 ,  file.getOriginalFilename() : 파일원래 이름, file.getBytes()) : 파일크기
 		return new ResponseEntity<String>(UploadProfileUtill.uploadProfile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.OK);
 		
 	}
