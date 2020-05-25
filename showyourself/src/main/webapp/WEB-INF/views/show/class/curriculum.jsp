@@ -267,7 +267,7 @@
 		var titles = document.getElementsByClassName("li_ctitle");
 		var contents = document.getElementsByClassName("li_c_content");
 		$('#btn_curri').click(function(){
-	
+			var li_size = $(".c_li");
 			$(".c_li").each(function(i){
 				var i = {"cno" : i+1, "ctitle" : titles[i].textContent, "c_content" : contents[i].textContent}
 				param.push(i);
@@ -283,7 +283,7 @@
 				contentType: "application/json; charset=utf-8;",
 				dataType:'json',
 				success: function(data) {
-					if(data == 1) {
+					if(data == li_size.length) {
 						alert('커리큘럼 리스트 추가 성공!');
 					}
 				},

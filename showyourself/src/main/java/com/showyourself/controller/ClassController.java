@@ -52,12 +52,13 @@ public class ClassController {
 			curri.setC_content(c.get("c_content").toString());
 			
 			curriList.add(curri);
-	
 
 		}
-			
+		
+			int result = cService.curriInsert(curriList);
+			log.info("result: " + result);
 
-		return 1;
+		return result;
 
 	}
 	

@@ -2,6 +2,11 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.showyourself.persistence.ClassDAO">
-<insert id="curriInsert">
-</insert>
+  <insert id="curriInsert" parameterType="java.util.List">
+   INSERT ALL  
+    <foreach collection="list" item="curri" index="index" >
+     INTO tbl_curri (cno, ctitle, c_content) VALUES (#{curri.cno},#{curri.ctitle},#{curri.c_content})
+    </foreach>
+   SELECT * FROM dual
+ </insert>
 </mapper>
