@@ -7,7 +7,7 @@
 .dtp div.dtp-actual-month { font-size: 1.5em; }
 .dtp div.dtp-actual-num { font-size: 3em; line-height: 0.9; }
 .dtp div.dtp-actual-maxtime { font-size: 3em; line-height: 0.9; }
-.dtp div.dtp-actual-year { font-size: 1.5em; color: #DCEDC8; }
+.dtp div.dtp-actual-year { font-size: 1.5em; color: white; }
 .dtp div.dtp-picker { padding: 1rem; text-align: center; }
 
 .dtp div.dtp-picker-month, .dtp div.dtp-actual-time { font-weight: 500; text-align: center; }
@@ -24,7 +24,7 @@
 .dtp table.dtp-picker-days tr > td > a.selected{ background: #A1E7FD; color: #fff; }
 .dtp table.dtp-picker-days tr > th { color: #757575; text-align: center; font-weight: 700; padding: 0.4rem 0.3rem; }
 
-.dtp .p10 > a { color: #A1E7FD; text-decoration: none; }
+.dtp .p10 > a { color: white; text-decoration: none; }
 .dtp .p10 { width: 10%; display: inline-block; }
 .dtp .p20 { width: 20%; display: inline-block; }
 .dtp .p60 { width: 60%; display: inline-block; }
